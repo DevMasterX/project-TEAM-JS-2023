@@ -1,0 +1,38 @@
+@import url('./header.css');
+@import url('./burger-menu.css');
+@import url('./categories.css');
+@import url('./filter_and_recipes.css');
+@import url('./footer.css');
+@import url('./hero.css');
+@import url('./modal_window_recipe.css');
+@import url('./popular_recipes.css');
+
+body {
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
