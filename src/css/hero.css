@@ -1,1 +1,145 @@
+.hero-container {
+  min-width: 0;
+  padding: 0 15px 0 15px;
+}
 
+.hero-slider_image {
+  text-align: center;
+}
+.hero-slider_image img {
+  max-width: 100%;
+  /* width: 100%;
+display: block; */
+}
+
+.hero-slider .swiper-pagination {
+  bottom: 0;
+}
+
+.hero-slider .swiper-pagination-bullet {
+  background-color: #9bb537;
+}
+
+.hero-slider .name-master-class {
+  position: absolute;
+  bottom: 0;
+}
+
+.hero-slider_wrapper-text {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-slider .text-region {
+  font-size: 8px;
+  color: rgb(248, 248, 248, 0.2);
+  line-height: 12px;
+}
+.hero-slider .name-master-class {
+  font-size: 10px;
+  color: rgb(248, 248, 248, 0.6);
+  line-height: 1.4;
+}
+
+.hero-title {
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 1.2;
+  max-width: 620px;
+}
+
+.hero-title-green {
+  font-style: italic;
+  color: #9bb537;
+  font-size: inherit;
+  line-height: inherit;
+}
+.hero-text {
+  color: #050505;
+  font-size: 14px;
+  line-height: 1.29;
+  margin-top: 14px;
+  max-width: 380px;
+}
+
+.btnOrderNow {
+  width: 112px;
+  height: 36px;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  border: solid 1px #9bb537;
+  border-radius: 12px;
+  outline: none;
+  font-size: 14px;
+  margin-top: 28px;
+  margin-bottom: 48px;
+  font-weight: 700;
+}
+
+.btnOrderNow:hover,
+.btnOrderNow:focus {
+  color: #f8f8f8;
+  background-color: #9bb537;
+  border: none;
+}
+
+.swiper-container {
+  display: block;
+  width: 496px;
+  height: 302px;
+  background-color: aqua;
+  margin-bottom: 80px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container {
+    min-width: 0;
+    padding: 0 32px 0 32px;
+  }
+
+  .hero-title {
+    width: 447px;
+    font-size: 36px;
+  }
+
+  .hero-title-green {
+    font-size: inherit;
+  }
+
+  .hero-text {
+    width: 384px;
+    color: #050505;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  .btnOrderNow {
+    width: 127px;
+    height: 45px;
+    border-radius: 15px;
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .swiper-container {
+    display: block;
+    width: 871px;
+    height: 468px;
+    background-color: aqua;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-container {
+    display: flex;
+    gap: 32px;
+  }
+}
