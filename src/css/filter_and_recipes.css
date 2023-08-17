@@ -1,0 +1,15 @@
+.filter-form-wrapper {
+  width: 335px;
+}
+.filter-form-input {
+  padding: 14px 122px 14px 18px;
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.filter-form-select {
+}
