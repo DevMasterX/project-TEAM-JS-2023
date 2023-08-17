@@ -5,9 +5,16 @@
 @import url('./footer.css');
 @import url('./hero.css');
 @import url('./modal_window_recipe.css');
+@import url('./modal_order.css');
+@import url('./modal_rating.css');
 @import url('./popular_recipes.css');
+@import url('./pagination.css');
 
 body {
+  background-color: #f8f8f8;
+  color: #050505;
+  font-family: Inter;
+  font-weight: 500;
 }
 
 .container {
@@ -15,21 +22,15 @@ body {
   margin: 0 auto;
 }
 
-@media screen and (min-width: 375px) {
-  .container {
-    width: 375px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 1280px;
+    max-width: 1280px;
   }
 }
 
