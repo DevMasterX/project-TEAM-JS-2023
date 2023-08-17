@@ -1,0 +1,141 @@
+/* Змінні */
+:root {
+  --footer-bg-color: #9bb537;
+  --footer-text-color: rgb(220, 238, 146);
+  --footer-link-color: #292424;
+  --footer-link-bg-color: rgb(207, 206, 206);
+  --btn-to-top-bg-color: #f68787;
+  --btn-to-top-fill-color: #5ba016;
+  --focus-visible-box-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Основні стилі */
+
+.site-footer {
+  background-color: var(--footer-bg-color);
+  padding: 20px 0;
+  color: var(--footer-text-color);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-section {
+  padding: 10px;
+  text-align: center;
+}
+
+.f-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.footer-media-item {
+  margin: 0;
+}
+
+.footer-media-link {
+  text-decoration: none;
+  color: var(--footer-link-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--footer-link-bg-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--footer-text-color);
+}
+
+.footer-media-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.footer-media-link:hover,
+.footer-media-link:focus {
+  background-color: var(--footer-text-color);
+  outline: none;
+}
+
+.footer-media-link:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color);
+}
+
+.footer-media-title {
+  color: var(--footer-text-color);
+  font-size: 18px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#btn-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--btn-to-top-bg-color);
+  fill: var(--btn-to-top-fill-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn-to-top.is-visible {
+  display: flex;
+}
+
+#btn-to-top:hover {
+  opacity: 1;
+}
+
+/* Медіа запити */
+
+/* Для екранів 320px і більше */
+@media screen and (min-width: 320px) {
+  /* Специфічні стилі для розміру екрану 320px (якщо потрібно) */
+}
+
+/* Для екранів 768px і більше */
+@media screen and (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-section {
+    text-align: left;
+  }
+
+  .f-list {
+    gap: 30px;
+  }
+}
+
+/* Для екранів 1280px і більше */
+@media screen and (min-width: 1280px) {
+  .footer-content {
+    padding: 0 40px;
+  }
+
+  .footer-section {
+    padding: 15px;
+  }
+}
