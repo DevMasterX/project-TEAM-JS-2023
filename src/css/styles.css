@@ -11,6 +11,10 @@
 @import url('./pagination.css');
 
 body {
+  background-color: #f8f8f8;
+  color: #050505;
+  font-family: Inter;
+  font-weight: 500;
 }
 
 .container {
