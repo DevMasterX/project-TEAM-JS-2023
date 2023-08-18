@@ -89,6 +89,7 @@
 
 .filter-reset-wrap {
   display: block;
+  max-width: fit-content;
   margin-left: auto;
 }
 .filter-gallery-list {
@@ -117,6 +118,7 @@
 /* ======TABLET==== */
 @media screen and (min-width: 768px) {
   .filter-gallery {
+    max-width: fit-content;
     padding: 14px 0px 0px 0px;
   }
   .filter-gallery-list {
