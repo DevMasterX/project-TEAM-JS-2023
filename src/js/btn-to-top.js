@@ -1,24 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let buttonToTop = document.getElementById('btn-to-top');
-  let rootElement = document.documentElement;
+  let button = document.querySelector('.show-btn');
 
-  function trackScroll() {
-    if (rootElement.scrollTop >= document.documentElement.clientHeight) {
-      buttonToTop.classList.remove('is-hidden');
+  function checkButtonVisibility() {
+    if (window.scrollY > 3) {
+      button.classList.add('is-visible');
     } else {
-      buttonToTop.classList.add('is-hidden');
+      button.classList.remove('is-visible');
     }
   }
 
-  function backToTop() {
-    rootElement.scrollTo({
-      top: 0,
-      behavior: 'smooth',
+  if (button) {
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    window.addEventListener('scroll', checkButtonVisibility);
   }
 
-  if (buttonToTop) {
-    buttonToTop.addEventListener('click', backToTop);
-    window.addEventListener('scroll', trackScroll);
+  const feedbackForm = document.querySelector('.feedback-section form');
+  if (feedbackForm) {
+    feedbackForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      feedbackForm.querySelector('input[type="email"]').value = '';
+      alert('Дякуємо за відправку вашої електронної адреси!');
+    });
   }
 });

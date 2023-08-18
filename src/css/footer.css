@@ -9,8 +9,6 @@
   --focus-visible-box-shadow-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Основні стилі */
-
 .site-footer {
   background-color: var(--footer-bg-color);
   padding: 20px 0;
@@ -29,6 +27,45 @@
   text-align: center;
 }
 
+.feedback-section {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Легкий фоновий колір */
+  margin: 20px 0; /* Відступи вгорі та внизу */
+  border-radius: 5px; /* Заокруглені кути */
+}
+
+.feedback-section h3 {
+  margin-bottom: 10px;
+}
+
+.feedback-section p {
+  margin-bottom: 20px;
+}
+
+.feedback-section input[type='email'] {
+  padding: 10px;
+  border: 1px solid var(--footer-text-color);
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.feedback-section button {
+  padding: 10px 15px;
+  background-color: var(--footer-bg-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--footer-text-color);
+  transition: background-color 0.3s ease;
+}
+
+.feedback-section button:hover {
+  background-color: var(--btn-to-top-bg-color);
+}
+.button-gap {
+  margin-top: 15px;
+}
 .f-list {
   list-style-type: none;
   padding: 0;
@@ -79,10 +116,10 @@
   text-align: center;
 }
 
-#btn-to-top {
+.show-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 15px;
   width: 50px;
   height: 50px;
   background-color: var(--btn-to-top-bg-color);
@@ -93,9 +130,10 @@
   font-size: 16px;
   opacity: 0.6;
   transition: opacity 0.3s;
-  display: none;
   align-items: center;
   justify-content: center;
+  z-index: 100;
+  display: none;
 }
 
 #btn-to-top.is-visible {
@@ -107,7 +145,6 @@
 }
 
 /* Медіа запити */
-
 /* Для екранів 320px і більше */
 @media screen and (min-width: 320px) {
   /* Специфічні стилі для розміру екрану 320px (якщо потрібно) */
