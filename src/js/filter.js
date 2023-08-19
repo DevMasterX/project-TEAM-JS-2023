@@ -89,7 +89,7 @@ function clearFilters() {
 async function handlerFilterForm(evt) {
 
     resetButton.addEventListener("click", resetInput);
-
+    // inputForm.classList.add("active");
     const formData = new FormData(formFilter);
     const searchInput = formData.get("query")
     const timeSelected = formData.get("time");
@@ -128,6 +128,7 @@ async function handlerFilterForm(evt) {
 function resetInput() {
     inputForm.value = "";
     inputForm.focus();
+    // inputForm.classList.remove("active");
 
 }
 
@@ -159,18 +160,20 @@ function createMurcupGallery({ results }) {
         return ` <li class="filter-gallery-item">
         <img class="filter-gallery-item-photo" src="${preview}" alt="${title}" width="250" height="287">
         <div class="filter-gallery-item-content">
-            <div class="filter-gallery-item-favorit-btn">
-                <svg>
-                    <use href="./images/forcard.svg#icon-heart"></use>
+            <button type="button" class="filter-gallery-item-favorit-btn">
+                <svg class="filter-gallery-item-favorit-btn-icon">
+                    <use href="./images/forcard.svg#icon-heart" width ="22" height="22"></use>
                 </svg>
-            </div>
-            <h3 class="filter-gallery-item-tittle">${title}</h3>
+            </button>
+            <h3 class="filter-gallery-item-tittle" >${title}</h3>
             <p class="filter-gallery-item-description">${description}</p>
-            <div>
+            <div class="filter-gallery-item-bottom">
+            <div class="filter-gallery-item-rating-wrap">
                 <p class="filter-gallery-item-rating-value">${rating}</p>
-                <div class="filter-gallery-item-rating-icon"></div>
+                <div class="filter-gallery-item-rating-icons">&#9734; &#9734; &#9734; &#9734; &#9734;</div>
             </div>
-            <button type="button">See recipe</button>
+            <button class="filter-gallery-item-btn" type="button">See recipe</button>
+        </div>
         </div>
     </li>`
     }).join("");

@@ -15,6 +15,7 @@ categoriesList.addEventListener("click", handlerSpecificCategoriesBtn)
 
 async function createCategoriesList() {
     try {
+
         const getCategoriesData = await getCategories();
 
 
@@ -28,6 +29,7 @@ async function createCategoriesList() {
         }).join("");
 
         categoriesList.innerHTML = marcupCategories;
+
 
 
     } catch (error) {
@@ -62,33 +64,31 @@ async function handlerAllCategoriesBtn(evt) {
 
 async function handlerSpecificCategoriesBtn(evt) {
     evt.preventDefault();
-    // disactivBtn(buttons);
-
-    currentBtn = evt.target;
-    currentBtn.classList.add("active")
-
-    const params = {
-        "category": currentBtn.value
-    }
-    console.log(params);
-
-    try {
-
-        const recipes = await getFilteredRecipes(params);
-        const { results } = recipes;
-        createMurcupGallery(recipes);
 
 
-        if (!results.length) {
-            Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-            return;
+    if (evt.target.classList.contains("js-categories-item-btn")) {
+
+        currentBtn = evt.target;
+
+        const params = {
+            "category": currentBtn.value
         }
+        console.log(params);
 
-    } catch (err) {
-        Notify.failure(err.message);
+        try {
+            const recipes = await getFilteredRecipes(params);
+            const { results } = recipes;
+            createMurcupGallery(recipes);
+
+            if (!results.length) {
+                Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+                return;
+            }
+        } catch (err) {
+            Notify.failure(err.message);
+        }
     }
 }
-
 
 // function disactivBtn(buttons) {
 //     const categoryButtons = Array.from(document.querySelectorAll(".js-categories-item-btn"));
