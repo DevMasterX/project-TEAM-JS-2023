@@ -62,14 +62,7 @@ async function handlerAllCategoriesBtn(evt) {
 
 async function handlerSpecificCategoriesBtn(evt) {
     evt.preventDefault();
-    disactivBtn(buttons);
-    // const categoryButtons = Array.from(document.querySelectorAll(".js-categories-item-btn"));
-    // buttons.push(...categoryButtons);
-    // // disactivBtn(buttons);
-    // buttons.forEach(btn => {
-    //     btn.classList.remove("active");
-    // })
-
+    // disactivBtn(buttons);
 
     currentBtn = evt.target;
     currentBtn.classList.add("active")
@@ -97,14 +90,14 @@ async function handlerSpecificCategoriesBtn(evt) {
 }
 
 
-function disactivBtn(buttons) {
-    const categoryButtons = Array.from(document.querySelectorAll(".js-categories-item-btn"));
-    buttons.push(...categoryButtons);
-    // disactivBtn(buttons);
-    buttons.forEach(btn => {
-        btn.classList.remove("active");
-    })
-}
+// function disactivBtn(buttons) {
+//     const categoryButtons = Array.from(document.querySelectorAll(".js-categories-item-btn"));
+//     buttons.push(...categoryButtons);
+//     // disactivBtn(buttons);
+//     buttons.forEach(btn => {
+//         btn.classList.remove("active");
+//     })
+// }
 
 // function findActiveBtn() {
 //     const activeBtn = buttons.find(button => button.classList.contains("active"));
