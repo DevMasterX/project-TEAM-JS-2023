@@ -3,7 +3,9 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getFilteredRecipes } from './api';
 import { debounce } from 'lodash';
+// import { activeButton } from './categories';
 
+const formFilter = document.querySelector(".filter-form")
 
 const inputForm = document.querySelector(".filter-form-input");
 const selectes = document.querySelectorAll(".filter-form-select");
@@ -15,10 +17,10 @@ const selectTime = document.getElementById("searchTime");
 const selectArea = document.getElementById("area-select");
 const selectIngr = document.getElementById("ingredients-select");
 
-
-const serchQuerry = {}
-
-inputForm.addEventListener('submit', debounce(handlerFilterForm, 300));
+// const serchQuerry = {}
+startGallery();
+inputForm.addEventListener('input', debounce(
+    handlerFilterForm, 300));
 
 selectes.forEach(item => {
     const options = [];
@@ -49,29 +51,59 @@ function clearFilters() {
     })
 }
 
+// const delayedSubmit = debounce(async (formData) => {
+//     // запит на бекенд чи локал вирішити 
+//     try {
+//         const recipes = await getFilteredRecipes(formData);
+//         const { results } = recipes;
+//         gallery.innerHTML = createMurcupGallery(recipes);
+//         if (!results.length) {
+//             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+//             return;
 
-function handlerFilterForm(evt) {
-    evt.preventDefault();
-    const searchInput = inputForm.value.trim();
-    const timeSelected = selectTime.value;
-    const areaSelected = selectArea.value;
-    const ingrSelected = selectIngr.value;
+//         }
+//     } catch (error) {
+//         console.error('Error:', error);
+//     }
+// }, 300);
 
 
-    if (inputForm) {
-        serchQuerry.search = searchInput; ///З"ясувати назву параметру
+async function handlerFilterForm(evt) {
+    const formData = new FormData(formFilter);
+    const searchInput = formData.get("query")
+    const timeSelected = formData.get("time");
+    const areaSelected = formData.get("area");
+    const ingrSelected = formData.get("ingredients")
+
+    const formDataObject = {};
+
+    for (const [name, value] of formData) {
+        if (name === "query") {
+            formDataObject["title"] = value;
+        } else {
+            formDataObject[name] = value;
+        }
     }
-    if (timeSelected) {
-        serchQuerry.time = timeSelected;
+    console.log(formDataObject);
+    try {
+
+        // тут треба зробити запит на локалсторидж???
+        const recipes = await getFilteredRecipes(formDataObject);
+        const { results } = recipes;
+
+        if (!results.length) {
+            Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+            return;
+        }
+
+        createMurcupGallery(recipes);
+    } catch (err) {
+        Notify.failure(err.message);
     }
-    if (areaSelected) {
-        serchQuerry.area = areaSelected;
-    }
-    if (ingrSelected) {
-        serchQuerry.ingredients = ingrSelected;
-    }
-    console.log(serchQuerry);
+
+
 }
+
 
 
 
@@ -82,7 +114,7 @@ async function startGallery() {
         const recipes = await getFilteredRecipes();
         console.log(recipes);
         const { page, totalPage } = recipes;
-        gallery.innerHTML = createMurcupGallery(recipes);
+        createMurcupGallery(recipes);
         if (page < totalPage) {
             // ПАГІНКАЦІЯ.classList.remove('is-hidden');
             // ПАГІНАЦІЯ.addEventListener('click', handlerLoad);
@@ -94,7 +126,7 @@ async function startGallery() {
     }
 }
 
-startGallery();
+
 
 
 
@@ -119,8 +151,8 @@ function createMurcupGallery({ results }) {
         </div>
     </li>`
     }).join("");
-    return markupCard;
-
+    // return markupCard;
+    gallery.innerHTML = markupCard;
 }
 
 export {
