@@ -1,5 +1,4 @@
 import './js/api.js';
-
 import './js/categories.js';
 import './js/filter.js';
 import './js/btn-to-top.js';
