@@ -8,6 +8,45 @@
   --focus-visible-box-shadow-color: rgba(0, 0, 0, 0.5);
   --btn-to-top-hover-bg-color: rgb(255, 115, 115);
 }
+/* Загальні стилі для використання шрифта Inter */
+input,
+h3,
+p,
+a,
+span,
+li {
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease; /* плавний перехід для всіх властивостей */
+}
+
+/* Основні стилі для заголовків */
+
+h3 {
+  font-weight: 700; /* жирний */
+  margin-top: 0;
+  font-size: 1.75em;
+  /* забрати верхній відступ */
+}
+
+/* Стилі для абзаців */
+p {
+  font-weight: 400; /* нормальний */
+  line-height: 1.6; /* просторий міжрядковий інтервал для зручності читання */
+  margin-bottom: 1em; /* відступ знизу для відокремлення від наступного елемента */
+}
+
+/* Стилі для посилань */
+a {
+  font-weight: 500; /* напівжирний */
+  text-decoration: none; /* видалення підкреслення */
+  color: var(--focus-visible-box-shadow-color); /* основний колір посилань */
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline; /* підкреслення при наведенні/фокусу */
+  color: #0056b3; /* темніший відтінок для наведення/фокусу */
+}
 
 .site-footer,
 .feedback-section button,
