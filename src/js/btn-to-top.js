@@ -13,15 +13,16 @@ function initScrollButton() {
     if (window.scrollY > SCROLL_THRESHOLD) {
       button.classList.add('is-visible');
     } else {
-      buttonToTop.classList.add('is-hidden');
+      button.classList.remove('is-visible');
     }
   }
 
-  function backToTop() {
-    rootElement.scrollTo({
-      top: 0,
-      behavior: 'smooth',
+  if (button) {
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    window.addEventListener('scroll', checkButtonVisibility);
   }
 }
 
