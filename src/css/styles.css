@@ -17,6 +17,17 @@ body {
   font-weight: 500;
 }
 
+button,
+a {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
