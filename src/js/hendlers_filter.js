@@ -87,7 +87,7 @@ async function handlerFilterForm(evt) {
     //тут доробити повний об"єкт
     const params = {
         category: currentCategoty || null,
-        title: searchInput !== " " || null,
+        title: searchInput.trim() !== "" ? searchInput.trim() : null,
         time: timeSelected !== "default" ? timeSelected : null,
         area: areaSelected !== "default" ? areaSelected : null,
         ingredients: ingrSelected !== "default" ? ingrSelected : null
@@ -96,7 +96,6 @@ async function handlerFilterForm(evt) {
     console.log(params);
     try {
 
-        // тут треба зробити запит на локалсторидж??
         const recipes = await getFilteredRecipes(params);
         const { results } = recipes;
         console.log(results);
@@ -115,7 +114,7 @@ async function handlerFilterForm(evt) {
         const marcup = Gallery.createMarkupCard({ filteredRecipes });
         Gallery.appendMarkupToGallery(gallery, marcup);
 
-        // createMurcupGallery(recipes);
+
 
     } catch (err) {
         Notify.failure(err.message);
@@ -127,7 +126,7 @@ async function handlerFilterForm(evt) {
 function resetInput() {
     inputForm.value = "";
     inputForm.focus();
-    // inputForm.classList.remove("active");
+
 
 }
 
