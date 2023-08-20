@@ -7,3 +7,7 @@ import './js/slider.js';
 import './js/order.js';
 import './js/hendlers_filter.js';
 import './js/gallery.js';
+import './js/local-storage.js';
+import './js/pagination.js';
+import './js/popular_recipes.js';
+import './js/theme.js';
