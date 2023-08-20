@@ -1,2 +1,0 @@
-!function(){localStorage.setItem("theme","light-theme");let e=document.getElementById("theme-toggle"),t=localStorage.getItem("theme");t&&document.body.classList.add(t),"dark-theme"===t&&(e.checked=!0),e.addEventListener("click",()=>{document.body.classList.contains("dark-theme")?(document.body.classList.replace("dark-theme","light-theme"),localStorage.setItem("theme","light-theme")):(document.body.classList.replace("light-theme","dark-theme"),localStorage.setItem("theme","dark-theme"))})}();
-//# sourceMappingURL=index.0204f533.js.map
