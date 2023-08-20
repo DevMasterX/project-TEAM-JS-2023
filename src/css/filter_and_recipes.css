@@ -82,10 +82,12 @@
 }
 
 .filter-form-input:not(:placeholder-shown),
-.filter-input-reset-container .filter-input-reset-btn {
+.filter-input-reset-container ~ .filter-input-reset-btn {
   display: inline-block;
 }
+
 .filter-input-reset-icon {
+  display: block;
   stroke: #050505;
   fill: #050505;
   width: 16px;

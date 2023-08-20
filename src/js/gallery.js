@@ -5,7 +5,7 @@ class Gallery {
 
     static createMarkupCard({ results }) {
         const markupCard = results.map(({ description, preview, rating, title, _id: idRecip }) => {
-            return ` <li class="filter-gallery-item" id="${idRecip}>
+            return ` <li class="filter-gallery-item" id="${idRecip}">
             <img class="filter-gallery-item-photo" src="${preview}" alt="${title}" width="250" height="287">
             <div class="filter-gallery-item-content">
                 <button type="button" class="filter-gallery-item-favorit-btn">
@@ -27,6 +27,8 @@ class Gallery {
         }).join("");
 
         return markupCard;
+        console.log(preview);
+
     }
 
 
