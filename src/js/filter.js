@@ -3,6 +3,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getFilteredRecipes } from './api';
 import { debounce } from 'lodash';
+import Gallery from './gallery';
+
 // import { activeButton } from './categories';
 
 const formFilter = document.querySelector(".filter-form")
@@ -16,14 +18,14 @@ const boxOption = document.querySelector(".filter-option-box");
 
 const gallery = document.querySelector(".filter-gallery-list");
 
+
 const selectTime = document.getElementById("searchTime");
 const selectArea = document.getElementById("area-select");
 const selectIngr = document.getElementById("ingredients-select");
 
 
 startGallery();
-inputForm.addEventListener('input', debounce(
-    handlerFilterForm, 300));
+inputForm.addEventListener('input', debounce(() => { handlerFilterForm() }, 3000));
 
 resetFormButton.addEventListener("click", clearFilters)
 
@@ -97,7 +99,7 @@ async function handlerFilterForm(evt) {
     const ingrSelected = formData.get("ingredients")
 
     const formDataObject = {};
-
+    //тут доробити повний об"єкт
     for (const [name, value] of formData) {
         if (name === "query") {
             formDataObject["title"] = value;
@@ -105,19 +107,24 @@ async function handlerFilterForm(evt) {
             formDataObject[name] = value;
         }
     }
-    console.log(formDataObject);
+
     try {
 
-        // тут треба зробити запит на локалсторидж???
+        // тут треба зробити запит на локалсторидж??
         const recipes = await getFilteredRecipes(formDataObject);
         const { results } = recipes;
 
+        console.log("привіт");
+        console.log(formDataObject);
         if (!results.length) {
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
             return;
         }
+        const marcup = Gallery.createMarkupCard({ results });
+        Gallery.appendMarkupToGallery(gallery, marcup);
 
-        createMurcupGallery(recipes);
+        // createMurcupGallery(recipes);
+
     } catch (err) {
         Notify.failure(err.message);
     }
@@ -139,8 +146,10 @@ async function startGallery() {
     try {
         const recipes = await getFilteredRecipes();
         console.log(recipes);
-        const { page, totalPage } = recipes;
-        createMurcupGallery(recipes);
+        const { page, results, totalPage } = recipes;
+        const marcup = Gallery.createMarkupCard({ results });
+        Gallery.appendMarkupToGallery(gallery, marcup);
+        // createMurcupGallery(recipes);
         if (page < totalPage) {
             // ПАГІНКАЦІЯ.classList.remove('is-hidden');
             // ПАГІНАЦІЯ.addEventListener('click', handlerLoad);
@@ -155,31 +164,31 @@ async function startGallery() {
 
 
 
-function createMurcupGallery({ results }) {
-    const markupCard = results.map(({ description, preview, rating, title }) => {
-        return ` <li class="filter-gallery-item">
-        <img class="filter-gallery-item-photo" src="${preview}" alt="${title}" width="250" height="287">
-        <div class="filter-gallery-item-content">
-            <button type="button" class="filter-gallery-item-favorit-btn">
-                <svg class="filter-gallery-item-favorit-btn-icon">
-                    <use href="./images/forcard.svg#icon-heart" width ="22" height="22"></use>
-                </svg>
-            </button>
-            <h3 class="filter-gallery-item-tittle" >${title}</h3>
-            <p class="filter-gallery-item-description">${description}</p>
-            <div class="filter-gallery-item-bottom">
-            <div class="filter-gallery-item-rating-wrap">
-                <p class="filter-gallery-item-rating-value">${rating}</p>
-                <div class="filter-gallery-item-rating-icons">&#9734; &#9734; &#9734; &#9734; &#9734;</div>
-            </div>
-            <button class="filter-gallery-item-btn" type="button">See recipe</button>
-        </div>
-        </div>
-    </li>`
-    }).join("");
-    // return markupCard;
-    gallery.innerHTML = markupCard;
-}
+// function createMurcupGallery({ results }) {
+//     const markupCard = results.map(({ description, preview, rating, title }) => {
+//         return ` <li class="filter-gallery-item">
+//         <img class="filter-gallery-item-photo" src="${preview}" alt="${title}" width="250" height="287">
+//         <div class="filter-gallery-item-content">
+//             <button type="button" class="filter-gallery-item-favorit-btn">
+//                 <svg class="filter-gallery-item-favorit-btn-icon">
+//                     <use href="./images/forcard.svg#icon-heart" width ="22" height="22"></use>
+//                 </svg>
+//             </button>
+//             <h3 class="filter-gallery-item-tittle" >${title}</h3>
+//             <p class="filter-gallery-item-description">${description}</p>
+//             <div class="filter-gallery-item-bottom">
+//             <div class="filter-gallery-item-rating-wrap">
+//                 <p class="filter-gallery-item-rating-value">${rating}</p>
+//                 <div class="filter-gallery-item-rating-icons">&#9734; &#9734; &#9734; &#9734; &#9734;</div>
+//             </div>
+//             <button class="filter-gallery-item-btn" type="button">See recipe</button>
+//         </div>
+//         </div>
+//     </li>`
+//     }).join("");
+//     // return markupCard;
+//     gallery.innerHTML = markupCard;
+// }
 
 export {
     clearFilters,

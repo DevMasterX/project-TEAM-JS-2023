@@ -1,17 +1,19 @@
 import { Notify } from "notiflix";
 import { getCategories, getFilteredRecipes } from "./api"
 import { clearFilters, createMurcupGallery } from "./filter";
+import { handlerAllCategoriesBtn, handlerSpecificCategoriesBtn } from "./hendlers_filter";
+
 
 
 
 const allCategoriesBtn = document.querySelector(".categories-btn");
 const categoriesList = document.querySelector(".categories-list");
-const buttons = [allCategoriesBtn];
+// const buttons = [allCategoriesBtn];
+const gallery = document.querySelector(".filter-gallery-list");
 
+allCategoriesBtn.addEventListener("click", ((evt) => { handlerAllCategoriesBtn(evt, gallery) }));
 
-allCategoriesBtn.addEventListener("click", handlerAllCategoriesBtn);
-
-categoriesList.addEventListener("click", handlerSpecificCategoriesBtn)
+categoriesList.addEventListener("click", ((evt) => { handlerSpecificCategoriesBtn(evt, gallery) }))
 
 async function createCategoriesList() {
     try {
@@ -38,57 +40,6 @@ async function createCategoriesList() {
 }
 createCategoriesList();
 
-console.log(buttons);
-
-async function handlerAllCategoriesBtn(evt) {
-    evt.preventDefault();
-    clearFilters()
-
-
-    try {
-        const recipes = await getFilteredRecipes();
-        const { results } = recipes;
-        createMurcupGallery(recipes);
-
-        if (!results.length) {
-            Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-            return;
-        }
-
-        console.log(recipes);
-
-    } catch (err) {
-        Notify.failure(err.message);
-    }
-}
-
-async function handlerSpecificCategoriesBtn(evt) {
-    evt.preventDefault();
-
-
-    if (evt.target.classList.contains("js-categories-item-btn")) {
-
-        currentBtn = evt.target;
-
-        const params = {
-            "category": currentBtn.value
-        }
-        console.log(params);
-
-        try {
-            const recipes = await getFilteredRecipes(params);
-            const { results } = recipes;
-            createMurcupGallery(recipes);
-
-            if (!results.length) {
-                Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-                return;
-            }
-        } catch (err) {
-            Notify.failure(err.message);
-        }
-    }
-}
 
 // function disactivBtn(buttons) {
 //     const categoryButtons = Array.from(document.querySelectorAll(".js-categories-item-btn"));
@@ -107,3 +58,7 @@ async function handlerSpecificCategoriesBtn(evt) {
 // export {
 //     findActiveBtn
 // };
+
+export {
+    createCategoriesList,
+}
