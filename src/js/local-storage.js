@@ -4,6 +4,7 @@ const listForStorage = document.querySelector('.filter-gallery-list');
 listForStorage.addEventListener('click', (e)=>{
     const cardBody = e.target.parentElement.parentElement;
     const recipeInfo = {
+        id: cardBody.id,
         name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
         image:cardBody.querySelector('.filter-gallery-item-photo').src,
         rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
