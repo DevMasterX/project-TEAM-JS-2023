@@ -5,7 +5,12 @@ const modalOrder = document.querySelector('[data-modal-order]');
 const closeOrderBtn = document.querySelector('[data-modal-close]');
 const formOrderBtn = document.querySelector('.btn-send');
 const openOrderNow = document.querySelector('.btnOrderNow');
+const openShoppingBtn = document.querySelector('.shopping-btn');
 
+openShoppingBtn.addEventListener('click', () => {
+  modalOrder.classList.remove('is-hidden');
+  document.body.classList.add('no-scroll');
+});
 openOrderNow.addEventListener('click', () => {
   modalOrder.classList.remove('is-hidden');
   document.body.classList.add('no-scroll');
@@ -23,6 +28,7 @@ const closeModal = () => {
   document.removeEventListener('keydown', closeOnEscape);
   modalOrder.removeEventListener('click', closeOnOverlay);
   openOrderNow.removeEventListener('click');
+  openShoppingBtn.removeEventListener('click');
 };
 
 const closeOnEscape = e => {

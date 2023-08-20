@@ -6,12 +6,10 @@
   height: 100%;
   background: rgba(0, 0, 2, 0.894);
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
-.backdrop.is-hidden.order-form-wrapper {
-  transform: translate(-50%, -50%) scaleY(0) rotate(-90deg);
-}
+
 .order-form-wrapper {
   position: absolute;
   z-index: 3;
@@ -119,4 +117,21 @@
   color: #f8f8f8;
   font-size: 14px;
   line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  .order-form-wrapper {
+    padding: 40px;
+    width: 440px;
+    height: 632px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
