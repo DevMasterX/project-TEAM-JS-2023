@@ -10,6 +10,7 @@
 @import url('./popular_recipes.css');
 @import url('./pagination.css');
 @import url('./theme.css');
+@import url('./modal_our_team.css');
 
 /* add favorites css */
 @import url('./favorites/_my_favorites.css');
