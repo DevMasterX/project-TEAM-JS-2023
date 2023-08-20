@@ -109,13 +109,14 @@ async function handlerFilterForm(evt) {
         ingredients: ingrSelected
     };
 
+    console.log(params);
     try {
 
         // тут треба зробити запит на локалсторидж??
         const recipes = await getFilteredRecipes(params);
         const { results } = recipes;
 
-        console.log("привіт");
+
 
         const filteredRecipes = recipes.results.filter(recipe => {
             const selectedIngredient = ingrSelected.toLowerCase();
@@ -167,6 +168,7 @@ async function startGallery() {
 
     } catch (error) {
         console.error(error);
+
     }
 }
 
@@ -201,5 +203,5 @@ async function startGallery() {
 
 export {
     clearFilters,
-    createMurcupGallery
+
 };
