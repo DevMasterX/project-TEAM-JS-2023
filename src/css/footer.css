@@ -55,17 +55,15 @@ a:focus {
   transition: all 0.3s ease;
 }
 .show-btn:active {
-  filter: brightness(1.2); 
+  filter: brightness(1.2);
 }
 
 .show-btn:hover,
 .show-btn:focus {
   background-color: var(--btn-to-top-hover-bg-color);
-  transform: scale(
-    1.05
-  ); 
-  outline: none; 
-  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color); 
+  transform: scale(1.05);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color);
 }
 .site-footer {
   background-color: var(--footer-bg-color);
@@ -233,8 +231,7 @@ a:focus {
     width: 55px;
     height: 55px;
   }
-} */
-
+}
 .footer {
   padding-top: 40px;
   padding-bottom: 30px;
