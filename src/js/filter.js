@@ -16,7 +16,7 @@ const inputForm = document.querySelector(".filter-form-input");
 
 const resetFormButton = document.querySelector(".filter-reset-btn")
 const selectes = document.querySelectorAll(".filter-form-select");
-const boxOption = document.querySelector(".filter-option-box");
+
 
 const gallery = document.querySelector(".filter-gallery-list");
 
