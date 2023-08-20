@@ -190,6 +190,7 @@
   top: 0;
   padding: 16px;
 }
+
 .filter-gallery-item-favorit-btn {
   position: absolute;
   top: 16px;
@@ -207,11 +208,15 @@
   cursor: pointer;
 }
 .filter-gallery-item-favorit-btn-icon {
+  position: absolute;
+  top: 0;
   display: block;
   width: 22px;
   height: 22px;
   margin: 0;
   padding: 0;
+
+  stroke: #f8f8f8;
 }
 .filter-gallery-item-tittle {
   display: block;

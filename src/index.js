@@ -11,3 +11,4 @@ import './js/local-storage.js';
 import './js/pagination.js';
 import './js/popular_recipes.js';
 import './js/theme.js';
+import './js/rating.js';

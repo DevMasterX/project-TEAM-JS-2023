@@ -108,6 +108,7 @@
 }
 .btn-send {
   display: flex;
+  height: 46px;
   width: 100%;
   padding: 15px;
   justify-content: center;

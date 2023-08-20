@@ -1,7 +1,7 @@
 // import SlimSelect from 'slim-select'
 // import 'slim-select/dist/slimselect.css'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { getFilteredRecipes } from './api';
+import { getFilteredRecipes, getAreas, getIngredients } from './api';
 import { debounce } from 'lodash';
 import Gallery from './gallery';
 
@@ -34,47 +34,49 @@ console.log(selectes);
 
 
 async function createOptionsSelect() {
-    selectes.forEach(item => {
-        const options = [];
+    try {
+        for (const item of selectes) {
+            const options = [];
 
-        if (item === selectTime) {
-            const minTime = 5;
-            const maxTime = 120;
-            const step = 5;
+            if (item === selectTime) {
+                const minTime = 5;
+                const maxTime = 120;
+                const step = 5;
 
-            for (let time = minTime; time <= maxTime; time += step) {
-                options.push(`<option class="filter-form-select-time" value="${time}">${time} хв</option>`);
+                for (let time = minTime; time <= maxTime; time += step) {
+                    options.push(`<option class="filter-form-select-time" value="${time}">${time} хв</option>`);
+                }
+
+                const optionsMarkup = options.join('');
+                selectTime.innerHTML = optionsMarkup;
+            }
+            if (item === selectArea) {
+                const getOptionAreas = await getAreas();
+                const optionAreas = getOptionAreas.map((area) => {
+                    const { name, _id: idArea } = area;
+                    return `<option class="filter-form-select-time" id="${idArea}" value="${name}">${name} </option>`;
+                }).join('');
+
+                selectArea.innerHTML = optionAreas;
             }
 
-            const optionsMarkup = options.join('');
-            selectTime.innerHTML = optionsMarkup;
-        }
-        else {
+            if (item === selectIngr) {
+                const getOptionIngr = await getIngredients();
+                const optionIngr = getOptionIngr.map((area) => {
+                    const { name, _id: idIngr } = area;
+                    return `<option class="filter-form-select-time" id="${idIngr}" value="${name}">${name} </option>`;
+                }).join('');
 
-            // тут будуть умови для інших селектів 
+                selectIngr.innerHTML = optionIngr;
+            }
+
         }
-    });
+    } catch (error) {
+        console.error(error);
+    }
 }
-//     try {
-//         const getCategoriesData = await getCategories();
 
 
-//         const marcupCategories = getCategoriesData.map((category) => {
-//             const { name, _id: idCategory } = category;
-
-//             return `  
-//         <li class="js-categories-item">
-//           <button class="js-categories-item-btn" type="submit" id="${idCategory}" value="${name}">${name}</button>
-//         </li>`;
-//         }).join("");
-
-//         categoriesList.innerHTML = marcupCategories;
-
-
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
 createOptionsSelect()
 
 function clearFilters() {
@@ -98,29 +100,36 @@ async function handlerFilterForm(evt) {
     const areaSelected = formData.get("area");
     const ingrSelected = formData.get("ingredients")
 
-    const formDataObject = {};
+
     //тут доробити повний об"єкт
-    for (const [name, value] of formData) {
-        if (name === "query") {
-            formDataObject["title"] = value;
-        } else {
-            formDataObject[name] = value;
-        }
-    }
+    const params = {
+        query: searchInput,
+        time: timeSelected,
+        area: areaSelected,
+        ingredients: ingrSelected
+    };
 
     try {
 
         // тут треба зробити запит на локалсторидж??
-        const recipes = await getFilteredRecipes(formDataObject);
+        const recipes = await getFilteredRecipes(params);
         const { results } = recipes;
 
         console.log("привіт");
-        console.log(formDataObject);
+
+        const filteredRecipes = recipes.results.filter(recipe => {
+            const selectedIngredient = ingrSelected.toLowerCase();
+            return recipe.ingredients.some(ingredient =>
+                ingredient.toLowerCase().includes(selectedIngredient)
+            );
+        });
+
         if (!results.length) {
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
             return;
         }
-        const marcup = Gallery.createMarkupCard({ results });
+
+        const marcup = Gallery.createMarkupCard({ filteredRecipes });
         Gallery.appendMarkupToGallery(gallery, marcup);
 
         // createMurcupGallery(recipes);
