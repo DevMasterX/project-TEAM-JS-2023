@@ -1,145 +1,218 @@
 .hero-container {
-  min-width: 0;
-  padding: 0 15px 0 15px;
+  overflow: hidden;
 }
 
-.hero-slider_image {
-  text-align: center;
-}
-.hero-slider_image img {
-  max-width: 100%;
-  /* width: 100%;
-display: block; */
+.hero {
+  padding-top: 91px;
 }
 
-.hero-slider .swiper-pagination {
-  bottom: 0;
-}
-
-.hero-slider .swiper-pagination-bullet {
-  background-color: #9bb537;
-}
-
-.hero-slider .name-master-class {
-  position: absolute;
-  bottom: 0;
-}
-
-.hero-slider_wrapper-text {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero-slider .text-region {
-  font-size: 8px;
-  color: rgb(248, 248, 248, 0.2);
-  line-height: 12px;
-}
-.hero-slider .name-master-class {
-  font-size: 10px;
-  color: rgb(248, 248, 248, 0.6);
-  line-height: 1.4;
+.hero-text-wrapper {
+  margin-bottom: 48px;
 }
 
 .hero-title {
+  width: 335px;
   text-transform: uppercase;
+  color: #050505;
   font-size: 26px;
-  line-height: 1.2;
-  max-width: 620px;
+  font-weight: 600;
+  line-height: 120%;
 }
 
 .hero-title-green {
-  font-style: italic;
   color: #9bb537;
-  font-size: inherit;
-  line-height: inherit;
+  font-style: oblique;
+  font-weight: 400;
 }
+
 .hero-text {
   color: #050505;
+  margin: 14px 0 28px;
   font-size: 14px;
-  line-height: 1.29;
-  margin-top: 14px;
-  max-width: 380px;
+  line-height: 18px;
 }
 
 .btnOrderNow {
-  width: 112px;
-  height: 36px;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
   cursor: pointer;
-  text-align: center;
-  border: solid 1px #9bb537;
-  border-radius: 12px;
-  outline: none;
+  border: 1px solid #9bb537;
+  background-color: white;
+  color: #050505;
+  border-radius: 15px;
+  padding: 10px 20px;
   font-size: 14px;
-  margin-top: 28px;
-  margin-bottom: 48px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .btnOrderNow:hover,
 .btnOrderNow:focus {
-  color: #f8f8f8;
   background-color: #9bb537;
-  border: none;
+  color: white;
 }
 
-.swiper-container {
+.events,
+.event {
+  display: flex;
+}
+.case {
+  width: 515px;
+}
+
+.swiper {
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
   display: block;
-  width: 496px;
-  height: 302px;
-  background-color: aqua;
-  margin-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page {
+  margin: 24px 0 0 155px;
+}
+
+.event {
+  display: flex;
+}
+
+.cook {
+  height: 280px;
+  width: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+.preview-deash-card {
+  height: 280px;
+  width: 200px;
+  background-color: #050505;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  display: flex;
+}
+
+.preview-deash {
+  height: 150px;
+  width: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+.deash-name {
+  text-align: center;
+  color: rgb(248, 248, 248, 0.6);
+  text-transform: uppercase;
+  width: 172px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  display: block;
+}
+
+.deash-area {
+  color: rgb(248, 248, 248, 0.2);
+  font-size: 8px;
+  line-height: 12px;
+  display: block;
+}
+
+.deash {
+  height: 280px;
+  width: 185px;
+  background-position: 45%;
+  background-size: 564px;
+  background-color: #050505;
+  border-radius: 15px;
+  display: block;
+}
+
+span.swiper-pagination-bullet {
+  opacity: 1;
+  background-color: #050505;
+}
+
+span.swiper-pagination-bullet-active {
+  background: #9bb537;
+  opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
-  .hero-container {
-    min-width: 0;
-    padding: 0 32px 0 32px;
+  .hero {
+    padding-top: 93px;
   }
-
+  .hero-text-wrapper {
+    width: 446px;
+    margin-bottom: 64px;
+    margin-right: 32px;
+  }
   .hero-title {
-    width: 447px;
+    width: 446px;
     font-size: 36px;
   }
-
-  .hero-title-green {
-    font-size: inherit;
-  }
-
   .hero-text {
-    width: 384px;
-    color: #050505;
+    width: 408px;
+    margin: 16px 0 32px;
     font-size: 16px;
-    line-height: 1.5;
-    margin-top: 16px;
+    line-height: 24px;
   }
-
   .btnOrderNow {
-    width: 127px;
-    height: 45px;
-    border-radius: 15px;
-    margin-top: 32px;
-    margin-bottom: 64px;
+    padding: 14px 28px;
   }
-  .swiper-container {
-    display: block;
-    width: 871px;
-    height: 468px;
-    background-color: aqua;
-    margin-bottom: 80px;
+  .case {
+    width: 889px;
+  }
+  .page {
+    margin-left: 300px;
+  }
+  .cook {
+    height: 442px;
+    width: 137px;
+  }
+  .preview-deash-card {
+    height: 442px;
+    width: 351px;
+    margin: 0 16px;
+  }
+  .preview-deash {
+    height: 262px;
+    width: 262px;
+  }
+  .deash-name {
+    width: 276px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .deash-area {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .deash {
+    height: 442px;
+    width: 351px;
+    background-size: 850px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .hero {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 94px;
+    overflow: hidden;
+  }
   .hero-container {
+    align-items: center;
     display: flex;
-    gap: 32px;
+    overflow: visible;
   }
 }
