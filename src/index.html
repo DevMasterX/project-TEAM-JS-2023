@@ -9,7 +9,7 @@
       href="./images/favicon-32x32.png"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>TastyTreats</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,25 +26,39 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- Theme -->
+    <include src="./partials/theme.html"></include>
+
+    <!-- Header -->
     <include src="./partials/header.html"></include>
+
+    <!-- MAIN CONTENT -->
 
     <main>
       <include src="./partials/hero.html"></include>
 
       <section>
-        <include src="./partials/categories.html"></include>
-        <include src="./partials/popular_recipes.html"></include>
-        <include src="./partials/filter_and_recipes.html"></include>
-        <include src="./partials/pagination.html"></include>
+        <div class="left-section">
+          <include src="./partials/categories.html"></include>
+          <include src="./partials/popular_recipes.html"></include>
+        </div>
+        <div class="right-container">
+          <include src="./partials/filter_and_recipes.html"></include>
+          <include src="./partials/pagination.html"></include>
+        </div>
       </section>
     </main>
 
+    <!-- Footer -->
+
     <include src="./partials/footer.html"></include>
+
+    <!-- Burger menu -->
     <include src="./partials/burger-menu.html"></include>
 
+    <!-- Modal -->
     <include src="./partials/modal_window_recipe.html"></include>
     <include src="./partials/modal_rating.html"></include>
-
     <include src="./partials/modal_order.html"></include>
 
     <script type="module" src="./index.js"></script>
