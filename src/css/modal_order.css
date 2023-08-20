@@ -1,0 +1,121 @@
+.backdrop {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 2, 0.894);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden.order-form-wrapper {
+  transform: translate(-50%, -50%) scaleY(0) rotate(-90deg);
+}
+.order-form-wrapper {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  padding: 28px 20px;
+  width: 335px;
+  max-height: 100%;
+  overflow-y: scroll;
+  border-radius: 15px;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-order-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+.btn-order-close:hover,
+.btn-order-close:focus {
+  fill: rgb(136, 133, 133);
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+.order-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.modal-form {
+}
+.form-label {
+  display: flex;
+  flex-direction: column;
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+.form-input {
+  display: flex;
+  width: 100%;
+  height: 46px;
+  padding-left: 14px;
+  align-items: flex-start;
+
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+}
+.modal-input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+::-webkit-input-placeholder {
+  /* color: #9bb537; */
+  font-size: 12px;
+}
+.form-input:not(:placeholder-shown):valid {
+  border-color: #9bb537;
+}
+
+.form-input:not(focus):not(:placeholder-shown):invalid {
+  border-color: red;
+}
+.modal-textarea-wrapper {
+  margin-bottom: 40px;
+}
+.modal-textarea {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  padding-left: 14px;
+  padding-top: 14px;
+  align-items: flex-start;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  resize: none;
+}
+.btn-send {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: transparent;
+  background: #9bb537;
+  color: #f8f8f8;
+  font-size: 14px;
+  line-height: normal;
+}
