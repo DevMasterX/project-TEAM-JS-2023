@@ -1,4 +1,5 @@
 
+const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
 listForStorage.addEventListener('click', (e)=>{
     const cardBody = e.target.parentElement.parentElement;
@@ -18,7 +19,23 @@ listForStorage.addEventListener('click', (e)=>{
    if(e.target.nodeName === 'H3'){recipeDB.removeFromDB(recipeInfo.name)}
 });
 
-class RecipeDB {
+class RecipeDB {getOrderFromLC(){let orderForm;
+    if (!localStorage.getItem('orderForm')) {orderForm = {}
+
+    }else {
+        orderForm = JSON.parse(localStorage.getItem('orderForm'))
+    }
+    return orderForm;
+    
+}
+setOrderFormLC(){
+
+    
+const infoOrder = {name:form.elements.name.value,
+    phone:form.elements.phone.value,
+    email:form.elements.email.value}
+    localStorage.setItem('orderForm', JSON.stringify(infoOrder))
+}
     saveIntoDB(recipe){
         const recipes = this.getFromDB();
         recipes.push(recipe)
@@ -44,5 +61,15 @@ if (name === recipe.name){
     localStorage.setItem('recipes', JSON.stringify(recipes))
 
 }
+
+
 }
 const recipeDB = new RecipeDB();
+
+
+form.addEventListener('input', ()=>recipeDB.setOrderFormLC())
+
+
+
+
+
