@@ -25,12 +25,19 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 712px;
-  height: 638px;
-  padding: 60px;
+  width: 531px;
+  height: 905px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: 15px;
   transform: translate(-50%, -50%);
 
   background-color: #fffdee;
+}
+
+.r-modal-video {
+  width: 467px;
+  height: 250px;
 }
 
 .favorite-btn {
