@@ -68,6 +68,7 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
 
 
 async function handlerFilterForm(evt) {
+    evt.preventDefault();
     selectes.forEach(select => {
         select.addEventListener("change", handlerFilterForm);
     });
@@ -84,7 +85,7 @@ async function handlerFilterForm(evt) {
     const ingrSelected = formData.get("ingredients")
 
 
-    //тут доробити повний об"єкт
+
     const params = {
         category: currentCategoty || null,
         title: searchInput.trim() !== "" ? searchInput.trim() : null,
@@ -122,6 +123,19 @@ async function handlerFilterForm(evt) {
 
 
 }
+
+function checkFieldsAndToggleButton() {
+    const isAnySelectActive = Array.from(selectes).some(select => select.value !== "");
+    const isInputFilled = inputForm.value.trim() !== "";
+
+    if (isAnySelectActive || isInputFilled) {
+        searchBtn.disabled = false;
+    } else {
+        searchBtn.disabled = true;
+    }
+}
+
+checkFieldsAndToggleButton();
 
 function resetInput() {
     inputForm.value = "";

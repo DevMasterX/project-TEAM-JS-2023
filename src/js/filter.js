@@ -7,27 +7,22 @@ import Gallery from './gallery';
 import { handlerFilterForm } from './hendlers_filter';
 
 
-// import { activeButton } from './categories';
-
-
 
 const inputForm = document.querySelector(".filter-form-input");
-
-
+const searchBtn = document.querySelector(".ilter-search-btn")
 const resetFormButton = document.querySelector(".filter-reset-btn")
 const selectes = document.querySelectorAll(".filter-form-select");
-
-
 const gallery = document.querySelector(".filter-gallery-list");
-
-
 const selectTime = document.getElementById("searchTime");
 const selectArea = document.getElementById("area-select");
 const selectIngr = document.getElementById("ingredients-select");
 
 
 startGallery();
+createOptionsSelect()
+
 inputForm.addEventListener('input', debounce(() => { handlerFilterForm() }, 3000));
+searchBtn.addEventListener("submit", handlerFilterForm)
 resetFormButton.addEventListener("click", clearFilters)
 
 
@@ -49,6 +44,7 @@ async function createOptionsSelect() {
                 selectTime.innerHTML = optionsMarkup;
             }
             if (item === selectArea) {
+
                 const getOptionAreas = await getAreas();
                 const optionAreas = getOptionAreas.map((area) => {
                     const { name, _id: idArea } = area;
@@ -74,7 +70,7 @@ async function createOptionsSelect() {
     }
 }
 
-createOptionsSelect()
+
 
 function clearFilters() {
     inputForm.value = "";

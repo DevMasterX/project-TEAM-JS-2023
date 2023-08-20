@@ -40,11 +40,21 @@
   position: relative;
   display: block;
 }
-.filter-input-search-icon {
+
+.filter-search-btn {
   position: absolute;
   top: 50%;
   left: 18px;
   transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  background-color: transparent;
+  border: transparent;
+  padding: 0;
+}
+.filter-input-search-icon {
   stroke: #050505;
   fill: #050505;
   width: 16px;
