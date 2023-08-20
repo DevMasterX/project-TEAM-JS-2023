@@ -1,0 +1,322 @@
+/* :root {
+  --footer-bg-color: rgb(155, 181, 55);
+  --footer-text-color: rgb(220, 238, 146);
+  --footer-link-color: rgb(41, 36, 36);
+  --footer-link-bg-color: rgb(207, 206, 206);
+  --btn-to-top-bg-color: rgb(244, 96, 96);
+  --btn-to-top-fill-color: rgb(53, 242, 201);
+  --focus-visible-box-shadow-color: rgba(0, 0, 0, 0.5);
+  --btn-to-top-hover-bg-color: rgb(255, 115, 115);
+}
+/* Загальні стилі для використання шрифта Inter */
+input,
+h3,
+p,
+a,
+span,
+li {
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease; /* плавний перехід для всіх властивостей */
+}
+
+/* Основні стилі для заголовків */
+
+h3 {
+  font-weight: 700; /* жирний */
+  margin-top: 0;
+  font-size: 1.75em;
+  /* забрати верхній відступ */
+}
+
+/* Стилі для абзаців */
+p {
+  font-weight: 400; /* нормальний */
+  line-height: 1.6; /* просторий міжрядковий інтервал для зручності читання */
+  margin-bottom: 1em; /* відступ знизу для відокремлення від наступного елемента */
+}
+
+/* Стилі для посилань */
+a {
+  font-weight: 500; /* напівжирний */
+  text-decoration: none; /* видалення підкреслення */
+  color: var(--focus-visible-box-shadow-color); /* основний колір посилань */
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline; /* підкреслення при наведенні/фокусу */
+  color: #0056b3; /* темніший відтінок для наведення/фокусу */
+}
+
+.site-footer,
+.feedback-section button,
+.footer-media-link,
+.show-btn {
+  transition: all 0.3s ease;
+}
+.show-btn:active {
+  filter: brightness(1.2);
+}
+
+.show-btn:hover,
+.show-btn:focus {
+  background-color: var(--btn-to-top-hover-bg-color);
+  transform: scale(1.05);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color);
+}
+.site-footer {
+  background-color: var(--footer-bg-color);
+  padding: 20px 0;
+  color: var(--footer-text-color);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-section {
+  padding: 10px;
+  text-align: center;
+}
+
+.feedback-section {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.feedback-section h3,
+.feedback-section p {
+  margin-bottom: 10px;
+}
+
+.feedback-section input[type='email'] {
+  padding: 10px;
+  border: 1px solid var(--footer-text-color);
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.feedback-section button {
+  padding: 10px 15px;
+  background-color: var(--footer-bg-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--footer-text-color);
+}
+
+.feedback-section button:hover {
+  background-color: var(--btn-to-top-bg-color);
+}
+
+.button-gap {
+  margin-top: 15px;
+}
+
+.f-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.footer-media-item {
+  margin: 0;
+}
+
+.footer-media-link {
+  text-decoration: none;
+  color: var(--footer-link-color);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--footer-link-bg-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--footer-text-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-media-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.footer-media-link:hover,
+.footer-media-link:focus {
+  background-color: var(--footer-text-color);
+  outline: none;
+}
+
+.footer-media-link:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color);
+}
+
+.show-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--btn-to-top-bg-color);
+  fill: var(--btn-to-top-fill-color);
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0.5;
+  transform: translateY(10px);
+}
+
+.show-btn.is-visible {
+  display: flex;
+  opacity: 0.6;
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 320px) {
+  .show-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-section:first-child {
+    text-align: left;
+  }
+
+  .f-list {
+    gap: 30px;
+  }
+
+  .show-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer-content {
+    padding: 0 40px;
+  }
+
+  .footer-section {
+    padding: 15px;
+  }
+
+  .show-btn {
+    width: 55px;
+    height: 55px;
+  }
+}
+.footer {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .footer__container {
+    flex-direction: column;
+  }
+
+  .footer__container .footer__desc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer__container .footer__text {
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .footer {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}
+
+.footer__container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__copyright {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+  margin-right: 5px;
+}
+
+.footer__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.footer__desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+}
+
+.footer__icon {
+  margin: 0 10px 0 10px;
+  animation: Scale 0.7s ease infinite alternate;
+}
+
+.footer__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+}
+
+.footer__link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+}

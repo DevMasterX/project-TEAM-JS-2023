@@ -1,0 +1,48 @@
+
+
+
+body.dark-theme {
+    background-color: #333;
+    color: #F4F4F4;
+}
+
+
+
+#theme-toggle {
+
+    position: relative;
+    top: 5px;
+    width: 46px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 60px;
+    box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.60);
+    transition: 0.7s;
+}
+
+#theme-toggle:checked {box-shadow: 7px 5px 15px 0px rgba(22, 22, 22, 0.60);
+
+  background: #9BB537
+}
+#theme-toggle:before {
+  content: '';
+  position: absolute;
+  width: 17.5px;
+  height: 17.5px;
+  border-radius: 17.5px;
+  top: 0.5;
+  left: 1.5;
+  background: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: .5s;
+}
+
+#theme-toggle:checked:before {
+  left: 25.5px;
+}
+
+

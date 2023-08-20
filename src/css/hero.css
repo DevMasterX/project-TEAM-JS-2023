@@ -1,0 +1,217 @@
+.hero-container {
+  overflow: hidden;
+}
+
+.hero {
+  padding-top: 91px;
+}
+
+.hero-text-wrapper {
+  margin-bottom: 48px;
+}
+
+.hero-title {
+  width: 335px;
+  text-transform: uppercase;
+
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.hero-title-green {
+  color: #9bb537;
+  font-style: oblique;
+  font-weight: 400;
+}
+
+.hero-text {
+  margin: 14px 0 28px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.btnOrderNow {
+  cursor: pointer;
+  border: 1px solid #9bb537;
+  background-color: white;
+
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btnOrderNow:hover,
+.btnOrderNow:focus {
+  background-color: #9bb537;
+  color: white;
+}
+
+.events,
+.event {
+  display: flex;
+}
+.case {
+  width: 515px;
+}
+
+.swiper {
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.page {
+  margin: 24px 0 0 155px;
+}
+
+.event {
+  display: flex;
+}
+
+.cook {
+  height: 280px;
+  width: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+.preview-deash-card {
+  height: 280px;
+  width: 200px;
+  background-color: #050505;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  display: flex;
+}
+
+.preview-deash {
+  height: 150px;
+  width: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+.deash-name {
+  text-align: center;
+  color: rgb(248, 248, 248, 0.6);
+  text-transform: uppercase;
+  width: 172px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  display: block;
+}
+
+.deash-area {
+  color: rgb(248, 248, 248, 0.2);
+  font-size: 8px;
+  line-height: 12px;
+  display: block;
+}
+
+.deash {
+  height: 280px;
+  width: 185px;
+  background-position: 45%;
+  background-size: 564px;
+  background-color: #050505;
+  border-radius: 15px;
+  display: block;
+}
+
+span.swiper-pagination-bullet {
+  opacity: 1;
+  background-color: #050505;
+}
+
+span.swiper-pagination-bullet-active {
+  background: #9bb537;
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 93px;
+  }
+  .hero-text-wrapper {
+    width: 446px;
+    margin-bottom: 64px;
+    margin-right: 32px;
+  }
+  .hero-title {
+    width: 446px;
+    font-size: 36px;
+  }
+  .hero-text {
+    width: 408px;
+    margin: 16px 0 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .btnOrderNow {
+    padding: 14px 28px;
+  }
+  .case {
+    width: 889px;
+  }
+  .page {
+    margin-left: 300px;
+  }
+  .cook {
+    height: 442px;
+    width: 137px;
+  }
+  .preview-deash-card {
+    height: 442px;
+    width: 351px;
+    margin: 0 16px;
+  }
+  .preview-deash {
+    height: 262px;
+    width: 262px;
+  }
+  .deash-name {
+    width: 276px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .deash-area {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .deash {
+    height: 442px;
+    width: 351px;
+    background-size: 850px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 94px;
+    overflow: hidden;
+  }
+  .hero-container {
+    align-items: center;
+    display: flex;
+    overflow: visible;
+  }
+}
