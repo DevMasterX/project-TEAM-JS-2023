@@ -1,16 +1,29 @@
-<button id="btn-to-top" class="is-hidden">
-  <svg class="icon-to-top" width="30" height="30">
-    <use href="./images/icons.svg#icon-arrow-up"></use>
-  </svg>
-</button>
-
 <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
         <p>© 2023-2024 All rights reserved.</p>
-        <p>Address: 123 Shevchenko str., Kyiv</p>
-        <p>Phone: +380730000000</p>
+        <p>
+          Address:
+          <a href="https://goo.gl/maps/BHWMfk3YpbA3JENp7" target="_blank"
+            >1 Morska Street, Yalta</a
+          >
+        </p>
+
+        <p>Phone: <a href="tel:+380730000000">+380730000000</a></p>
+      </div>
+      <div class="feedback-section">
+        <h3>Feedback</h3>
+        <p>Enter your email address and we will contact you!</p>
+        <form id="feedbackForm" method="post">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            required
+          />
+          <button type="submit" class="button-gap">Send</button>
+        </form>
       </div>
       <div class="footer-section">
         <h3 class="footer-media-title">Follow Us</h3>
@@ -52,4 +65,10 @@
       </div>
     </div>
   </div>
+  <button id="btn-to-top" class="show-btn">
+    <svg class="icon-to-top" width="30" height="30">
+      <use href="./images/icons.svg#icon-arrow-up"></use>
+    </svg>
+  </button>
 </footer>
+<!-- <script src="./js/btn-to-top.js" type="module"></script> -->
