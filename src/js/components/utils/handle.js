@@ -19,8 +19,8 @@ export function handleIsEmpty({ isEmpty }) {
 }
 
 export function handleRemoveCard({id, element}) {
-
-    initialState.favorites = initialState.favorites.filter(item => item.id_card !== id);
+    
+    initialState.favorites = initialState.favorites.filter(item => item.id !== id);
     handleSetLocalStorage(LOCALSTORAGE_KEY_FAVORITES, initialState.favorites)
 
     element.remove();   

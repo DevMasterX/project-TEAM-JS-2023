@@ -1,6 +1,17 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
 
+listForStorage.addEventListener('click', e => {
+  const cardBody = e.target.parentElement.parentElement;
+  const recipeInfo = {
+    id: cardBody.id,
+    name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
+    image: cardBody.querySelector('.filter-gallery-item-photo').src,
+    rating: cardBody.querySelector('.filter-gallery-item-rating-value')
+      .textContent,
+    description: cardBody.querySelector('.filter-gallery-item-description')
+      .textContent,
+  };
 
   // const favFav = document.querySelector('.filter-gallery-item-favorit-btn');
   // favFav?.addEventListener('click', ()=> alert('fff'))
@@ -33,12 +44,13 @@ listForStorage.addEventListener('click', (e)=>{
    
     if(e.target.nodeName === 'BUTTON'){
 
-        cardBody.classList.add('favorite')
-   
-        recipeDB.saveIntoDB(recipeInfo);
+  if (cardBody.classList.contains('favorite')) return;
 
-    }
- 
+  if (e.target.nodeName === 'P') {
+    cardBody.classList.add('favorite');
+
+    recipeDB.saveIntoDB(recipeInfo);
+  }
 });
 
 class RecipeDB {

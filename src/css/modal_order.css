@@ -55,8 +55,7 @@
   text-transform: uppercase;
   margin-bottom: 28px;
 }
-.modal-form {
-}
+
 .form-label {
   display: flex;
   flex-direction: column;
@@ -120,18 +119,19 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* .container {
-    max-width: 768px;
-  } */
   .order-form-wrapper {
     padding: 40px;
     width: 440px;
     height: 632px;
   }
-}
-
-/* @media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
+  .btn-order-close {
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
   }
-} */
+  .form-input {
+    height: 48px;
+    padding-left: 14px;
+  }
+}

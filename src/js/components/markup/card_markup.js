@@ -2,17 +2,15 @@
 import {markupHeart, markupRating} from '../markup'
 
 export function markupCard(card) {
+    const {id, image, name: title, description: sub_title, rating, isFavorites = true} = card
 
-    const { id_card, img, title, sub_title, rating, isFavorites } = card;
-    // const {id, img, name: title, description: sub_title, isFavorites = true} = card
-    const _img = !!img.path ? img.path : img;
     const heartHtml = markupHeart({isFavorites})
     const ratingHtml = markupRating({rating})
 
     const cardHtml = `
-    <li class="card__item" id="${id_card}">
+    <li class="card__item" id="${id}">
 
-        <img src='${_img}' loading="lazy" alt="${title}" class="card__img" />
+        <img src='${image}' loading="lazy" alt="${title}" class="card__img" />
         
         ${heartHtml}
 

@@ -1,4 +1,4 @@
-export const LOCALSTORAGE_KEY_FAVORITES = "favorites"
+export const LOCALSTORAGE_KEY_FAVORITES = "recipes"
 
 export function handleGetLocalStorage(key) {
     return transformToJsObj(getLocalStorage(key))
