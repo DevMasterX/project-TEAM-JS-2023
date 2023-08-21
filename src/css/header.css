@@ -92,12 +92,20 @@ gap: 16px;
 }
 .header-nav-item {
 }
-.header-link-home {
-
+.header-link-home:hover,
+.header-link-home:focus,
+.header-link-home:active {
+   text-decoration: underline;
    
-}
-.header-link-favorites{
+   fill: var(--color-header-green);
 
+}
+
+.header-link-favorites:hover,
+.header-link-favorites:focus,
+.header-link-favorites:active{
+ text-decoration: underline;
+   fill: var(--color-header-green);
 }
 
  .burger-menu-open-btn {
