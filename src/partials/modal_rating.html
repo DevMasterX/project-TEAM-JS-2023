@@ -1,96 +1,98 @@
-<!-- <div class="rating-backdrop visible">
-  <div id="rating-modal-js" class="rating-modal-container">
-    <div class="rating-modal">
-      <button class="btn-close-rating">
-        <svg class="rating-close-icon" height="24" width="24">
-          <use
-            class="rating-close-icon-svg"
-            href="./images/icons.svg#icon-x"
-          ></use>
+<!-- 
+<div class="modal"><button type="button" data-modal-close class="modal-close-btn">
+    <svg class="" width="24" height="24" path stroke="#050505"><use href="./images/star.svg#http://www.w3.org/2000/svg"></use>
+</svg></button> 
+<div class="wrapper">
+<h1 class="rat">Rating</h1>
+<form action="#" class="form form_margin">
+    <div class="form_item">
+        <div class="form_label"></div>
+        <div class="rating rating_set">
+            <div class="rating_bodi">
+                <div class="rating_value">3.6</div>
+                <div class="rating_active"></div>
+                <ul class="items">
+                <div class="rating_items">
+                    <input type="radio" class="rating_item" value="1" name="rating">
+                     <svg class="icon-star" width="24" height="24">
+                        <use href="./images/star.svg#icon-star"></use>
+                        </svg>
+                    
+                    <input type="radio" class="rating_item" value="2" name="rating">
+                     <svg class="icon-star" width="24" height="24">
+                        <use href="./images/star.svg#icon-star"></use>
+                        </svg>
+                   
+                    <input type="radio" class="rating_item" value="3" name="rating">
+                     <svg class="icon-star" width="24" height="24">
+                        <use href="./images/star.svg#icon-star"></use>
+                        </svg>
+                    
+                    <input type="radio" class="rating_item" value="4" name="rating">
+                     <svg class="icon-star" width="24" height="24">
+                        <use href="./images/star.svg#icon-star"></use>
+                        </svg>
+                    
+                    <input type="radio" class="rating_item" value="5" name="rating">
+                     <svg class="icon-star" width="24" height="24">
+                        <use href="./images/star.svg#icon-star"></use>
+                        </svg>
+                    
+                </div></ul>
+            </div>
+            </div>
+        </div>
+    </div></form>
+    <title>
+    <input type="email" name="online-name" id="online-name" class="online-input" placeholder="E-mail">
+    <button type="submit" class="from_btn btn">Send</button></title>
+
+</div>-->
+<script type="module" src="./js/rating.js"></script>
+<script type="module" src="./css/modal_rating.css"></script>
+<div class="backdrop__rating is-hidden">
+  <div class="rating__modal">
+    <form class="rating__form">
+      <label class="rating-text">Rating</label>
+      <div class="rating__wrap rating set__rating">
+        <p class="rating__value">0.0</p>
+        <div class="star__wrap">
+          <svg class="rating__icon" width="24" height="24">
+            <use href="./images/star.svg#icon-star"></use>
+          </svg>
+          <svg class="rating__icon" width="24" height="24">
+            <use href="./images/star.svg#icon-star"></use>
+          </svg>
+          <svg class="rating__icon" width="24" height="24">
+            <use href="./images/star.svg#icon-star"></use>
+          </svg>
+          <svg class="rating__icon" width="24" height="24">
+            <use href="./images/star.svg#icon-star"></use>
+          </svg>
+          <svg class="rating__icon" width="24" height="24">
+            <use href="./images/star.svg#icon-star"></use>
+          </svg>
+        </div>
+        <div class="radio__wrap">
+          <input type="radio" class="rating__radio" value="1" name="rating" />
+          <input type="radio" class="rating__radio" value="2" name="rating" />
+          <input type="radio" class="rating__radio" value="3" name="rating" />
+          <input type="radio" class="rating__radio" value="4" name="rating" />
+          <input type="radio" class="rating__radio" value="5" name="rating" />
+        </div>
+      </div>
+      <input
+        class="rating__input"
+        type="email"
+        name="email"
+        placeholder="Enter email"
+      />
+      <button class="rating__submit" type="submit">Send</button>
+      <button class="close__rating__btn" type="button">
+        <svg class="close__icon" width="20" height="20">
+          <use href="./images/star.svg#icon-reviews-1"></use>
         </svg>
       </button>
-      <div class="rating-block">
-        <div class="rating-block-star">
-          <h2 class="block-star-txt">Rating</h2>
-          <div class="rating-star">
-            <p class="rating_value">0.0</p>
-            <input
-              type="radio"
-              id="star1"
-              name="rating"
-              value="1"
-              class="star-input"
-            />
-            <label for="star1" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/icons.svg#icon-Star-1"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star2"
-              name="rating"
-              value="2"
-              class="star-input"
-            />
-            <label for="star2" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/icons.svg#icon-Star-1"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star3"
-              name="rating"
-              value="3"
-              class="star-input"
-            />
-            <label for="star3" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/icons.svg#icon-Star-1"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star4"
-              name="rating"
-              value="4"
-              class="star-input"
-            />
-            <label for="star4" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/icons.svg#icon-Star-1"></use>
-              </svg>
-            </label>
-            <input
-              type="radio"
-              id="star5"
-              name="rating"
-              value="5"
-              class="star-input"
-            />
-            <label for="star5" class="star-label">
-              <svg class="star-rating" viewBox="0 0 24 24">
-                <use href="./images/icons.svg#icon-Star-1"></use>
-              </svg>
-            </label>
-          </div>
-        </div>
-        <p class="rating-block-txt"></p>
-      </div>
-      <div class="rating-email">
-        <input
-          type="email"
-          id="email-1"
-          name="email"
-          placeholder="Enter your email"
-          class="order-form-input rating-form-input email-form-valid input-js email-rating"
-          required
-        />
-        <button type="submit" class="rating-email-btn submit-btn" disabled>
-          Send
-        </button>
-      </div>
-    </div>
+    </form>
   </div>
-</div> -->
+</div>
