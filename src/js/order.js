@@ -46,6 +46,22 @@ closeOrderBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeOnEscape);
 modalOrder.addEventListener('click', closeOnOverlay);
 
+// Повертаю дані localhost
+function fillTextarea() {
+  const savedText = JSON.parse(localStorage.getItem(infoOrder));
+  if (!savedText) return;
+
+  if (savedText.name) {
+    form.elements.name.value = savedText.name;
+  }
+  if (savedText.phone) {
+    form.elements.phone.value = savedText.phone;
+  }
+  if (savedText.email) {
+    form.elements.email.value = savedText.email;
+  }
+}
+
 // * через бібліотеку  basicLightbox * //
 
 // const htmlInstance = basicLightbox.create(
