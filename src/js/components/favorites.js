@@ -2,12 +2,7 @@ import card from '../../images/card/card.png'
 
 
 
-<<<<<<< Updated upstream
-
-import {addClass, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
-=======
 import {findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
->>>>>>> Stashed changes
 import { LOCALSTORAGE_KEY_FAVORITES, handleGetLocalStorage, handleSetLocalStorage } from './localstorage'
 import {renderCards, renderCategoeries} from './render'
 
