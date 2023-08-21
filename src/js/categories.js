@@ -1,9 +1,7 @@
 import { Notify } from "notiflix";
 import { getCategories, getFilteredRecipes } from "./api"
 import { clearFilters, createMurcupGallery } from "./filter";
-import {
-    handlerAllCategoriesBtn, handlerSpecificCategoriesBtn,
-} from "./hendlers_filter";
+import { handlerAllCategoriesBtn, handlerSpecificCategoriesBtn } from "./hendlers_filter";
 
 
 

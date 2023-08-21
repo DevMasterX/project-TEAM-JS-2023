@@ -53,6 +53,7 @@
   background-color: transparent;
   border: transparent;
   padding: 0;
+  cursor: pointer;
 }
 .filter-input-search-icon {
   stroke: #050505;
@@ -84,11 +85,11 @@
   outline: none;
   border: 1px solid rgba(5, 5, 5, 0.2);
 }
-
-.filter-form-input:not(:placeholder-shown),
-.filter-form-input:focus,
-.filter-form-input:active ~ .filter-input-search-icon {
+.filter-form-input:not(:placeholder-shown)
+  ~ .filter-input-reset-container
+  .filter-input-reset-btn {
   stroke: #9bb537;
+  fill: 9bb537;
 }
 
 /* .filter-form-input:not(:placeholder-shown),
@@ -215,24 +216,30 @@
   background-color: transparent;
   border-color: transparent;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
+  /* display: block; */
+  width: 28px;
   height: 22px;
   padding: 0;
   cursor: pointer;
 }
 .filter-gallery-item-favorit-btn-icon {
-  position: absolute;
-  top: 0;
   display: block;
-  width: 22px;
+  width: 29px;
   height: 22px;
   margin: 0;
   padding: 0;
-
+  z-index: 100;
   stroke: #f8f8f8;
+  fill: none;
+  transition: fill 0.3s ease-in-out;
+}
+
+.filter-gallery-item-favorit-btn:hover .filter-gallery-item-favorit-btn-icon {
+  fill: #f8f8f8;
+}
+
+.filter-gallery-item-favorit-btn:active .filter-gallery-item-favorit-btn-icon {
+  fill: #f8f8f8;
 }
 .filter-gallery-item-tittle {
   display: block;

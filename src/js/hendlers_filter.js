@@ -6,10 +6,11 @@ import Gallery from './gallery';
 
 const formFilter = document.querySelector(".filter-form");
 const resetButton = document.querySelector(".filter-input-reset-btn");
-
+const searchBtn = document.querySelector(".filter-search-btn");
 const inputForm = document.querySelector(".filter-form-input");
 const selectes = document.querySelectorAll(".filter-form-select");
 const buttons = [];
+let searchBtnClicked = false;
 
 
 async function handlerAllCategoriesBtn(evt, galleryElement) {
@@ -20,7 +21,7 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
     try {
         const recipes = await getFilteredRecipes();
         const { results } = recipes;
-        // createMurcupGallery(recipes);
+
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(galleryElement, marcup);
 
@@ -35,6 +36,8 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
         Notify.failure(err.message);
     }
 }
+
+
 
 async function handlerSpecificCategoriesBtn(evt, galleryElement) {
     evt.preventDefault();
@@ -68,7 +71,14 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
 
 
 async function handlerFilterForm(evt) {
+
     evt.preventDefault();
+    console.log(evt);
+    searchBtnClicked = false;
+    selectes.forEach(select => {
+        select.removeEventListener("change", handlerFilterForm);
+    });
+
     selectes.forEach(select => {
         select.addEventListener("change", handlerFilterForm);
     });
@@ -167,7 +177,8 @@ export {
     handlerSpecificCategoriesBtn,
     handlerFilterForm,
     findActiveBtn,
-    disactivBtn
+    disactivBtn,
+    searchBtnClicked
 }
 
 

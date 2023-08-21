@@ -5,11 +5,12 @@ import { getFilteredRecipes, getAreas, getIngredients } from './api';
 import { debounce } from 'lodash';
 import Gallery from './gallery';
 import { handlerFilterForm } from './hendlers_filter';
+import { searchBtnClicked } from './hendlers_filter';
 
 
 
 const inputForm = document.querySelector(".filter-form-input");
-const searchBtn = document.querySelector(".ilter-search-btn")
+// const searchBtn = document.querySelector(".filter-search-btn");
 const resetFormButton = document.querySelector(".filter-reset-btn")
 const selectes = document.querySelectorAll(".filter-form-select");
 const gallery = document.querySelector(".filter-gallery-list");
@@ -21,9 +22,17 @@ const selectIngr = document.getElementById("ingredients-select");
 startGallery();
 createOptionsSelect()
 
-inputForm.addEventListener('input', debounce(() => { handlerFilterForm() }, 3000));
-searchBtn.addEventListener("submit", handlerFilterForm)
+
+inputForm.addEventListener('input', debounce((evt) => { if (!searchBtnClicked) { handlerFilterForm(evt) } }, 3000));
+// inputForm.addEventListener('input', debounce((evt) => { handlerFilterForm(evt) }, 3000));
+inputForm.addEventListener("submit", handlerFilterForm)
 resetFormButton.addEventListener("click", clearFilters)
+searchBtn.addEventListener("click", function () {
+    searchBtnClicked = true;
+    form.dispatchEvent(new Event("submit"));
+});
+
+
 
 
 async function createOptionsSelect() {
@@ -91,7 +100,7 @@ async function startGallery() {
         const { page, results, totalPage } = recipes;
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(gallery, marcup);
-        // createMurcupGallery(recipes);
+
         if (page < totalPage) {
             // ПАГІНКАЦІЯ.classList.remove('is-hidden');
             // ПАГІНАЦІЯ.addEventListener('click', handlerLoad);
