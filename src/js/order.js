@@ -14,19 +14,18 @@ formOrderBtn.addEventListener('submit', event => {
 function openModal() {
   modalOrder.classList.remove('is-hidden');
   document.body.classList.add('no-scroll');
-
-  openOrderNow.removeEventListener('click', openModal);
-  // openShoppingBtn.removeEventListener('click', openModal);
 }
+// Знімаєю слухачі
+openOrderNow.removeEventListener('click', openModal);
+openShoppingBtn.removeEventListener('click', openModal);
 
 function closeModal() {
   modalOrder.classList.add('is-hidden');
   document.body.classList.remove('no-scroll');
-
-  // Знімаєю слухачі
-  document.removeEventListener('keydown', closeOnEscape);
-  modalOrder.removeEventListener('click', closeOnOverlay);
 }
+// Знімаєю слухачі
+document.removeEventListener('keydown', closeOnEscape);
+modalOrder.removeEventListener('click', closeOnOverlay);
 
 function closeOnOverlay(e) {
   if (e.target === modalOrder) {
@@ -41,7 +40,7 @@ function closeOnEscape(e) {
 }
 
 // Додаю слухачі
-// openShoppingBtn.addEventListener('click', openModal);
+openShoppingBtn.addEventListener('click', openModal);
 openOrderNow.addEventListener('click', openModal);
 closeOrderBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeOnEscape);

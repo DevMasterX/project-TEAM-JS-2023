@@ -119,18 +119,9 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* .container {
-    max-width: 768px;
-  } */
   .order-form-wrapper {
     padding: 40px;
     width: 440px;
     height: 632px;
   }
 }
-
-/* @media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-} */
