@@ -49,7 +49,7 @@
 }
 
 .events,
-.event {
+.slider-card {
   display: flex;
 }
 .case {
@@ -67,15 +67,15 @@
   overflow: hidden;
 }
 
-.page {
+.slider-pagination {
   margin: 24px 0 0 155px;
 }
 
-.event {
+.slider-card {
   display: flex;
 }
 
-.cook {
+.chief-cook {
   height: 280px;
   width: 80px;
   background-position: center;
@@ -85,7 +85,7 @@
   display: block;
 }
 
-.preview-deash-card {
+.mini-picture-card {
   height: 280px;
   width: 200px;
   background-color: #050505;
@@ -97,7 +97,7 @@
   display: flex;
 }
 
-.preview-deash {
+.mini-picture {
   height: 150px;
   width: 150px;
   background-position: center;
@@ -107,7 +107,7 @@
   display: block;
 }
 
-.deash-name {
+.dish-name {
   text-align: center;
   color: rgb(248, 248, 248, 0.6);
   text-transform: uppercase;
@@ -118,14 +118,14 @@
   display: block;
 }
 
-.deash-area {
+.country {
   color: rgb(248, 248, 248, 0.2);
   font-size: 8px;
   line-height: 12px;
   display: block;
 }
 
-.deash {
+.big-picture {
   height: 280px;
   width: 185px;
   background-position: 45%;
@@ -170,32 +170,32 @@ span.swiper-pagination-bullet-active {
   .case {
     width: 889px;
   }
-  .page {
+  .slider-pagination {
     margin-left: 300px;
   }
-  .cook {
+  .chief-cook {
     height: 442px;
     width: 137px;
   }
-  .preview-deash-card {
+  .mini-picture-card {
     height: 442px;
     width: 351px;
     margin: 0 16px;
   }
-  .preview-deash {
+  .mini-picture {
     height: 262px;
     width: 262px;
   }
-  .deash-name {
+  .dish-name {
     width: 276px;
     font-size: 14px;
     line-height: 18px;
   }
-  .deash-area {
+  .country {
     font-size: 12px;
     line-height: 14px;
   }
-  .deash {
+  .big-picture {
     height: 442px;
     width: 351px;
     background-size: 850px;
