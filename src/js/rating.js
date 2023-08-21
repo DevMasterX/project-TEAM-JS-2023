@@ -101,9 +101,9 @@
 
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import { recipeID } from './api'
+import { recipeID } from './pagination'
 
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/pagination';
 
 const refs = {
     ratingModal: document.querySelector(`.backdrop__rating`),
