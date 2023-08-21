@@ -4,14 +4,12 @@ class Gallery {
     }
 
     static createMarkupCard({ results }) {
-        const markupCard = results.map(({ description, preview, rating, title }) => {
-            return ` <li class="filter-gallery-item">
+        const markupCard = results.map(({ description, preview, rating, title, _id: idRecip, category }) => {
+            return ` <li class="filter-gallery-item" data-attribute="${category}" id="${idRecip}">
             <img class="filter-gallery-item-photo" src="${preview}" alt="${title}" width="250" height="287">
             <div class="filter-gallery-item-content">
                 <button type="button" class="filter-gallery-item-favorit-btn">
-                    <svg class="filter-gallery-item-favorit-btn-icon">
-                        <use href="./images/forcard.svg#icon-heart" width ="22" height="22"></use>
-                    </svg>
+            
                 </button>
                 <h3 class="filter-gallery-item-tittle" >${title}</h3>
                 <p class="filter-gallery-item-description">${description}</p>
@@ -27,6 +25,8 @@ class Gallery {
         }).join("");
 
         return markupCard;
+
+
     }
 
 

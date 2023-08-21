@@ -40,11 +40,22 @@
   position: relative;
   display: block;
 }
-.filter-input-search-icon {
+
+.filter-search-btn {
   position: absolute;
   top: 50%;
   left: 18px;
   transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  background-color: transparent;
+  border: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.filter-input-search-icon {
   stroke: #050505;
   fill: #050505;
   width: 16px;
@@ -74,17 +85,23 @@
   outline: none;
   border: 1px solid rgba(5, 5, 5, 0.2);
 }
-
-.filter-form-input:not(:placeholder-shown),
-.filter-form-input:focus,
-.filter-form-input:active ~ .filter-input-search-icon {
+.filter-form-input:not(:placeholder-shown)
+  ~ .filter-input-reset-container
+  .filter-input-reset-btn {
   stroke: #9bb537;
+  fill: 9bb537;
 }
 
-.filter-form-input:not(:placeholder-shown),
-.filter-input-reset-container .filter-input-reset-btn {
+/* .filter-form-input:not(:placeholder-shown),
+.filter-input-reset-container + .filter-input-reset-btn {
+  display: inline-block;
+} */
+.filter-form-input:not(:placeholder-shown)
+  ~ .filter-input-reset-container
+  .filter-input-reset-btn {
   display: inline-block;
 }
+
 .filter-input-reset-icon {
   stroke: #050505;
   fill: #050505;
@@ -156,10 +173,6 @@
   gap: 40px;
   margin-left: auto;
   margin-right: auto;
-
-  list-style: none;
-  padding-inline-start: initial;
-  /* перевірити після оновлення мейну, чи можна прибрати  */
 }
 
 .filter-gallery-item {
@@ -190,6 +203,7 @@
   top: 0;
   padding: 16px;
 }
+
 .filter-gallery-item-favorit-btn {
   position: absolute;
   top: 16px;
@@ -197,22 +211,39 @@
 
   background-color: transparent;
   border-color: transparent;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
+  background-image: url(../images/heart_transp.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 28px;
   height: 22px;
   padding: 0;
   cursor: pointer;
 }
-.filter-gallery-item-favorit-btn-icon {
+/* .filter-gallery-item-favorit-btn-icon {
   display: block;
-  width: 22px;
+  width: 29px;
   height: 22px;
   margin: 0;
   padding: 0;
+  z-index: 100;
+  stroke: #f8f8f8;
+  fill: none;
+  transition: fill 0.3s ease-in-out;
+} */
+/* 
+.filter-gallery-item-favorit-btn:hover,
+.filter-gallery-item-favorit-btn:focus {
+  background-image: url(../images/heart_wite.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+
+.filter-gallery-item.favorite .filter-gallery-item-favorit-btn {
+  background-image: url(../images/heart_wite.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 .filter-gallery-item-tittle {
   display: block;
   color: #f8f8f8;

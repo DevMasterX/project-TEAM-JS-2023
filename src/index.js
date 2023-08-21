@@ -11,3 +11,6 @@ import './js/local-storage.js';
 import './js/pagination.js';
 import './js/popular_recipes.js';
 import './js/theme.js';
+import './js/rating.js';
+import './js/burger-menu.js';
+import './js/modal_our_team.js';

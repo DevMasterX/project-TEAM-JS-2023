@@ -10,6 +10,12 @@
 @import url('./popular_recipes.css');
 @import url('./pagination.css');
 @import url('./theme.css');
+@import url('./modal_our_team.css');
+
+/* add favorites css */
+@import url('./favorites/_my_favorites.css');
+/* add favorites css */
+
 body {
   background-color: #f8f8f8;
   color: #050505;
@@ -31,11 +37,27 @@ img {
 .container {
   width: 100%;
   margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
+
+/* add favorites css */
+/* @media screen and (min-width: 320px) {
+  .container {
+    max-width: 320px;
+  }
+} */
+/* add favorites css */
 
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .recipe-container {
+    display: flex;
   }
 }
 

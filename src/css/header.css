@@ -1,0 +1,166 @@
+:root {
+   --color-header-black: #050505;
+   
+   --color-header-green: #9BB537;
+   --color-white: #fafafa;
+   --color-white-secondary: #fff;
+ }
+
+ .list {
+   list-style: none;
+ }
+ 
+ 
+
+  .header-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   /* outline: 2px solid red  ; */
+   
+}
+
+.header-nav {
+   display: flex;
+}
+
+.header-logo {
+   display: flex;
+
+  
+}
+
+@media screen and (min-width: 768px) {
+    .header-logo {
+      align-items: center;
+      margin-left: 203px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+   .header-logo {
+      margin-left: 391px;
+   }
+}
+.links {
+   text-decoration: none;
+}
+.header-logo-text {
+font-weight: 600;  
+font-size: 16px;
+line-height: calc(18 / 16);
+letter-spacing: -0.04em;
+text-align: center;
+}
+
+@media screen and (min-width: 1280px) {
+   .header-logo-text {
+      line-height: calc(20/ 18);
+      letter-spacing: -4%; 
+   }
+}
+
+.header-nav-list {
+   padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+   .header-nav-list {
+      display: none;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .header-nav-list {
+display: flex;
+gap: 16px;
+   }
+   
+}
+
+
+.header-logo-accent {
+   color: var(--color-header-green);
+}
+.header-logo-icon-wrapper {
+}
+.header-logo-icon {
+}
+
+.list {
+}
+.header-nav-item {
+}
+.header-link-home:hover,
+.header-link-home:focus,
+.header-link-home:active {
+   text-decoration: underline;
+   
+   fill: var(--color-header-green);
+
+}
+
+.header-link-favorites:hover,
+.header-link-favorites:focus,
+.header-link-favorites:active{
+ text-decoration: underline;
+   fill: var(--color-header-green);
+}
+
+ .burger-menu-open-btn {
+   
+   background-color: transparent;
+   border: none;
+   padding: 0;
+   line-height: 0;
+}
+
+@media screen and (min-width: 768px){
+   .burger-menu-open-btn {
+      display: none;
+   }
+}
+  
+
+
+
+.js-open-menu {
+}
+.burger-menu-open-btn-icon {
+   
+stroke: var(--color-header-black);
+
+}
+
+.icon-link {
+}
+
+
+.shopping-btn {
+   background-color: transparent;
+   border: none;
+   padding: 0;
+   line-height: 0;
+
+}
+.js-open-menu {
+}
+.shopping-btn-icon {
+   stroke: var(--color-header-black);
+   fill: var(--color-white);
+   
+}
+
+.header-bloc-btn {
+   display: flex;
+   gap: 14px;
+}
+
+/* =============MOBILE MENU====================== */
+
+
+
+
+
+/* =============TABLET MENU====================== */
