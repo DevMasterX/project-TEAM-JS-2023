@@ -1,24 +1,33 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
-listForStorage.addEventListener('click', e => {
-  const cardBody = e.target.parentElement.parentElement;
-  const recipeInfo = {
-    id: cardBody.id,
-    name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
-    image: cardBody.querySelector('.filter-gallery-item-photo').src,
-    rating: cardBody.querySelector('.filter-gallery-item-rating-value')
-      .textContent,
-    description: cardBody.querySelector('.filter-gallery-item-description')
-      .textContent,
-  };
-  if (e.target.nodeName === 'P') {
-    e.target.classList.add('favorite');
 
-    recipeDB.saveIntoDB(recipeInfo);
-  }
-  if (e.target.nodeName === 'H3') {
-    recipeDB.removeFromDB(recipeInfo.name);
-  }
+
+
+listForStorage.addEventListener('click', (e)=>{
+    const cardBody = e.target.parentElement.parentElement;
+    const recipeInfo = {
+        id: cardBody.id,
+        name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
+        image:cardBody.querySelector('.filter-gallery-item-photo').src,
+        rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
+        description: cardBody.querySelector('.filter-gallery-item-description').textContent,
+    }
+ 
+    if(cardBody.classList.contains('favorite')){  if(e.target.nodeName === 'H3'){recipeDB.removeFromDB(recipeInfo.name)
+        cardBody.classList.remove('favorite')}}
+ 
+        if(cardBody.classList.contains('favorite'))return
+   
+    if(e.target.nodeName === 'P'){
+
+        cardBody.classList.add('favorite')
+   
+        recipeDB.saveIntoDB(recipeInfo);
+
+    }
+ 
+
+
 });
 
 class RecipeDB {
