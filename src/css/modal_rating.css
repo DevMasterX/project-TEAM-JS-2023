@@ -1,28 +1,26 @@
 .modal {
-    width: 424px;
- height: 254px;
- border-radius: 15px;
-background: #FFF;
-
+  width: 424px;
+  height: 254px;
+  border-radius: 15px;
+  background: #fff;
 }
 .modal-close-btn {
-width: 24px;
-height: 24px;
-flex-shrink: 0;
-color: #050505;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #050505;
 }
 .wrapper {
 }
 .rat {
-    color: #050505;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 18px;
+  color: #050505;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
 }
 .form {
-
 }
 .form_margin {
 }
@@ -37,12 +35,12 @@ line-height: 18px;
 .rating_bodi {
 }
 .rating_value {
-    color: #050505;
-font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px;
+  color: #050505;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
 .rating_active {
 }
@@ -59,72 +57,69 @@ line-height: 24px;
 .btn {
 }
 
-
-
-
 .rat {
-    color: #050505;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 18px; /* 128.571% */
+  color: #050505;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 128.571% */
 }
 .rating {
-    display: flex;
-    align-items: flex-end;
-    font-size: 40px;
-    line-height: 0.75;
+  display: flex;
+  align-items: flex-end;
+  font-size: 40px;
+  line-height: 0.75;
 }
 .rating_body {
-    position: relative;
+  position: relative;
 }
-.rating_body::before{
-    display: flex;
-    align-items: flex-start;
-    gap: 2px;
+.rating_body::before {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
 }
 .rating_active {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 .rating_active::before {
-    content: var(--star-active);
-    position: absolute;
-    width: 0%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    color: #EEA10C;
+  content: var(--star-active);
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #eea10c;
 }
-.rating_items{
-display: flex;
-position: absolute;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
+.rating_items {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
-.rating_item{
-flex: 0 0 20%;
-opacity: 0;
-height: 100%;
+.rating_item {
+  flex: 0 0 20%;
+  opacity: 0;
+  height: 100%;
 }
-.rating_value{
-    font-size: 50%;
-    line-height: 1;
-    padding: 0px 0px 0px 10px;
+.rating_value {
+  font-size: 50%;
+  line-height: 1;
+  padding: 0px 0px 0px 10px;
 }
 .c-icon {
-    --star-active: #fece3c;
-    --star-inactive: #6c6962;
-    fill: var(--star-inactive);
+  --star-active: #fece3c;
+  --star-inactive: #6c6962;
+  fill: var(--star-inactive);
 }
 
 .c-icon.active {
-    fill: var(--star-active);
+  fill: var(--star-active);
 }

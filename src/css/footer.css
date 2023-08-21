@@ -55,17 +55,15 @@ a:focus {
   transition: all 0.3s ease;
 }
 .show-btn:active {
-  filter: brightness(1.2); /* Збільшення яскравості на 20% при натисканні */
+  filter: brightness(1.2);
 }
 
 .show-btn:hover,
 .show-btn:focus {
   background-color: var(--btn-to-top-hover-bg-color);
-  transform: scale(
-    1.05
-  ); /* Зробимо кнопку трохи більшою при наведенні та фокусі */
-  outline: none; /* Відключимо стандартний outline */
-  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color); /* Додаємо свою видиму рамку для фокусу */
+  transform: scale(1.05);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color);
 }
 .site-footer {
   background-color: var(--footer-bg-color);
@@ -233,4 +231,92 @@ a:focus {
     width: 55px;
     height: 55px;
   }
+}
+.footer {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .footer__container {
+    flex-direction: column;
+  }
+
+  .footer__container .footer__desc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer__container .footer__text {
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .footer {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}
+
+.footer__container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__copyright {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+  margin-right: 5px;
+}
+
+.footer__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.footer__desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+}
+
+.footer__icon {
+  margin: 0 10px 0 10px;
+  animation: Scale 0.7s ease infinite alternate;
+}
+
+.footer__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
+}
+
+.footer__link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  color: var(--muted-text-clr);
 }

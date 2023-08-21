@@ -1,37 +1,39 @@
-// import { result } from 'lodash';
 import CSS from '../css/styles.css';
 import { getRecipeDetails } from './api';
 
+const body = document.querySelector("body");
 const modalWindow = document.querySelector('.r-modal');
-// const openMod = document.querySelector('.filter-gallery-item-btn');
 const seeModal = document.querySelector('.r-modal-backdrop');
-
-seeModal.addEventListener('click', closeModal);
-
+const openrModalClick = document.querySelector('.filter-gallery-item-btn');
 
 let toId = '6462a8f74c3d0ddd28897fc1';
 
 function loadContent() {
+    document.addEventListener('keydown', closeOnEscape);
+    seeModal.addEventListener('click', closeModal);
+
+    // body.classList.add("no-scroll");
+
     return getRecipeDetails(toId).then( data => modalWindow.insertAdjacentHTML('afterbegin', addContent(data))).catch(err => console.log(err));
 }
 
-console.log(getRecipeDetails(toId).then( data => console.log(data)));
+// console.log(getRecipeDetails(toId).then( data => console.log(data)));
 
 function addContent(arr) {
     const {title, instructions, ingredients, video, preview, rating, tags, time } = arr;
 
     let newTags ='';
     tags.forEach(element => {
-        newTags+= `<span>${element}</span>`;
+        newTags+= `<span class="r-modal-tag">#${element}</span>`;
     });
 
     let newIngredients ='';
     ingredients.forEach(element => {
-        newIngredients+= `<div>${element.name}<span>${element.measure}</span></div>`
+        newIngredients+= `<div class="r-modal-ingerdients-name">${element.name}<div class="r-modal-ingerdients-value">${element.measure}</div></div>`
     });
 
     return `
-    <h1>${title}</h1>
+    <h1 class="r-modal-name">${title.toUpperCase()}</h1>
     <video class="r-modal-video"
     src="${video}"
     poster="${preview}"
@@ -40,21 +42,26 @@ function addContent(arr) {
     loop
     preload="auto"
     ></video>
-    <div>${newTags}</div>
-    <div>${rating}</div>
-    <div>${time} min</div>
-    <div>${newIngredients}</div>
-    <p>${instructions}</p>`;
+    <div class="r-modal-info-container"><div class="r-modal-tags">${newTags}</div>
+    <div class="r-modal-rating-container"><div class="r-modal-rating">${rating}</div>
+    <div class="r-modal-rating-stars-icon">&#9734; &#9734; &#9734; &#9734; &#9734;</div>
+    <div class="r-modal-time">${time} min</div></div></div>
+    <div class="r-modal-ingerdients-container">${newIngredients}</div>
+    <p class="r-modal-instructions">${instructions}</p>`;
 };
-
-loadContent();
-
-// function openModal(event) {
-//     seeModal.classList.remove('visually-hidden');
-//     console.log('click');
-// }
 
 function closeModal(event) {
     seeModal.classList.add('visually-hidden');
+    // body.classList.remove("no-scroll");
+
+    document.removeEventListener('keydown', closeOnEscape);
+    seeModal.removeEventListener('click', closeModal);
 }
 
+function closeOnEscape(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  }
+
+loadContent();
