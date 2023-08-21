@@ -2,10 +2,17 @@ const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
 
 
+  // const favFav = document.querySelector('.filter-gallery-item-favorit-btn');
+  // favFav?.addEventListener('click', ()=> alert('fff'))
+export function onFavBtnClick () {console.log('gi')}
+
+
+
 
 listForStorage.addEventListener('click', (e)=>{
+
     const cardBody = e.target.parentElement.parentElement;
-  
+  console.dir(e.target.classList)
     const recipeInfo = {
         category: cardBody.dataset.attribute,
         id: cardBody.id,
@@ -15,12 +22,16 @@ listForStorage.addEventListener('click', (e)=>{
         description: cardBody.querySelector('.filter-gallery-item-description').textContent,
     }
  
-    if(cardBody.classList.contains('favorite')){  if(e.target.nodeName === 'H3'){recipeDB.removeFromDB(recipeInfo.name)
-        cardBody.classList.remove('favorite')}}
+    if(cardBody.classList.contains('favorite') && e.target.nodeName === 'H3'){  
+  
+        recipeDB.removeFromDB(recipeInfo.name)
+        cardBody.classList.remove('favorite')
+      
+    }
  
-        if(cardBody.classList.contains('favorite'))return
+        if(cardBody.classList.contains('favorite'))return;
    
-    if(e.target.nodeName === 'P'){
+    if(e.target.nodeName === 'BUTTON'){
 
         cardBody.classList.add('favorite')
    
