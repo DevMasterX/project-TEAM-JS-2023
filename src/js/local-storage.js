@@ -1,5 +1,8 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
+
+
+
 listForStorage.addEventListener('click', (e)=>{
     const cardBody = e.target.parentElement.parentElement;
     const recipeInfo = {
