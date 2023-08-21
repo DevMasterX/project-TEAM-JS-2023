@@ -7,6 +7,7 @@
   --btn-to-top-fill-color: rgb(53, 242, 201);
   --focus-visible-box-shadow-color: rgba(0, 0, 0, 0.5);
   --btn-to-top-hover-bg-color: rgb(255, 115, 115);
+  --muted-text-clr: #a9a9a9; /* Припустимо це середній сірий колір. */
 }
 /* Загальні стилі для використання шрифта Inter */
 input,
@@ -16,36 +17,29 @@ a,
 span,
 li {
   font-family: 'Inter', sans-serif;
-  transition: all 0.3s ease; /* плавний перехід для всіх властивостей */
+  transition: all 0.3s ease;
+  font-size: 15px; /* плавний перехід для всіх властивостей */
 }
 
 /* Основні стилі для заголовків */
 
-h3 {
-  font-weight: 700; /* жирний */
-  margin-top: 0;
-  font-size: 1.75em;
-  /* забрати верхній відступ */
-}
-
 /* Стилі для абзаців */
 p {
-  font-weight: 400; /* нормальний */
+  font-weight: 300; /* нормальний */
   line-height: 1.6; /* просторий міжрядковий інтервал для зручності читання */
   margin-bottom: 1em; /* відступ знизу для відокремлення від наступного елемента */
 }
 
-/* Стилі для посилань */
 a {
-  font-weight: 500; /* напівжирний */
-  text-decoration: none; /* видалення підкреслення */
-  color: var(--focus-visible-box-shadow-color); /* основний колір посилань */
+  font-weight: 500;
+  /* text-decoration: none; */
+  color: var(--focus-visible-box-shadow-color);
 }
 
 a:hover,
 a:focus {
-  text-decoration: underline; /* підкреслення при наведенні/фокусу */
-  color: #0056b3; /* темніший відтінок для наведення/фокусу */
+  text-decoration: underline;
+  color: #0056b3;
 }
 
 .site-footer,
@@ -55,113 +49,14 @@ a:focus {
   transition: all 0.3s ease;
 }
 .show-btn:active {
-  filter: brightness(1.2); /* Збільшення яскравості на 20% при натисканні */
+  filter: brightness(1.2);
 }
 
 .show-btn:hover,
 .show-btn:focus {
   background-color: var(--btn-to-top-hover-bg-color);
-  transform: scale(
-    1.05
-  ); /* Зробимо кнопку трохи більшою при наведенні та фокусі */
-  outline: none; /* Відключимо стандартний outline */
-  box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color); /* Додаємо свою видиму рамку для фокусу */
-}
-.site-footer {
-  background-color: var(--footer-bg-color);
-  padding: 20px 0;
-  color: var(--footer-text-color);
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-section {
-  padding: 10px;
-  text-align: center;
-}
-
-.feedback-section {
-  padding: 20px;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 20px 0;
-  border-radius: 5px;
-}
-
-.feedback-section h3,
-.feedback-section p {
-  margin-bottom: 10px;
-}
-
-.feedback-section input[type='email'] {
-  padding: 10px;
-  border: 1px solid var(--footer-text-color);
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-.feedback-section button {
-  padding: 10px 15px;
-  background-color: var(--footer-bg-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--footer-text-color);
-}
-
-.feedback-section button:hover {
-  background-color: var(--btn-to-top-bg-color);
-}
-
-.button-gap {
-  margin-top: 15px;
-}
-
-.f-list {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-}
-
-.footer-media-item {
-  margin: 0;
-}
-
-.footer-media-link {
-  text-decoration: none;
-  color: var(--footer-link-color);
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: var(--footer-link-bg-color);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--footer-text-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.footer-media-icon {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
-
-.footer-media-link:hover,
-.footer-media-link:focus {
-  background-color: var(--footer-text-color);
+  transform: scale(1.05);
   outline: none;
-}
-
-.footer-media-link:focus-visible {
   box-shadow: 0 0 0 3px var(--focus-visible-box-shadow-color);
 }
 
@@ -201,19 +96,6 @@ a:focus {
 }
 
 @media screen and (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .footer-section:first-child {
-    text-align: left;
-  }
-
-  .f-list {
-    gap: 30px;
-  }
-
   .show-btn {
     width: 50px;
     height: 50px;
@@ -221,16 +103,45 @@ a:focus {
 }
 
 @media screen and (min-width: 1280px) {
-  .footer-content {
-    padding: 0 40px;
-  }
-
-  .footer-section {
-    padding: 15px;
-  }
-
   .show-btn {
     width: 55px;
     height: 55px;
+  }
+}
+
+.footer,
+.footer_container {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .footer,
+  .footer_container {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .footer,
+  .footer_container {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+}
+.footer_desc,
+.footer_draw-text {
+  display: inline-block;
+}
+@media (min-width: 1280px) {
+  .footer,
+  .footer_container {
+    padding-top: 50px;
+    padding-bottom: 30px;
   }
 }

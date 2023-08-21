@@ -6,7 +6,7 @@
   padding: 14px 29px;
   color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
-  font-size: 18px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -14,9 +14,12 @@
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
   background: transparent;
+  margin: 0;
   margin-bottom: 38px;
   cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .categories-btn:hover,
 .categories-btn:focus,
 .categories-btn:active {
@@ -76,6 +79,12 @@
 @media screen and (min-width: 768px) {
   .categories-bloc {
     width: 176px;
+  }
+
+  .categories-btn {
+    max-width: 176px;
+    max-height: 50px;
+    /* font-size: ; */
   }
 
   .categories-list {
