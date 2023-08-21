@@ -4,16 +4,7 @@ import { getRecipeDetails } from './api';
 const body = document.querySelector("body");
 const modalWindow = document.querySelector('.r-modal');
 const seeModal = document.querySelector('.r-modal-backdrop');
-// const openrModalClick = document.querySelector('.filter-gallery-item-btn');
-
-// openrModalClick.addEventListener('click', openrModal);
-// if(openrModalClick) {
-    
-// }
-
-// const openrModalClick = document.querySelector('.categories-btn');
-
-
+const openrModalClick = document.querySelector('.filter-gallery-item-btn');
 
 let toId = '6462a8f74c3d0ddd28897fc1';
 
@@ -61,7 +52,6 @@ function addContent(arr) {
 
 function closeModal(event) {
     seeModal.classList.add('visually-hidden');
-    modalWindow.innerHTML = '';
     // body.classList.remove("no-scroll");
 
     document.removeEventListener('keydown', closeOnEscape);
@@ -72,20 +62,6 @@ function closeOnEscape(e) {
     if (e.key === 'Escape') {
       closeModal();
     }
-}
-
-function eventOpenrModal() {
-    console.log('слухач для модалки рецептів активовано');
-}
-
-// function openrModal (event) {
-//     console.log('click');
-//     seeModal.classList.remove('visually-hidden');
-//     loadContent();
-// }
+  }
 
 loadContent();
-
-export {
-    eventOpenrModal
-}

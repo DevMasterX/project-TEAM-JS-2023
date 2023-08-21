@@ -8,19 +8,10 @@
   overflow-y: auto;
   z-index: 998;
   padding: 15px;
-  /* background-color: rgba(0, 0, 0, 0.7); */
+  background-color: rgba(0, 0, 0, 0.7);
   visibility: visible;
   opacity: 1;
 }
-.is-hidden {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
-}
-/* .team_backdrop.is-hidden { */
-/* display: flex; Показуємо модальне вікно/ */
-/* } */
-
 .team_wrapper {
   position: relative;
   z-index: 999;
@@ -28,7 +19,21 @@
   margin-left: auto;
   margin-right: auto;
   padding: 25px 15px 20px;
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);
 }
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+.team_backdrop.is-hidden {
+  display: flex; /* Показуємо модальне вікно */
+}
+
 /* Стилі для кнопки закриття модалки */
 .team_modal-close-btn {
   display: flex;
@@ -42,7 +47,7 @@
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
-  /* color: $black-color; */
+  color: black;
 }
 .team_modal-close-icon {
   fill: #000; /* Колір іконки */
@@ -50,7 +55,7 @@
 .team_title {
   text-align: center;
   text-transform: uppercase;
-  /* color: $black-color; */
+  color: black;
   font-size: 24px;
   margin-bottom: 20px;
 }
@@ -66,7 +71,7 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  /* background: $white-color; */
+  background: white;
   position: relative;
   border-radius: 10px;
   padding-bottom: 5px;
@@ -110,7 +115,7 @@
   border-radius: 10%;
   margin-right: 10px;
   background-color: transparent;
-  /* fill: $black-color; */
+  fill: black;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -129,7 +134,7 @@
   height: 36px;
   border-radius: 50%;
   background-color: transparent;
-  /* fill: $black-color; */
+  fill: black;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -150,7 +155,7 @@
 }
 
 /* Точка перелому для ширини екрана до 768px */
-@media (min-width: 321px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .team_wrapper {
     width: 580px; /* Відключаємо скрол */
   }
@@ -179,20 +184,4 @@
     border-radius: 10px;
     box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33); /* Відключаємо скрол */
   }
-}
-/**---------------------------Lessa________________________________________________________*/
-
-.btn-order-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  outline: none;
-}
-.btn-order-close:hover,
-.btn-order-close:focus {
-  fill: rgb(136, 133, 133);
 }
