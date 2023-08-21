@@ -1,6 +1,8 @@
-
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
+
+
+
 listForStorage.addEventListener('click', (e)=>{
     const cardBody = e.target.parentElement.parentElement;
     const recipeInfo = {
@@ -24,59 +26,52 @@ listForStorage.addEventListener('click', (e)=>{
 
     }
  
+
+
 });
 
-class RecipeDB {getOrderFromLC(){let orderForm;
-    if (!localStorage.getItem('orderForm')) {orderForm = {}
-
-    }else {
-        orderForm = JSON.parse(localStorage.getItem('orderForm'))
+class RecipeDB {
+  getOrderFromLC() {
+    let orderForm;
+    if (!localStorage.getItem('orderForm')) {
+      orderForm = {};
+    } else {
+      orderForm = JSON.parse(localStorage.getItem('orderForm'));
     }
     return orderForm;
-    
-}
-setOrderFormLC(){
-
-    
-const infoOrder = {name:form.elements.name.value,
-    phone:form.elements.phone.value,
-    email:form.elements.email.value}
-    localStorage.setItem('orderForm', JSON.stringify(infoOrder))
-}
-    saveIntoDB(recipe){
-        const recipes = this.getFromDB();
-        recipes.push(recipe)
-        localStorage.setItem('recipes', JSON.stringify(recipes));
-
-    }
-getFromDB() {
+  }
+  setOrderFormLC() {
+    const infoOrder = {
+      name: form.elements.name.value,
+      phone: form.elements.phone.value,
+      email: form.elements.email.value,
+    };
+    localStorage.setItem('orderForm', JSON.stringify(infoOrder));
+  }
+  saveIntoDB(recipe) {
+    const recipes = this.getFromDB();
+    recipes.push(recipe);
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+  }
+  getFromDB() {
     let recipes;
-    if (!localStorage.getItem('recipes')) {recipes = []
-
-    }else {
-        recipes = JSON.parse(localStorage.getItem('recipes'))
+    if (!localStorage.getItem('recipes')) {
+      recipes = [];
+    } else {
+      recipes = JSON.parse(localStorage.getItem('recipes'));
     }
-    return recipes
-}
-removeFromDB(name){
+    return recipes;
+  }
+  removeFromDB(name) {
     const recipes = this.getFromDB();
     recipes.forEach((recipe, index) => {
-if (name === recipe.name){
-    recipes.splice(index, 1)
-}
+      if (name === recipe.name) {
+        recipes.splice(index, 1);
+      }
     });
-    localStorage.setItem('recipes', JSON.stringify(recipes))
-
-}
-
-
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+  }
 }
 const recipeDB = new RecipeDB();
 
-
-form.addEventListener('input', ()=>recipeDB.setOrderFormLC())
-
-
-
-
-
+form.addEventListener('input', () => recipeDB.setOrderFormLC());

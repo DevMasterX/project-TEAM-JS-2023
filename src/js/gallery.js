@@ -39,7 +39,7 @@ class Gallery {
         galleryElement.insertAdjacentHTML("beforebegin", marcup);
     }
 
-}
+} 
 
 
 //ЯК ВИКОРИСТУВАВАТИ
