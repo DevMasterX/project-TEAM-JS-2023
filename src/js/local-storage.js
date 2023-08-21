@@ -10,14 +10,20 @@ listForStorage.addEventListener('click', (e)=>{
         rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
         description: cardBody.querySelector('.filter-gallery-item-description').textContent,
     }
+ 
+    if(cardBody.classList.contains('favorite')){  if(e.target.nodeName === 'H3'){recipeDB.removeFromDB(recipeInfo.name)
+        cardBody.classList.remove('favorite')}}
+ 
+        if(cardBody.classList.contains('favorite'))return
+   
     if(e.target.nodeName === 'P'){
 
-        e.target.classList.add('favorite')
+        cardBody.classList.add('favorite')
    
         recipeDB.saveIntoDB(recipeInfo);
 
     }
-   if(e.target.nodeName === 'H3'){recipeDB.removeFromDB(recipeInfo.name)}
+ 
 });
 
 class RecipeDB {getOrderFromLC(){let orderForm;
