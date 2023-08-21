@@ -37,15 +37,17 @@
     <main>
       <include src="./partials/hero.html"></include>
 
-      <section>
-        <div class="left-section">
-          <include src="./partials/categories.html"></include>
-          <include src="./partials/popular_recipes.html"></include>
+      <section class="recipe-section">
+        <div class="recipe-container container">
+          <div class="left-container">
+            <include src="./partials/categories.html"></include>
+            <include src="./partials/popular_recipes.html"></include>
+          </div>
+          <div class="right-container">
+            <include src="./partials/filter_and_recipes.html"></include>
+          </div>
         </div>
-        <div class="right-container">
-          <include src="./partials/filter_and_recipes.html"></include>
-          <include src="./partials/pagination.html"></include>
-        </div>
+        <include src="./partials/pagination.html"></include>
       </section>
     </main>
 
