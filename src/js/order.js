@@ -5,39 +5,44 @@ const modalOrder = document.querySelector('[data-modal-order]');
 const closeOrderBtn = document.querySelector('[data-modal-close]');
 const formOrderBtn = document.querySelector('.btn-send');
 const openOrderNow = document.querySelector('.btnOrderNow');
-
-openOrderNow.addEventListener('click', () => {
-  modalOrder.classList.remove('is-hidden');
-  document.body.classList.add('no-scroll');
-});
+const openShoppingBtn = document.querySelector('.shopping-btn');
 
 formOrderBtn.addEventListener('submit', event => {
   event.preventDefault();
 });
 
-const closeModal = () => {
+function openModal() {
+  modalOrder.classList.remove('is-hidden');
+  document.body.classList.add('no-scroll');
+
+  openOrderNow.removeEventListener('click', openModal);
+  // openShoppingBtn.removeEventListener('click', openModal);
+}
+
+function closeModal() {
   modalOrder.classList.add('is-hidden');
   document.body.classList.remove('no-scroll');
 
   // Знімаєю слухачі
   document.removeEventListener('keydown', closeOnEscape);
   modalOrder.removeEventListener('click', closeOnOverlay);
-  openOrderNow.removeEventListener('click');
-};
+}
 
-const closeOnEscape = e => {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-};
-
-const closeOnOverlay = e => {
+function closeOnOverlay(e) {
   if (e.target === modalOrder) {
     closeModal();
   }
-};
+}
+
+function closeOnEscape(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+}
 
 // Додаю слухачі
+// openShoppingBtn.addEventListener('click', openModal);
+openOrderNow.addEventListener('click', openModal);
 closeOrderBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeOnEscape);
 modalOrder.addEventListener('click', closeOnOverlay);
