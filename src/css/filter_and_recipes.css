@@ -173,10 +173,6 @@
   gap: 40px;
   margin-left: auto;
   margin-right: auto;
-
-  list-style: none;
-  padding-inline-start: initial;
-  /* перевірити після оновлення мейну, чи можна прибрати  */
 }
 
 .filter-gallery-item {
@@ -215,14 +211,15 @@
 
   background-color: transparent;
   border-color: transparent;
-
-  /* display: block; */
+  background-image: url(../images/heart_transp.png);
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 28px;
   height: 22px;
   padding: 0;
   cursor: pointer;
 }
-.filter-gallery-item-favorit-btn-icon {
+/* .filter-gallery-item-favorit-btn-icon {
   display: block;
   width: 29px;
   height: 22px;
@@ -232,14 +229,19 @@
   stroke: #f8f8f8;
   fill: none;
   transition: fill 0.3s ease-in-out;
-}
+} */
+/* 
+.filter-gallery-item-favorit-btn:hover,
+.filter-gallery-item-favorit-btn:focus {
+  background-image: url(../images/heart_wite.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
 
-.filter-gallery-item-favorit-btn:hover .filter-gallery-item-favorit-btn-icon {
-  fill: #f8f8f8;
-}
-
-.filter-gallery-item-favorit-btn:active .filter-gallery-item-favorit-btn-icon {
-  fill: #f8f8f8;
+.filter-gallery-item.favorite .filter-gallery-item-favorit-btn {
+  background-image: url(../images/heart_wite.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .filter-gallery-item-tittle {
