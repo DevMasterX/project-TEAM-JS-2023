@@ -5,7 +5,7 @@ import { getFilteredRecipes, getAreas, getIngredients } from './api';
 import { debounce } from 'lodash';
 import Gallery from './gallery';
 import { handlerFilterForm } from './hendlers_filter';
-import { searchBtnClicked } from './hendlers_filter';
+// import { searchBtnClicked } from './hendlers_filter';
 
 
 
@@ -23,14 +23,14 @@ startGallery();
 createOptionsSelect()
 
 
-inputForm.addEventListener('input', debounce((evt) => { if (!searchBtnClicked) { handlerFilterForm(evt) } }, 3000));
-// inputForm.addEventListener('input', debounce((evt) => { handlerFilterForm(evt) }, 3000));
-inputForm.addEventListener("submit", handlerFilterForm)
+// inputForm.addEventListener('input', debounce((evt) => { if (!searchBtnClicked) { handlerFilterForm(evt) } }, 3000));
+inputForm.addEventListener('input', debounce((evt) => { handlerFilterForm(evt) }, 3000));
+// inputForm.addEventListener("submit", handlerFilterForm)
 resetFormButton.addEventListener("click", clearFilters)
-searchBtn.addEventListener("click", function () {
-    searchBtnClicked = true;
-    form.dispatchEvent(new Event("submit"));
-});
+// searchBtn.addEventListener("click", function () {
+//     searchBtnClicked = true;
+//     form.dispatchEvent(new Event("submit"));
+// });
 
 
 
