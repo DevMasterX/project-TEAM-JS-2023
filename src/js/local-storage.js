@@ -13,12 +13,40 @@ listForStorage.addEventListener('click', e => {
       .textContent,
   };
 
-  if (cardBody.classList.contains('favorite')) {
-    if (e.target.nodeName === 'H3') {
-      recipeDB.removeFromDB(recipeInfo.name);
-      cardBody.classList.remove('favorite');
+  // const favFav = document.querySelector('.filter-gallery-item-favorit-btn');
+  // favFav?.addEventListener('click', ()=> alert('fff'))
+export function onFavBtnClick () {console.log('gi')}
+
+
+
+
+listForStorage.addEventListener('click', (e)=>{
+const favFav = e.target.classList;
+if(favFav.value === 'filter-gallery-item-favorit-btn'){
+console.dir(favFav)
+  const favArr=document.getElementsByClassName('filter-gallery-item-favorit-btn');
+   console.log(favArr)}
+    const cardBody = e.target.parentElement.parentElement;
+
+    const recipeInfo = {
+        category: cardBody.dataset.attribute,
+        id: cardBody.id,
+        name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
+        image:cardBody.querySelector('.filter-gallery-item-photo').src,
+        rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
+        description: cardBody.querySelector('.filter-gallery-item-description').textContent,
     }
-  }
+ 
+    if(cardBody.classList.contains('favorite') && e.target.nodeName === 'H3'){  
+  
+        recipeDB.removeFromDB(recipeInfo.name)
+        cardBody.classList.remove('favorite')
+      
+    }
+ 
+        if(cardBody.classList.contains('favorite'))return;
+   
+    if(e.target.nodeName === 'BUTTON'){
 
   if (cardBody.classList.contains('favorite')) return;
 
