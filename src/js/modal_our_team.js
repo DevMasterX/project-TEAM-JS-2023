@@ -1,25 +1,43 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Get references to the elements
-  console.log('hello');
-  const openModalButton = document.getElementById('teamOpenBtn');
-  const closeModalButton = document.getElementById('teamCloseBtn');
-  const modalBackdrop = document.getElementById('teamBackdrop');
+  const modal = document.querySelector('[data-modal-team]');
 
-  function showModal() {
-    modalBackdrop.classList.remove('is-hidden');
-    console.log('hello');
+  const openBtn = document.querySelector('.btnOpenNow');
+
+  const closeBtn = document.querySelector('[data-team-close]');
+
+  // Функція відкриття модального вікна
+  function openModal() {
+    modal.classList.remove('is-hidden');
+
+    document.body.classList.add('no-scroll');
   }
 
-  function hideModal() {
-    modalBackdrop.classList.add('is-hidden');
+  // Функція закриття модального вікна
+  function closeModal() {
+    modal.classList.add('is-hidden');
+
+    document.body.classList.remove('no-scroll');
   }
 
-  openModalButton.addEventListener('click', showModal);
-  closeModalButton.addEventListener('click', hideModal);
-  modalBackdrop.addEventListener('click', function (event) {
-    // If clicked outside of the modal content, close the modal
-    if (event.target === modalBackdrop) {
-      hideModal();
+  // Закриття на Escape
+  function closeOnEscape(e) {
+    if (e.key === 'Escape' && !modal.classList.contains('is-hidden')) {
+      closeModal();
     }
-  });
+  }
+
+  // Закриття на клік за межами модалки
+  function closeOnOverlayClick(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  }
+
+  openBtn.addEventListener('click', openModal);
+
+  closeBtn.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', closeOnEscape);
+
+  modal.addEventListener('click', closeOnOverlayClick);
 });
