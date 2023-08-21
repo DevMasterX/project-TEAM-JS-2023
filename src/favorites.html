@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Inter:wght@400;500;600&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page title</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Inter:wght@400;500;600&family=Poppins:wght@600&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+     <!-- Theme -->
+     <include src="./partials/theme.html"></include>
 
-</head>
+     <!-- Header -->
+     <include src="./partials/header.html"></include>
 
-<body>
-  <!-- Theme -->
-  <include src="./partials/theme.html"></include>
+    <main>
 
-  <!-- Header -->
-  <include src="./partials/header.html"></include>
+      <!-- Favorites -->
+      <include src="./partials/my_favorites.html"></include>
+      <div class="pagination-wrap" >
+        <include src="./partials/pagination.html"></include>
+      </div>
+      <div>
+        
+      </div>
+    </main>
 
-  <main>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/burger-menu.html"></include>
+    <include src="./partials/modal_window_recipe.html"></include>
 
-    <!-- Favorites -->
-    <include src="./partials/my_favorites.html"></include>
-    <div class="pagination-wrap">
-      <include src="./partials/pagination.html"></include>
-    </div>
-
-  </main>
-
-  <include src="./partials/footer.html"></include>
-  <include src="./partials/burger-menu.html"></include>
-  <include src="./partials/modal_window_recipe.html"></include>
-  <!-- <include src="./partialsl/modal_our_team.html"></include> -->
-  <script type="module" src="./favorites.js"></script>
-</body>
-
+    <!-- <include src="./partials/modal_our_team.html"></include> -->
+    
+    <!-- <script type="module" src="./index.js"></script> -->
+    <script type="module" src="./favorites.js"></script>
+  </body>
 </html>
+
+
