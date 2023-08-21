@@ -1,37 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const openBtn = document.getElementById('teamOpenBtn');
-  const closeBtn = document.getElementById('teamCloseBtn');
-  const modal = document.getElementById('teamBackdrop');
+  // Get references to the elements
+  console.log('hello');
+  const openModalButton = document.getElementById('teamOpenBtn');
+  const closeModalButton = document.getElementById('teamCloseBtn');
+  const modalBackdrop = document.getElementById('teamBackdrop');
 
-  function openModal() {
-    modal.classList.remove('is-hidden');
-    document.body.style.overflow = 'hidden';
+  function showModal() {
+    modalBackdrop.classList.remove('is-hidden');
+    console.log('hello');
   }
 
-  function closeModal() {
-    modal.classList.add('is-hidden');
-    document.body.style.overflow = 'auto';
+  function hideModal() {
+    modalBackdrop.classList.add('is-hidden');
   }
 
-  if (openBtn) {
-    openBtn.addEventListener('click', openModal);
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener('click', e => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      closeModal();
+  openModalButton.addEventListener('click', showModal);
+  closeModalButton.addEventListener('click', hideModal);
+  modalBackdrop.addEventListener('click', function (event) {
+    // If clicked outside of the modal content, close the modal
+    if (event.target === modalBackdrop) {
+      hideModal();
     }
   });
 });

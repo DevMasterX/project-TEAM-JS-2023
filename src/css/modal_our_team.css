@@ -1,4 +1,4 @@
-.team__backdrop {
+.team_backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,29 +11,12 @@
   visibility: visible;
   opacity: 1;
 }
-.is-hidden {
-  display: none;
-}
 
-.is-hidden {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.is-hidden .team__wrapper {
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0.3;
-  transform: translate(-75%, -90%) scale(3);
-}
-
-.team__wrapper {
+.team_wrapper {
   position: relative;
   z-index: 999;
-  width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 90vw;
+  margin: 0 auto;
   padding: 25px 15px 20px;
   visibility: visible;
   opacity: 1;
@@ -42,119 +25,127 @@
   box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);
 }
 
-.team__modal-close-btn {
+.team_modal-close-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 0px;
+  padding: 0;
   border: none;
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.team__modal-close-btn:hover {
-  color: orange; /* Assuming the value of $orange-color is 'orange' */
+.team_modal-close-btn:hover {
+  color: orange;
 }
 
-.team__modal-close-icon {
+.team_modal-close-icon {
   fill: currentColor;
 }
 
-.team__title {
+.team_title {
   text-align: center;
   text-transform: uppercase;
-  color: black; /* Assuming the value of $black-color is 'black' */
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.team__list {
+.team_list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.2rem;
 }
 
-.team__item {
+@media (max-width: 767px) {
+  .team_list {
+    flex-direction: column;
+  }
+}
+
+.team_item {
+  max-width: 300px;
+  text-align: center;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  background: white; /* Assuming the value of $white-color is 'white' */
-  position: relative;
   border-radius: 10px;
+  overflow: hidden;
   padding-bottom: 5px;
-  overflow: hidden;
 }
 
-.team__wrap {
-  overflow: hidden;
-}
-
-.team__img {
+.team_img {
+  max-width: 100%;
+  height: auto;
   overflow: hidden;
   object-fit: cover;
   margin-bottom: 5px;
-  width: 200px;
-  height: 180px;
 }
 
-.team__box {
+.team_box {
   padding: 10px;
-  text-align: center;
-  margin-bottom: 3px;
 }
 
-.team__member {
+.team_member {
   font-weight: 500;
   font-size: 18px;
-  color: black; /* Assuming the value of $black-color is 'black' */
   margin-bottom: 10px;
 }
 
-.team__role {
+.team_role {
   font-weight: 500;
   font-size: 16px;
-  color: orange; /* Assuming the value of $orange-color is 'orange' */
+  color: orange;
   margin-bottom: 10px;
 }
 
-.team__link-linkedin {
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 10%;
-  margin-right: 10px;
-  background-color: transparent;
-  fill: black; /* Assuming the value of $black-color is 'black' */
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.team__link-linkedin:hover,
-.team__link-linkedin:focus {
-  background-color: orange; /* Assuming the value of $orange-color is 'orange' */
-  fill: white; /* Assuming the value of $white-color is 'white' */
-}
-
+.team_link-linkedin,
 .team__link-github {
   border: none;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
   background-color: transparent;
-  fill: black; /* Assuming the value of $black-color is 'black' */
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
-.team__link-github:hover,
-.team__link-github:focus {
-  background-color: orange; /* Assuming the value of $orange-color is 'orange' */
-  fill: white; /* Assuming the value of $white-color is 'white' */
+.team_link-linkedin {
+  border-radius: 10%;
+  margin-right: 10px;
+}
+
+.team_link-github {
+  border-radius: 50%;
+}
+
+.team_link-linkedin:hover,
+.team_link-github:hover {
+  background-color: orange;
+  fill: white;
+}
+
+@media (min-width: 768px) {
+  .team_wrapper {
+    width: 580px;
+  }
+
+  .team_modal-close-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .team_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 1200px;
+    padding: 30px;
+  }
 }
