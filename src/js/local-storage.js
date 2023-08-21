@@ -2,8 +2,8 @@ const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
 
 
-  // const favFav = document.querySelector('.filter-gallery-item-favorit-btn');
-  // favFav?.addEventListener('click', ()=> alert('fff'))
+
+
 export function onFavBtnClick () {console.log('gi')}
 
 
@@ -37,13 +37,15 @@ console.dir(favFav)
    
     if(e.target.nodeName === 'BUTTON'){
 
-        cardBody.classList.add('favorite')
-   
-        recipeDB.saveIntoDB(recipeInfo);
+  if (cardBody.classList.contains('favorite')) return;
 
-    }
- 
-});
+  if (e.target.nodeName === 'P') {
+    cardBody.classList.add('favorite');
+
+    recipeDB.saveIntoDB(recipeInfo);
+  }
+}}
+);
 
 class RecipeDB {
   getOrderFromLC() {

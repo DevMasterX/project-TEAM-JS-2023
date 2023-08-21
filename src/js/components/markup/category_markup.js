@@ -1,4 +1,4 @@
-export function markupCategory(text) {
+export function markupCategory(text, currentCategory) {
     const html = `
         <span class="my-favorites-category__item-list text-item-category">
             ${text}
