@@ -5,6 +5,7 @@ if (ratings.length > 0) {
 //основная функция
 function initRatings() {
     let ratingActive, ratingValue; 
+}
     //бегаем по всем рейтингам
     for (let index = 0; index < ratings.length; index++){
         const rating = ratings[index];
