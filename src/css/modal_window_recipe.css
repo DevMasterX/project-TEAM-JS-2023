@@ -11,6 +11,10 @@
     overflow: hidden;
   }
 
+  .no-scroll {
+    overflow: hidden;
+  }
+
 .r-modal-backdrop {
     position: fixed;
     top: 0;
@@ -26,24 +30,124 @@
   top: 50%;
   left: 50%;
   width: 531px;
-  height: 905px;
-  padding-left: 32px;
-  padding-right: 32px;
+  min-height: 905px;
+  padding: 32px;
   border-radius: 15px;
   transform: translate(-50%, -50%);
 
-  background-color: #fffdee;
+  background-color: #FFFFFF;
+}
+
+.r-modal-close-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.r-modal-name {
+  padding-bottom: 16px;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .r-modal-video {
   width: 467px;
   height: 250px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.r-modal-info-container {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.r-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  width: 258px;
+  gap: 4px;
+}
+
+.r-modal-tag {
+  height: 30px;
+  padding: 8px 16px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  border-radius: 35px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.r-modal-rating-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 30px;
+  gap: 10px;
+  margin-left: auto;
+  align-content: center;
+}
+
+.r-modal-rating {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.r-modal-rating-stars-icon {
+  height: 16px;
+  color: rgba(238, 161, 12, 1);
+}
+
+.r-modal-time {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.r-modal-ingerdients-container {
+  margin-bottom: 32px;
+}
+
+.r-modal-ingerdients-name {
+  display: flex;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+
+}
+
+.r-modal-ingerdients-value {
+  margin-left: auto;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.r-modal-instructions {
+  margin-bottom: 32px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .favorite-btn {
     Width: 148px;
     Height: 41px;
     padding: 12px 24px;
+    margin-right: 10px;
     background: #9BB537;
     border-radius: 15px;
 
