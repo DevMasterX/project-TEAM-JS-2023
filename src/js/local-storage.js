@@ -21,9 +21,13 @@ export function onFavBtnClick () {console.log('gi')}
 
 
 listForStorage.addEventListener('click', (e)=>{
-
+const favFav = e.target.classList;
+if(favFav.value === 'filter-gallery-item-favorit-btn'){
+console.dir(favFav)
+  const favArr=document.getElementsByClassName('filter-gallery-item-favorit-btn');
+   console.log(favArr)}
     const cardBody = e.target.parentElement.parentElement;
-  console.dir(e.target.classList)
+
     const recipeInfo = {
         category: cardBody.dataset.attribute,
         id: cardBody.id,
