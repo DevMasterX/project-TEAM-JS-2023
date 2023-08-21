@@ -245,6 +245,11 @@ a {
     left: 0;
     right: 0;
 }
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    .card__info {
+        padding: 13px 11px;
+    }
+}
 
 .card-info__container {
 
@@ -301,11 +306,18 @@ a {
 
 .card-info-actions-rating__container {
     display: flex;
-    gap: 4px;
+    align-items: center;
+    gap: 2px;
 }
 
 .card-info-actions-rating__text {
     color: white;
+    font-size: 14px;
+}
+@media screen and (mim-width: 768px) {
+    .card-info-actions-rating__text  {
+        font-size: 16px;
+    }
 }
 
 .card-info-actions-rating__stars {
@@ -346,6 +358,8 @@ a {
 }
 
 .see-description-btn {
+    font-size: 12px;
+
     border: 1px solid #9BB537;
     outline: none;
     padding: 8px 14px;
