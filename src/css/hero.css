@@ -135,6 +135,19 @@
   display: block;
 }
 
+.slider-images {
+  display: flex;
+  gap: 16px;
+}
+
+.image-1,
+.image-2,
+.image-3 {
+  height: 280px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
 span.swiper-pagination-bullet {
   opacity: 1;
   background-color: #050505;
