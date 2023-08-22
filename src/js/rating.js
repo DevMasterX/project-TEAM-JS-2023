@@ -113,7 +113,9 @@ const refs = {
 
 refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
 refs.ratingForm.addEventListener(`submit`, submitRating);
-refs.openRatingModal.addEventListener(`click`, openRatingModal);
+
+// refs.openRatingModal.addEventListener(`click`, openRatingModal());
+
 refs.ratingModal.addEventListener('click', onBackdropClick);
 
 function onBackdropClick(event) {
