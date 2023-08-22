@@ -1,0 +1,2 @@
+var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},r={},n={},i=e.parcelRequired7c6;null==i&&((i=function(e){if(e in r)return r[e].exports;if(e in n){var i=n[e];delete n[e];var o={id:e,exports:{}};return r[e]=o,i.call(o.exports,o,o.exports),o.exports}var t=Error("Cannot find module '"+e+"'");throw t.code="MODULE_NOT_FOUND",t}).register=function(e,r){n[e]=r},e.parcelRequired7c6=i),i.register("iQg2E",function(e,r){}),i("iQg2E");
+//# sourceMappingURL=index.709713ff.js.map
