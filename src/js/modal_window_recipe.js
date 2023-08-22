@@ -33,7 +33,7 @@ function addContent(arr) {
     });
 
     return `
-    <h1 class="r-modal-name">${title.toUpperCase()}</h1>
+    <h2 class="r-modal-name">${title.toUpperCase()}</h2>
     <video class="r-modal-video"
     src="${video}"
     poster="${preview}"
@@ -58,6 +58,10 @@ function closeModal(event) {
     seeModal.removeEventListener('click', closeModal);
 }
 
+function eventOpenrModal() {
+    console.log('повішано слухач після рендера');
+}
+
 function closeOnEscape(e) {
     if (e.key === 'Escape') {
       closeModal();
@@ -65,3 +69,7 @@ function closeOnEscape(e) {
   }
 
 loadContent();
+
+export {
+    eventOpenrModal
+};
