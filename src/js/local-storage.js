@@ -1,7 +1,7 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
-console.log(document)
-document.addEventListener('DOMContentLoaded', ()=> console.log(document))
+
+
 
 
 
