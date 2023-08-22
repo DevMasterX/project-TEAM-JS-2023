@@ -30,9 +30,9 @@
   pointer-events: none;
   opacity: 0;
 }
-.team_backdrop.is-hidden {
+/* .team_backdrop.is-hidden {
   display: flex; /* Показуємо модальне вікно */
-}
+/* } */
 
 /* Стилі для кнопки закриття модалки */
 .team_modal-close-btn {
