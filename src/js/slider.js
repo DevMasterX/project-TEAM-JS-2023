@@ -5,24 +5,33 @@ import 'swiper/swiper-bundle.min.css';
 
 const sliderContainer = document.querySelector('.events');
 
-getEvents().then(data => {
-  markupCard(data);
-  const swiper = new Swiper('.swiper', {
-    modules: [Pagination, Navigation, Autoplay, Parallax],
-    allowSlideNext: true,
-    pagination: {
-      el: '.slider-pagination',
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2500,
-    },
-    parallax: true,
-    speed: 1000,
+getEvents()
+  .then(data => {
+    if (data.length > 0) {
+      markupCard(data);
+      const swiper = new Swiper('.swiper', {
+        modules: [Pagination, Navigation, Autoplay, Parallax],
+        allowSlideNext: true,
+        pagination: {
+          el: '.slider-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 2500,
+        },
+        parallax: true,
+        speed: 1000,
 
-    loop: true,
+        loop: true,
+      });
+    } else {
+      markupEmptySlider();
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    markupEmptySlider();
   });
-});
 
 function markupCard(data) {
   const makeCardMarkup = data => {
@@ -49,4 +58,20 @@ function markupCard(data) {
   const newCardMarkup = data.map(makeCardMarkup).join('');
 
   sliderContainer.insertAdjacentHTML('beforeend', newCardMarkup);
+}
+
+function markupEmptySlider() {
+  sliderContainer.insertAdjacentHTML(
+    'beforeend',
+    `<div class="swiper-slide">
+            <div class="slider-images">
+                <div class="image-1"></div>
+                <div class="image-2">
+                    <h2 class="image-title">Master Сlasses</h2>
+                    <p class="image-descraption">Cooming Soon</p>
+                </div>
+                <div class="image-3"></div>
+            </div>
+        </div>`
+  );
 }
