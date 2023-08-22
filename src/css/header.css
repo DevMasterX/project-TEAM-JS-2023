@@ -46,17 +46,20 @@
 .links {
    text-decoration: none;
 }
-.header-logo-text {
+
+p.header-logo-text {
 font-weight: 600;  
 font-size: 16px;
 line-height: calc(18 / 16);
 letter-spacing: -0.04em;
 text-align: center;
+color: var(--color-header-black);
+
 }
 
 @media screen and (min-width: 1280px) {
    .header-logo-text {
-      line-height: calc(20/ 18);
+      line-height: calc(20 / 18);
       letter-spacing: -4%; 
    }
 }
@@ -83,15 +86,9 @@ gap: 16px;
 .header-logo-accent {
    color: var(--color-header-green);
 }
-.header-logo-icon-wrapper {
-}
-.header-logo-icon {
-}
 
-.list {
-}
-.header-nav-item {
-}
+
+
 .header-link-home:hover,
 .header-link-home:focus,
 .header-link-home:active {
@@ -125,16 +122,17 @@ gap: 16px;
 
 
 
-.js-open-menu {
-}
+
 .burger-menu-open-btn-icon {
    
 stroke: var(--color-header-black);
-
 }
 
-.icon-link {
+.burger-menu-open-btn-icon:hover,
+.burger-menu-open-btn-icon:focus {
+   stroke: var(--color-header-green);
 }
+
 
 
 .shopping-btn {
@@ -142,25 +140,45 @@ stroke: var(--color-header-black);
    border: none;
    padding: 0;
    line-height: 0;
+   cursor: pointer;
+}
 
-}
-.js-open-menu {
-}
 .shopping-btn-icon {
    stroke: var(--color-header-black);
    fill: var(--color-white);
-   
-}
+ }
+
+ .shopping-btn-icon:hover,
+ .shopping-btn-icon:focus {
+   stroke: var(--color-header-green);
+
+ }
 
 .header-bloc-btn {
    display: flex;
    gap: 14px;
+   
 }
 
-/* =============MOBILE MENU====================== */
+@media screen and (min-width: 1280px) {
+   .header-bloc-btn {
+           gap: 24px;
+   }
+}
 
 
+.header-theme-checkbox {
+   display: none;
+}
+
+@media screen and (min-width: 768px){
+   .header-theme-checkbox {
+      display: block;
+      cursor: pointer;
+   }
 
 
-
-/* =============TABLET MENU====================== */
+}
+.header-theme-checkbox input {
+   cursor: pointer;
+}
