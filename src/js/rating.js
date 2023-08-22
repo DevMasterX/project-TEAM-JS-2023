@@ -1,96 +1,3 @@
-// const ratings = document.querySelectorAll('.rating');
-// if (ratings.length > 0) {
-//   initRatings();
-// }
-// //основная функция
-// function initRatings() {
-//   let ratingActive, ratingValue;
-// }
-// //бегаем по всем рейтингам
-// for (let index = 0; index < ratings.length; index++) {
-//   const rating = ratings[index];
-//   initRating(rating);
-// }
-// //инициализируем конкретный рейтинг
-// function initRating(rating) {
-//   initRatingVars(rating);
-
-//   setRatingActiveWidth();
-
-//   if (rating.classList.conteins('rating_set')) {
-//     setRating(rating);
-//   }
-// }
-// //инициализация переменных
-// function initRatingVars(rating) {
-//   ratingActive = rating.querySelector('.rating_active');
-//   ratingValue = rating.querySelector('.rating_value');
-// }
-// //изминяем ширину активных звезд
-// function setRatingActiveWidth(index = ratingValue.innerHTML) {
-//   const ratingActiveWidth = index / 0.05;
-//   ratingActive.style.width = `${ratingActiveWidth}%`;
-// }
-// //возможность указать оценку
-// function setRating(rating) {
-//   const ratingItems = rating.querySelectorAll('.rating_item');
-//   for (let index = 0; index < ratingItems.length; index++) {
-//     const ratingItem = ratingItems[index];
-//     ratingItem.addEventListener('mouseeenter', function (e) {
-//       //обновление переменных
-//       initRatingVars(rating);
-//       //обновление активных звезд
-//       setRatingActiveWidth(ratingItem.value);
-//     });
-//     ratingItem.addEventListener('mouseleve', function (e) {
-//       //обновление активных звезд
-//       setRatingActiveWidth();
-//     });
-//     ratingItem.addEventListener('clck', function (e) {
-//       //обновление переменных
-//       initRatingVars(rating);
-//       if (rating.dataset.ajax) {
-//         //отправить на сервер
-//         setRatingVelue(ratingItem.value, rating);
-//       } else {
-//         //отобразить указаную оценку
-//         ratingValue.innerHTML = index + 1;
-//         setRatingActiveWidth();
-//       }
-//     });
-//     async function setRatingVelue(value, rating) {
-//       if (!rating.classList.conteins('rating_sending')) {
-//         rating / classList.add('rating_sending');
-//         //отправка данных (value) на сервер
-//         let respons = await fatch('rating.json', {
-//           method: 'GET',
-
-//           // body: JSON.stringify({
-//           //     userRating: value
-//           // }),
-//           // headers: {
-//           //     'content-type': 'appLication/json'
-//           // }
-//         });
-//         if (Response.ok) {
-//           const result = await response.json();
-//           //получаем новый рейтинг
-//           const newRating = result.newRating;
-//           //вывод нового среднего результата
-//           ratingValue.innerHTML = newRating;
-//           //щбрщвление активных звезд
-//           setRatingActiveWidth();
-
-//           rating.classList.remove('rating_sending');
-//         } else {
-//           alert(Error);
-
-//           rating.classList.remove('rating_sending');
-//         }
-//       }
-//     }
-//   }
-// }
 
 // // get push set
 // // на бекенді отримати та змінити рейтинг
@@ -101,75 +8,66 @@
 // import Notiflix from 'notiflix';
 // import { recipeID } from './pagination';
 
-// const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
+import axios from 'axios';
+import Notiflix from 'notiflix';
+import { } from './modal_window_recipe';
 
-// const refs = {
-//   ratingModal: document.querySelector(`.backdrop__rating`),
-//   openRatingModal: document.querySelector(`.pop-up-btn-rating`),
-//   closeRatingModal: document.querySelector(`.close__rating__btn`),
-//   ratingForm: document.querySelector(`.rating__form`),
-//   ratingRadio: document.querySelectorAll(`.rating__radio`),
-//   body: document.querySelector(`body`),
-// };
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
-// refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
-// refs.ratingForm.addEventListener(`submit`, submitRating);
-// refs.openRatingModal.addEventListener(`click`, openRatingModal);
-// refs.ratingModal.addEventListener('click', onBackdropClick);
+const refs = {
+    ratingModal: document.querySelector(`.backdrop__rating`),
+    openRatingModal: document.querySelector(`.rating-btn`),
+    closeRatingModal: document.querySelector(`.close__rating__btn`),
+    ratingForm: document.querySelector(`.rating__form`),
+    ratingRadio: document.querySelectorAll(`.rating__radio`),
+};
 
-// function onBackdropClick(event) {
-//   if (event.target === event.currentTarget) {
-//     closeRatingModal();
-//   }
-// }
+refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
+refs.ratingForm.addEventListener(`submit`, submitRating);
+refs.openRatingModal.addEventListener(`click`, openRatingModal() );
+refs.ratingModal.addEventListener('click', onBackdropClick);
 
 // function closeRatingModal() {
 //   refs.ratingModal.classList.add(`is-hidden`);
 //   refs.body.classList.remove('scroll-blocked');
 // }
 
-// function openRatingModal() {
-//   const value = document.querySelector(`.set__rating > .rating__value`);
-//   refs.ratingRadio.forEach(radio => {
-//     radio.checked = false;
-//   });
-//   refs.ratingForm.reset();
-//   value.innerHTML = `0.0`;
-//   initRatings();
-//   refs.ratingModal.classList.remove(`is-hidden`);
-//   refs.body.classList.add('scroll-blocked');
-// }
+function closeRatingModal() {
+    refs.ratingModal.classList.add(`is-hidden`);
+}
 
-// export function initRatings() {
-//   // Знаходимо всі рейтинги
-//   const ratings = document.querySelectorAll(`.rating`);
-//   let ratingValue, ratingStars;
+function openRatingModal() {
+    const value = document.querySelector(`.set__rating > .rating__value`);
+    refs.ratingRadio.forEach(radio => {
+        radio.checked = false;
+    });
+    refs.ratingForm.reset();
+    value.innerHTML = `0.0`;
+    initRatings();
+    refs.ratingModal.classList.remove(`is-hidden`);
+}
 
-//   ratings.forEach(rating => {
-//     initRating(rating);
-//   });
-//   // Ініціалізуємо кожен рейтинг, якщо рейтинг на картці, то рендеримо зірки
-//   function initRating(rating) {
-//     if (
-//       (rating.classList.contains(`card__rating`) ||
-//         rating.classList.contains(`popup__rating`)) &&
-//       rating.lastElementChild.classList.contains(`rating__value`)
-//     ) {
-//       renderIcons(rating);
-//     }
-//     // Ініціалізуємо змінні для роботи і зафарбовуємо зіки залежно від значення рейтингу
-//     initRatingValues(rating);
-//     setActiveStars();
-//     // Ініціалізуємо вибір рейтингу, якщо він в модальному вікні
-//     if (rating.classList.contains(`set__rating`)) {
-//       rating.addEventListener(`change`, setNewValue);
-//     }
-//   }
+export function initRatings() {
+    const ratings = document.querySelectorAll(`.rating`);
+    let ratingValue, ratingStars;
 
-//   function initRatingValues(rating) {
-//     ratingValue = rating.querySelector(`.rating__value`);
-//     ratingStars = rating.querySelectorAll(`.rating__icon`);
-//   }
+    ratings.forEach(rating => {
+        initRating(rating);
+    });
+
+    function initRating(rating) {
+        if (
+            rating.classList.contains(`card__rating`) &&
+            rating.lastElementChild.classList.contains(`rating__value`)
+        ) {
+            renderIcons(rating);
+        }
+        initRatingValues(rating);
+        setActiveStars();
+        if (rating.classList.contains(`set__rating`)) {
+            rating.addEventListener(`change`, setNewValue);
+        }
+    }
 
 //   function setActiveStars(count = Math.floor(ratingValue.innerHTML)) {
 //     ratingStars.forEach(star => {
@@ -190,15 +88,8 @@
 //   function renderIcons(rating) {
 //     const starWrap = document.createElement(`div`);
 
-//     for (let i = 0; i < 5; i++) {
-//       const starSvg = document.createElementNS(
-//         'http://www.w3.org/2000/svg',
-//         'svg'
-//       );
-//       const starPath = document.createElementNS(
-//         'http://www.w3.org/2000/svg',
-//         'path'
-//       );
+    function renderIcons(rating) {
+        const starWrap = document.createElement(`div`);
 
 //       starWrap.classList.add(`card__star__wrap`);
 
@@ -224,7 +115,8 @@
 // async function submitRating(e) {
 //   e.preventDefault();
 
-//   const { rating, email } = e.currentTarget;
+async function submitRating(e) {
+    e.preventDefault();
 
 //   const inputValues = {
 //     rate: Number(rating.value),
@@ -239,18 +131,30 @@
 //     return;
 //   }
 
-//   await axios
-//     .patch(`${BASE_URL}${recipeID}/rating`, inputValues)
-//     .then(response => {
-//       Notiflix.Report.success(
-//         `Great`,
-//         `Completly added rating for ${response.data.title}`,
-//         `Return`
-//       );
+    const inputValues = {
+        rate: Number(rating.value),
+        email: email.value,
+    };
+    if (inputValues.rate === 0) {
+        Notiflix.Report.warning(`Oops`, `Need to select some rating`, `Return`);
+        return;
+    }
+    if (inputValues.email.trim() === '') {
+        Notiflix.Report.warning(`Oops`, `Need to enter email`, `Return`);
+    }
 
-//       closeRatingModal();
-//     })
-//     .catch(error => {
-//       Notiflix.Notify.failure(`${error.response.data.message}`);
-//     });
-// }
+    await axios
+        .patch(`${BASE_URL}${recipeID}/rating`, inputValues)
+        .then(response => {
+            Notiflix.Report.success(
+                `Great`,
+                `Compeltly add rating for ${response.data.title}`,
+                `Return`
+            );
+
+            closeRatingModal();
+        })
+        .catch(error => {
+            Notiflix.Notify.failure(`${error.response.data.message}`);
+        });
+}
