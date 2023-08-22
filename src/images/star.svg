@@ -1,15 +1,11 @@
 <svg aria-hidden="true" style="position: absolute; width: 24; height: 24; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-star" viewBox="0 0 32 32">
-<path fill="#d9d9d9" style="fill: var(--color1, #d9d9d9)" d="M15.41 1.118c0.25-0.474 0.929-0.474 1.179 0l4.148 7.862c0.096 0.183 0.272 0.311 0.476 0.346l8.759 1.515c0.528 0.091 0.738 0.737 0.364 1.122l-6.195 6.374c-0.144 0.148-0.211 0.355-0.182 0.559l1.265 8.798c0.076 0.531-0.473 0.93-0.954 0.693l-7.977-3.922c-0.185-0.091-0.403-0.091-0.588 0l-7.977 3.922c-0.481 0.237-1.030-0.163-0.954-0.693l1.265-8.798c0.029-0.205-0.038-0.411-0.182-0.559l-6.195-6.374c-0.374-0.384-0.164-1.030 0.364-1.122l8.758-1.515c0.204-0.035 0.38-0.163 0.476-0.346l4.148-7.862z"></path>
+<path d="M15.41 1.118c0.25-0.474 0.929-0.474 1.179 0l4.148 7.862c0.096 0.183 0.272 0.311 0.476 0.346l8.759 1.515c0.528 0.091 0.738 0.737 0.364 1.122l-6.195 6.374c-0.144 0.148-0.211 0.355-0.182 0.559l1.265 8.798c0.076 0.531-0.473 0.93-0.954 0.693l-7.977-3.922c-0.185-0.091-0.403-0.091-0.588 0l-7.977 3.922c-0.481 0.237-1.030-0.163-0.954-0.693l1.265-8.798c0.029-0.205-0.038-0.411-0.182-0.559l-6.195-6.374c-0.374-0.384-0.164-1.030 0.364-1.122l8.758-1.515c0.204-0.035 0.38-0.163 0.476-0.346l4.148-7.862z"></path>
 </symbol>
 </defs>
 </svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-<path d="M18 6L6 18" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 6L18 18" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
 
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
