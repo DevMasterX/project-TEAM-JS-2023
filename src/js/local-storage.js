@@ -1,36 +1,47 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
+console.log(document)
+document.addEventListener('DOMContentLoaded', ()=> console.log(document))
 
 
 
-  listForStorage.addEventListener('click', (e)=>{
+  listForStorage.addEventListener('mouseover', (e)=>{
 
-        const cardBody = e.target.parentElement.parentElement;
+if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
+  const favBtn = e.target;
+favBtn.addEventListener('click', ()=>{ 
+  const cardBody = e.target.parentElement.parentElement;
     
-        const recipeInfo = {
-            category: cardBody.dataset.attribute,
-            id: cardBody.id,
-            name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
-            image:cardBody.querySelector('.filter-gallery-item-photo').src,
-            rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
-            description: cardBody.querySelector('.filter-gallery-item-description').textContent,
-        }
-     
-        if(cardBody.classList.contains('favorite') && e.target.nodeName === 'H3'){  
+
+  const recipeInfo = {
+      category: cardBody.dataset.attribute,
+      id: cardBody.id,
+      name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
+      image:cardBody.querySelector('.filter-gallery-item-photo').src,
+      rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
+      description: cardBody.querySelector('.filter-gallery-item-description').textContent,
+  }
+  if(cardBody.classList.contains('favorite') ){  
       
-            recipeDB.removeFromDB(recipeInfo.name);
-            cardBody.classList.remove('favorite');
-          
-        }
-     
-            if(cardBody.classList.contains('favorite'))return;
+    recipeDB.removeFromDB(recipeInfo.name);
+    cardBody.classList.remove('favorite');
+  
+}
+
+    if(cardBody.classList.contains('favorite'))return;
+    else{cardBody.classList.add('favorite');
+    recipeDB.saveIntoDB(recipeInfo);}
+
+
+
+
+
+});
+}
+
        
-        if(e.target.nodeName === 'BUTTON'){
-    
-        cardBody.classList.add('favorite');
-        recipeDB.saveIntoDB(recipeInfo);
-      
-    }}
+     
+        }
     );
     
     class RecipeDB {
