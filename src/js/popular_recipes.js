@@ -5,7 +5,6 @@ const categoriesList = document.querySelector('.popular-js');
 async function createCategoriesList() {
   try {
     const getPopularData = await getPopularRecipes();
-    console.log(getPopularData);
     const marcupCategories = getPopularData
 
       .map(category => {
@@ -22,7 +21,7 @@ async function createCategoriesList() {
     `;
       })
       .join('');
-    console.log(marcupCategories);
+
     categoriesList.innerHTML = marcupCategories;
   } catch (error) {
     console.error(error);
