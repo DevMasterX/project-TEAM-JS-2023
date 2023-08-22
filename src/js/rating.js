@@ -1,122 +1,24 @@
-const ratings = document.querySelectorAll('.rating');
-if (ratings.length > 0) {
-    initRatings();
-}
-//основная функция
-function initRatings() {
-    let ratingActive, ratingValue; 
-}
-    //бегаем по всем рейтингам
-    for (let index = 0; index < ratings.length; index++){
-        const rating = ratings[index];
-        initRating(rating);
-    }
-    //инициализируем конкретный рейтинг
-    function initRating(rating){
-        initRatingVars(rating);
-        
-        setRatingActiveWidth();
 
-        if(rating.classList.conteins('rating_set')) {
-            setRating(rating);
-        }
-    }
-    //инициализация переменных
-    function initRatingVars(rating) {
-        ratingActive = rating.querySelector('.rating_active');
-        ratingValue = rating.querySelector('.rating_value');
-    }
-    //изминяем ширину активных звезд
-    function setRatingActiveWidth(index = ratingValue.innerHTML) {
-        const ratingActiveWidth = index / 0.05;
-        ratingActive.style.width = `${ratingActiveWidth}%`;
-    }
-    //возможность указать оценку
-    function setRating(rating) {
-        const ratingItems = rating.querySelectorAll('.rating_item');
-        for (let index = 0; index < ratingItems.length; index++) {
-            const ratingItem = ratingItems[index];
-            ratingItem.addEventListener("mouseeenter", function (e) {
-            //обновление переменных 
-            initRatingVars(rating);
-            //обновление активных звезд
-            setRatingActiveWidth(ratingItem.value);
-        });
-        ratingItem.addEventListener("mouseleve", function(e) {
-            //обновление активных звезд
-            setRatingActiveWidth();
-        });
-        ratingItem.addEventListener("clck", function (e) {
-            //обновление переменных 
-            initRatingVars(rating);
-            if (rating.dataset.ajax) {
-                //отправить на сервер
-                setRatingVelue(ratingItem.value, rating);
-             } else {
-                //отобразить указаную оценку
-                ratingValue.innerHTML = index + 1;
-                setRatingActiveWidth();
-             }
-        });
-        async function setRatingVelue(value, rating) {
-            if (!rating.classList.conteins('rating_sending')) {
-                rating/classList.add('rating_sending');
-                //отправка данных (value) на сервер
-                let respons = await fatch('rating.json',{
-                    method: 'GET',
-
-                    // body: JSON.stringify({
-                    //     userRating: value
-                    // }),
-                    // headers: {
-                    //     'content-type': 'appLication/json'
-                    // }
-                });
-                if (Response.ok) {
-                    const result = await response.json();
-                    //получаем новый рейтинг
-                    const newRating = result.newRating;
-                    //вывод нового среднего результата
-                    ratingValue.innerHTML = newRating;
-                    //щбрщвление активных звезд
-                    setRatingActiveWidth();
-
-                    rating.classList.remove('rating_sending');
-                } else {
-                    alert(Error);
-
-                    rating.classList.remove('rating_sending');
-                }
-            }
-        }
-    }
-};
-
-// get push set 
-// на бекенді отримати та змінити рейтинг
-// взяти клас кнопки  при кліку відкривати мою модалку(сlass="rating-btn")
-// по кліку відправляются данні в бекенді//
 
 
 
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import {recipeID} from './pagination'
+import { } from './modal_window_recipe';
 
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const refs = {
     ratingModal: document.querySelector(`.backdrop__rating`),
-    openRatingModal: document.querySelector(`.pop-up-btn-rating`),
+    openRatingModal: document.querySelector(`.rating-btn`),
     closeRatingModal: document.querySelector(`.close__rating__btn`),
     ratingForm: document.querySelector(`.rating__form`),
     ratingRadio: document.querySelectorAll(`.rating__radio`),
-    body: document.querySelector(`body`),
 };
 
 refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
 refs.ratingForm.addEventListener(`submit`, submitRating);
-refs.openRatingModal.addEventListener(`click`, openRatingModal);
+refs.openRatingModal.addEventListener(`click`, openRatingModal() );
 refs.ratingModal.addEventListener('click', onBackdropClick);
 
 function onBackdropClick(event) {
@@ -127,7 +29,6 @@ function onBackdropClick(event) {
 
 function closeRatingModal() {
     refs.ratingModal.classList.add(`is-hidden`);
-    refs.body.classList.remove('scroll-blocked');
 }
 
 function openRatingModal() {
@@ -139,30 +40,25 @@ function openRatingModal() {
     value.innerHTML = `0.0`;
     initRatings();
     refs.ratingModal.classList.remove(`is-hidden`);
-    refs.body.classList.add('scroll-blocked');
 }
 
 export function initRatings() {
-    // Знаходимо всі рейтинги
     const ratings = document.querySelectorAll(`.rating`);
     let ratingValue, ratingStars;
 
     ratings.forEach(rating => {
         initRating(rating);
     });
-    // Ініціалізуємо кожен рейтинг, якщо рейтинг на картці, то рендеримо зірки
+
     function initRating(rating) {
         if (
-            (rating.classList.contains(`card__rating`) ||
-                rating.classList.contains(`popup__rating`)) &&
+            rating.classList.contains(`card__rating`) &&
             rating.lastElementChild.classList.contains(`rating__value`)
         ) {
             renderIcons(rating);
         }
-        // Ініціалізуємо змінні для роботи і зафарбовуємо зіки залежно від значення рейтингу
         initRatingValues(rating);
         setActiveStars();
-        // Ініціалізуємо вибір рейтингу, якщо він в модальному вікні
         if (rating.classList.contains(`set__rating`)) {
             rating.addEventListener(`change`, setNewValue);
         }
@@ -188,7 +84,6 @@ export function initRatings() {
         setActiveStars();
     }
 
-    // Єдиний робочий варіант рендеру SVG з JS який мені вдалось знайти
     function renderIcons(rating) {
         const starWrap = document.createElement(`div`);
 
@@ -222,7 +117,6 @@ export function initRatings() {
     }
 }
 
-// Відправка рейтингу на бек(проблема в тому, що якщо в email є '.' то бек не прийме його)
 async function submitRating(e) {
     e.preventDefault();
 
@@ -238,7 +132,6 @@ async function submitRating(e) {
     }
     if (inputValues.email.trim() === '') {
         Notiflix.Report.warning(`Oops`, `Need to enter email`, `Return`);
-        return;
     }
 
     await axios
@@ -246,7 +139,7 @@ async function submitRating(e) {
         .then(response => {
             Notiflix.Report.success(
                 `Great`,
-                `Completly added rating for ${response.data.title}`,
+                `Compeltly add rating for ${response.data.title}`,
                 `Return`
             );
 
