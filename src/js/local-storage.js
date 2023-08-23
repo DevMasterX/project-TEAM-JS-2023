@@ -3,6 +3,11 @@ const listForStorage = document.querySelector('.filter-gallery-list');
 
 
 listForStorage.addEventListener('mouseover', (e)=>{
+  recipeDB.getFromDB().forEach(item => {
+    const li = document.querySelectorAll('.filter-gallery-item');
+    li.forEach(liItem => {
+      if (liItem.id === item.id) liItem.classList.add('favorite')})
+    })
 if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
  
   const favBtn = e.target;
