@@ -33,20 +33,26 @@ async function createOptionsSelect() {
     try {
         for (const item of selectes) {
             let options = [];
+            let placeholderValue = '';
+
 
             if (item === selectTime) {
                 const minTime = 5;
                 const maxTime = 120;
                 const step = 5;
-                options = createOptions(minTime, maxTime, step, ' хв');
+                options = createOptions(minTime, maxTime, step, ' min');
+                placeholderValue = '0 min';
             } if (item === selectArea) {
 
                 const areas = await getAreas();
                 console.log(areas);
-                options = areas.map(area => ({ value: area.name, label: area.name, id: area._id }));
+                options = areas.map(area => ({ value: area.name, label: placeholderValue, id: area._id }));
+                placeholderValue = 'Region';
             } if (item === selectIngr) {
                 const ingredients = await getIngredients();
-                options = ingredients.map(ingr => ({ value: ingr.name, label: ingr.name, id: ingr._id }));
+
+                options = ingredients.map(ingr => ({ value: ingr.name, label: placeholderValue, id: ingr._id }));
+                placeholderValue = 'Product';
             }
 
             const choicesInstance = new Choices(item, {
@@ -54,6 +60,12 @@ async function createOptionsSelect() {
                 searchEnabled: false,
                 renderSelectedChoices: 'always',
                 allowHTML: true,
+                placeholder: true,
+                placeholderValue: placeholderValue,
+                // shouldOpen: true,
+
+                // shouldSort: false,
+                // renderSelectedChoices: false,
 
 
 
@@ -145,9 +157,23 @@ async function startGallery() {
 
         // const seeBtn = document.getElementById('filter-btn-heard');
 
-        // seeBtn.addEventListener('click', () => {
-        //     console.log("Button clicked:", seeBtn);
-        // });
+        // seeBtn.addEventListener('click', eventOpenrModal);
+
+
+        const galleryContainer = document.querySelector('filter-gallery-list');
+
+        galleryContainer.addEventListener('click', (event) => {
+            console.log(event);
+            // if (event.target.classList.contains('filter-gallery-item-btn')) {
+            //     // Отримайте батьківський елемент .filter-gallery-item, який містить кнопку
+            //     const parentItem = event.target.closest('.filter-gallery-item');
+            //     if (parentItem) {
+            //         const idRecip = parentItem.getAttribute('data-attribute');
+            //         // Викликайте вашу функцію з обробником для відкриття рецепту
+            //         openRecipeModal(idRecip);
+            //     }
+            // }
+        });
 
         if (page < totalPage) {
             // ПАГІНКАЦІЯ.classList.remove('is-hidden');
