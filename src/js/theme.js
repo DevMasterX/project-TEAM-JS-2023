@@ -1,7 +1,7 @@
-localStorage.setItem('theme', 'light-theme')
+
 const themeToggle = document.getElementById("theme-toggle");
 const currentTheme = localStorage.getItem("theme");
-
+if (!currentTheme){localStorage.setItem('theme', 'light-theme')}
 if (currentTheme) {
 
     document.body.classList.add(currentTheme);

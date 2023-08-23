@@ -5,14 +5,19 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 2, 0.894);
-
-  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
+/* body.dark-theme.order-form-wrapper {
+  border: 5px solid rgba(5, 5, 5, 0.2);
+  box-shadow: 0 3px 10px -0.5px rgba(122, 236, 223, 0.2);
+} */
+/* .backdrop.is-hidden .order-form-wrapper {
+  transform: translate(-50%, -50%) scaleY(0) rotate(-60deg);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
 .order-form-wrapper {
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   top: 50%;
   left: 50%;
   padding: 28px 20px;
@@ -23,6 +28,7 @@
   background-color: #ffffff;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
 }
 .btn-order-close {
   position: absolute;
@@ -36,7 +42,10 @@
 }
 .btn-order-close:hover,
 .btn-order-close:focus {
-  fill: rgb(136, 133, 133);
+  fill: rgb(8, 6, 6);
+  background-color: #859b2d;
+  width: 30px;
+  height: 30px;
 }
 .is-hidden {
   opacity: 0;
@@ -79,8 +88,8 @@
   margin-bottom: 16px;
 }
 ::-webkit-input-placeholder {
-  /* color: #9bb537; */
-  font-size: 12px;
+  color: #859b2d;
+  font-size: 13px;
 }
 .form-input:not(:placeholder-shown):valid {
   border-color: #9bb537;
@@ -116,6 +125,11 @@
   color: #f8f8f8;
   font-size: 14px;
   line-height: normal;
+}
+.btn-send:hover,
+.btn-send:focus {
+  background-color: #859b2d;
+  box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (min-width: 768px) {
