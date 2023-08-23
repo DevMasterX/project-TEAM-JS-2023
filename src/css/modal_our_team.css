@@ -180,7 +180,7 @@
 .team_link-github--active:hover,
 .team_link-github--active:focus {
   background-color: #9bb537;
-  fill: #9bb537;
+  fill: #fff;
 }
 
 @media (min-width: 768px) {
@@ -202,12 +202,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-  }
-  .team_list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
   }
 }
 
