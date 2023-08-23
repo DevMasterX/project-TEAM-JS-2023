@@ -1,3 +1,4 @@
+import './js/loader.js';
 import './js/api.js';
 import './js/categories.js';
 import './js/filter.js';

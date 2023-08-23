@@ -1,15 +1,15 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
 
+
 listForStorage.addEventListener('mouseover', (e)=>{
-   
 if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
+ 
   const favBtn = e.target;
   favBtn.addEventListener('click', ()=>{ 
 
     const cardBody = favBtn.parentElement.parentElement;
- 
-    
+
   const recipeInfo = {
       category: cardBody.dataset.attribute,
       id: cardBody.id,
@@ -26,8 +26,6 @@ if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
   
 }
 
-   else if(cardBody.classList.contains('favorite'))
-   {return;}
     else{cardBody.classList.add('favorite');
     recipeDB.saveIntoDB(recipeInfo);}
 
@@ -41,12 +39,8 @@ if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
     
     class RecipeDB {
       getOrderFromLC() {
-        let orderForm;
-        if (!localStorage.getItem('orderForm')) {
-          orderForm = {};
-        } else {
-          orderForm = JSON.parse(localStorage.getItem('orderForm'));
-        }
+        let orderForm = JSON.parse(localStorage.getItem('orderForm'));
+        
         return orderForm;
       }
       setOrderFormLC() {
@@ -83,5 +77,9 @@ if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
     }
     const recipeDB = new RecipeDB();
     
-    form.addEventListener('input', () => recipeDB.setOrderFormLC());    
-
+    form.addEventListener('submit', () => recipeDB.setOrderFormLC());    
+  
+// if(recipeDB.getOrderFromLC()){const {name, phone, email} = recipeDB.getOrderFromLC()
+// form.elements.name.value = name;
+// form.elements.phone.value = phone;
+// form.elements.email.value = email;}
