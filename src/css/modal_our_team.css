@@ -1,38 +1,46 @@
 /* Основні стилі для модального вікна */
+.ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .team_backdrop {
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   overflow-y: auto;
-  z-index: 998;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.7);
-  visibility: visible;
-  opacity: 1;
 }
 .team_wrapper {
-  position: relative;
   z-index: 999;
   width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 25px 15px 20px;
   visibility: visible;
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px 15px 20px;
+  position: relative;
   box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);
 }
+
 .is-hidden {
   visibility: hidden;
   pointer-events: none;
   opacity: 0;
 }
-/* .team_backdrop.is-hidden {
+.team_backdrop.is-hidden {
   display: flex; /* Показуємо модальне вікно */
-/* } */
+}
 
 /* Стилі для кнопки закриття модалки */
 .team_modal-close-btn {
@@ -47,11 +55,14 @@
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
-  color: black;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.team_modal-close-icon {
-  fill: #000; /* Колір іконки */
+
+.team_modal-close-btn:hover,
+.team_modal-close-btn:focus {
+  color: #9bb537;
 }
+
 .team_title {
   text-align: center;
   text-transform: uppercase;
@@ -85,11 +96,10 @@
   overflow: hidden;
   object-fit: cover;
   margin-bottom: 5px;
-  width: 200px;
-  height: 180px;
+  width: 240px;
+  height: 220px;
 }
 .team_box {
-  /* @include font(500, 16px, null, null); */
   padding: 10px;
   text-align: center;
   margin-bottom: 3px;
@@ -98,14 +108,15 @@
 .team_member {
   font-weight: 500;
   font-size: 18px;
-  /* color: $black-color; */
+  color: black;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .team_role {
   font-weight: 500;
   font-size: 16px;
-  /* color: $orange-color; */
+  color: #9bb537;
   margin-bottom: 10px;
 }
 .team_link-linkedin {
@@ -119,16 +130,22 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  /* @include animation3(background-color, color, fill); */
-
-  /* &--active:hover,
-  &--active:focus {
-    background-color: $orange-color;
-    fill: $white-color; */
-  /* } */
+  transition: background-color 0.3s, color 0.3s, fill 0.3s;
 }
-.team__link-github {
+
+.team_link-linkedin:hover,
+.team_link-linkedin:focus {
+  background-color: #9bb537;
+  fill: #fff;
+}
+
+.team_link-linkedin--active:hover,
+.team_link-linkedin--active:focus {
+  background-color: #9bb537;
+  fill: #fff;
+}
+
+.team_link-github {
   border: none;
   width: 36px;
   height: 36px;
@@ -138,50 +155,35 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
-  /* @include animation3(background-color, color, fill); */
-
-  /* &--active:hover,
-  &--active:focus {
-    background-color: $orange-color;
-    fill: $white-color;
-  } */
-}
-/* Точка перелому для ширини екрана 320px */
-@media (max-width: 320px) {
-  .team_item {
-    width: 100%; /* Картка на всю ширину */
-  }
+  transition: background-color 0.3s, color 0.3s, fill 0.3s;
 }
 
-/* Точка перелому для ширини екрана до 768px */
-@media (max-width: 768px) {
+.team_link-github:hover,
+.team_link-github:focus,
+.team_link-github--active:hover,
+.team_link-github--active:focus {
+  background-color: #9bb537;
+  fill: #fff;
+}
+
+@media (min-width: 768px) {
   .team_wrapper {
-    width: 580px; /* Відключаємо скрол */
+    width: 580px;
   }
 }
 .team_modal-close-btn {
   top: 10px;
   right: 10px;
 }
-/* Точка перелому для ширини екрана більше 1280px */
-@media (min-width: 1280px) {
-  .team_item {
-    width: 50%; /* Картки в два ряди */
-  }
 
+@media screen and (min-width: 1280px) {
   .team_wrapper {
+    width: 1400px;
+    padding: 30px;
     position: absolute;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 1200px;
-    padding: 30px;
-    overflow-y: hidden;
-    visibility: visible;
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33); /* Відключаємо скрол */
   }
 }

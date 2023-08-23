@@ -1,12 +1,12 @@
 :root {
   --footer-bg-color: rgb(155, 181, 55);
-  --footer-text-color: rgb(220, 238, 146);
+  --footer-text-color: rgb(80, 224, 67);
   --footer-link-color: rgb(41, 36, 36);
   --footer-link-bg-color: rgb(207, 206, 206);
-  --btn-to-top-bg-color: rgb(244, 96, 96);
+  --btn-to-top-bg-color: rgb(244, 103, 103);
   --btn-to-top-fill-color: rgb(53, 242, 201);
   --focus-visible-box-shadow-color: rgba(0, 0, 0, 0.5);
-  --btn-to-top-hover-bg-color: rgb(255, 115, 115);
+  --btn-to-top-hover-bg-color: rgb(248, 15, 35);
   --muted-text-clr: #a9a9a9; /* Припустимо це середній сірий колір. */
 }
 /* Загальні стилі для використання шрифта Inter */
@@ -67,7 +67,7 @@ a:focus {
   width: 40px;
   height: 40px;
   background-color: var(--btn-to-top-bg-color);
-  fill: var(--btn-to-top-fill-color);
+  fill: var(--footer-bg-color);
   border: none;
   border-radius: 50%;
   text-align: center;
@@ -86,6 +86,23 @@ a:focus {
   display: flex;
   opacity: 0.6;
   transform: translateY(0);
+}
+.footer_icon {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (min-width: 320px) {
