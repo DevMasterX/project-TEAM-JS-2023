@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   initScrollButton();
-  // playMusic();
-  // initFeedbackForm();
+  initPlayMusicButton();
+  initModalCloseButton();
 });
 
 const SCROLL_THRESHOLD = 300;
@@ -17,6 +17,7 @@ function initScrollButton() {
       button.classList.remove('is-visible');
     }
   }
+
   if (button) {
     button.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,41 +26,31 @@ function initScrollButton() {
   }
 }
 
-// let play = document.getElementById('teamOpenBtn');
-// function playMusic() {
-//   let audio = new Audio('audio.mp3');
-//   audio.play();
-// }
-// play.addEventListener('click', playMusic);
+function initPlayMusicButton() {
+  let play = document.querySelector('#teamOpenBtn');
+  let audio = document.getElementById('sound');
 
-// function initFeedbackForm() {
-//   const { feedbackForm, emailInput } = getFeedbackElements();
-//   const savedEmail = localStorage.getItem('userEmail');
-//   if (savedEmail && emailInput) {
-//     emailInput.value = savedEmail;
-//   }
-//   if (feedbackForm && emailInput) {
-//     feedbackForm.addEventListener('submit', function (event) {
-//       event.preventDefault();
-//       if (!isValidEmail(emailInput.value)) {
-//         alert('Please enter a valid email address.');
-//         return;
-//       }
-//         localStorage.setItem('userEmail', emailInput.value);
-//           emailInput.value = '';
-//         alert('Thank you for sending your email address!');
-//     });
-//   }
-// }
-// function getFeedbackElements() {
-//   const feedbackForm =
-//     document.getElementById('feedbackForm') ||
-//     document.querySelector('.feedback-section form');
-//   const emailInput = feedbackForm
-//     ? feedbackForm.querySelector('input[type="email"]')
-//     : null;
-//   return { feedbackForm, emailInput };
-// }
-// function isValidEmail(email) {
-//   return EMAIL_REGEX.test(email);
-// }
+  function playMusic() {
+    audio.play().catch(error => {
+      console.error('Проблема з відтворенням аудіо:', error);
+    });
+  }
+
+  if (play) {
+    play.addEventListener('click', playMusic);
+  }
+}
+
+function initModalCloseButton() {
+  let closeModalButton = document.querySelector('.team_modal-close-btn');
+  let audio = document.getElementById('sound');
+
+  function stopMusic() {
+    audio.pause(); // Зупиняємо відтворення музики
+    audio.currentTime = 0; // Щоб знову почати відтворення з початку
+  }
+
+  if (closeModalButton) {
+    closeModalButton.addEventListener('click', stopMusic);
+  }
+}
