@@ -10,8 +10,8 @@ const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const refs = {
     ratingModal: document.querySelector(`.backdrop__rating`),
-    openRatingModal: document.querySelector(`.rating-btn`),
-    closeRatingModal: document.querySelector(`.close__rating__btn`),
+    openRatingModal: document.querySelector(`.r-modal-rating-btn`),
+    closeRatingModal: document.getElementById(`close-btn-id`, `closeRatingModal`),
     ratingForm: document.querySelector(`.rating__form`),
     ratingRadio: document.querySelectorAll(`.rating__radio`),
 };
