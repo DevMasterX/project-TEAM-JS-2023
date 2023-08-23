@@ -1,3 +1,4 @@
+import './js/loader.js';
 import './js/api.js';
 import './js/categories.js';
 import './js/filter.js';
@@ -14,4 +15,3 @@ import './js/theme.js';
 import './js/rating.js';
 import './js/burger-menu.js';
 import './js/modal_our_team.js';
-import './js/loader.js';
