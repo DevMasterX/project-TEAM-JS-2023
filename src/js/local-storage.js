@@ -1,18 +1,15 @@
 const form = document.querySelector('.modal-form');
 const listForStorage = document.querySelector('.filter-gallery-list');
 
-
-
-
-
-  listForStorage.addEventListener('mouseover', (e)=>{
-
+listForStorage.addEventListener('mouseover', (e)=>{
+   
 if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
   const favBtn = e.target;
-favBtn.addEventListener('click', ()=>{ 
-  const cardBody = e.target.parentElement.parentElement;
-    
+  favBtn.addEventListener('click', ()=>{ 
 
+    const cardBody = favBtn.parentElement.parentElement;
+ 
+    
   const recipeInfo = {
       category: cardBody.dataset.attribute,
       id: cardBody.id,
@@ -21,6 +18,7 @@ favBtn.addEventListener('click', ()=>{
       rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
       description: cardBody.querySelector('.filter-gallery-item-description').textContent,
   }
+  
   if(cardBody.classList.contains('favorite') ){  
       
     recipeDB.removeFromDB(recipeInfo.name);
@@ -28,7 +26,8 @@ favBtn.addEventListener('click', ()=>{
   
 }
 
-    if(cardBody.classList.contains('favorite'))return;
+   else if(cardBody.classList.contains('favorite'))
+   {return;}
     else{cardBody.classList.add('favorite');
     recipeDB.saveIntoDB(recipeInfo);}
 
@@ -37,12 +36,8 @@ favBtn.addEventListener('click', ()=>{
 
 
 });
-}
-
-       
-     
-        }
-    );
+};
+ });
     
     class RecipeDB {
       getOrderFromLC() {
