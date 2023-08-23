@@ -11,6 +11,8 @@
 @import url('./pagination.css');
 @import url('./theme.css');
 @import url('./modal_our_team.css');
+@import url('./loader.css');
+@import url('./favorites/_my_favorites.css');
 
 /* add favorites css */
 @import url('./favorites/_my_favorites.css');
