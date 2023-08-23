@@ -79,7 +79,7 @@ if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
     
     form.addEventListener('submit', () => recipeDB.setOrderFormLC());    
   
-if(recipeDB.getOrderFromLC()){const {name, phone, email} = recipeDB.getOrderFromLC()
-form.elements.name.value = name;
-form.elements.phone.value = phone;
-form.elements.email.value = email;}
+// if(recipeDB.getOrderFromLC()){const {name, phone, email} = recipeDB.getOrderFromLC()
+// form.elements.name.value = name;
+// form.elements.phone.value = phone;
+// form.elements.email.value = email;}
