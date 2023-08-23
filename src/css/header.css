@@ -16,10 +16,24 @@
    display: flex;
    align-items: center;
    justify-content: space-between;
+   padding: 20px 0px 2px;
 
    /* outline: 2px solid red  ; */
    
 }
+@media screen and (min-width: 768px){
+   .header-container{
+      padding-top: 32px;
+   }
+}
+@media screen and (min-width: 768px){
+   .header-container{
+      padding-top: 44px;
+   }
+}
+
+
+
 
 .header-nav {
    display: flex;
@@ -47,13 +61,13 @@
    text-decoration: none;
 }
 
-p.header-logo-text {
+.header-logo-text {
 font-weight: 600;  
 font-size: 16px;
 line-height: calc(18 / 16);
 letter-spacing: -0.04em;
 text-align: center;
-color: var(--color-header-black);
+color:inherit;
 
 }
 
