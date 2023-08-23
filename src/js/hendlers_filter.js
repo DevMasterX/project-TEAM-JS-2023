@@ -34,6 +34,7 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
 
     } catch (err) {
         Notify.failure(err.message);
+        console.log(err);
     }
 }
 
@@ -64,24 +65,19 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
             }
         } catch (err) {
             Notify.failure(err.message);
+            console.log(err);
         }
     }
 }
 
 
 
-async function handlerFilterForm(evt) {
+async function handlerFilterForm(evt, galleryElement, choise) {
 
     evt.preventDefault();
     console.log(evt);
     searchBtnClicked = false;
-    selectes.forEach(select => {
-        select.removeEventListener("change", handlerFilterForm);
-    });
 
-    selectes.forEach(select => {
-        select.addEventListener("change", handlerFilterForm);
-    });
 
     resetButton.addEventListener("click", resetInput);
     const activeCategotyBtn = findActiveBtn();
@@ -90,18 +86,24 @@ async function handlerFilterForm(evt) {
 
     const formData = new FormData(formFilter);
     const searchInput = formData.get("query");
-    const timeSelected = formData.get("time");
-    const areaSelected = formData.get("area");
-    const ingrSelected = formData.get("ingredients")
+
+    console.log(choise);
+    const timeChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'time');
+    const timeSelected = timeChoiceInstance.getValue(true);
 
 
+    const areaChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'area');
+    const areaSelected = areaChoiceInstance.getValue(true);
+
+    const ingrChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'ingredients');
+    const ingrSelected = ingrChoiceInstance.getValue(true);
 
     const params = {
         category: currentCategoty || null,
         title: searchInput.trim() !== "" ? searchInput.trim() : null,
-        time: timeSelected !== "default" ? timeSelected : null,
-        area: areaSelected !== "default" ? areaSelected : null,
-        ingredients: ingrSelected !== "default" ? ingrSelected : null
+        time: timeSelected ? timeSelected : null,
+        area: areaSelected ? areaSelected : null,
+        ingredients: ingrSelected ? ingrSelected : null
     };
 
     console.log(params);
@@ -110,25 +112,25 @@ async function handlerFilterForm(evt) {
         const recipes = await getFilteredRecipes(params);
         const { results } = recipes;
         console.log(results);
-        const filteredRecipes = recipes.results.filter(recipe => {
-            const selectedIngredient = ingrSelected.toLowerCase();
-            return recipe.ingredients.some(ingredient =>
-                ingredient.toLowerCase().includes(selectedIngredient)
-            );
-        });
+
 
         if (!results.length) {
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+            galleryElement.innerHTML = ""
+
             return;
         }
+        results.forEach(recipe => {
+            const marcup = Gallery.createMarkupCard({ results: [recipe] });
+            Gallery.appendMarkupToGallery(galleryElement, marcup);
+        });
 
-        const marcup = Gallery.createMarkupCard({ filteredRecipes });
-        Gallery.appendMarkupToGallery(gallery, marcup);
 
 
 
     } catch (err) {
         Notify.failure(err.message);
+        console.log(err);
     }
 
 
