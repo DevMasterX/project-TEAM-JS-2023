@@ -7,3 +7,5 @@ import './js/pagination.js';
 import './js/theme.js';
 
 import './js/modal_our_team.js';
+
+import './js/order.js';
