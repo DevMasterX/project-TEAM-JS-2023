@@ -1,22 +1,20 @@
 const form = document.querySelector('.modal-form');
-const listForStorage = document.querySelector('.filter-gallery-list');
-
-
-listForStorage.addEventListener('mouseover', (e)=>{
-  recipeDB.getFromDB().forEach(item => {
+function addFavouriteOnList(){recipeDB.getFromDB().forEach(item => {
   
-    const li = document.querySelectorAll('.filter-gallery-item');
-  
-    li.forEach(liItem => {
-      if (liItem.id === item.id) liItem.classList.add('favorite')})
-    });
-if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
- 
+      const li = document.querySelectorAll('.filter-gallery-item');
+    
+      li.forEach(liItem => {
+        if (liItem.id === item.id) liItem.classList.add('favorite')})
+      });}
+
+function favouriteLocalStorage(){
+  const listForStorage = document.querySelector('.filter-gallery-list');
+listForStorage.addEventListener('click', handlerFavouriteBtn)}
+
+function handlerFavouriteBtn(e){if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
   const favBtn = e.target;
-  favBtn.addEventListener('click', ()=>{ 
-
-    const cardBody = favBtn.parentElement.parentElement;
-
+ 
+  const cardBody = favBtn.parentElement.parentElement;
   const recipeInfo = {
       category: cardBody.dataset.attribute,
       id: cardBody.id,
@@ -31,18 +29,13 @@ if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
     recipeDB.removeFromDB(recipeInfo.name);
     cardBody.classList.remove('favorite');
   
-}
-
-    else{cardBody.classList.add('favorite');
-    recipeDB.saveIntoDB(recipeInfo);}
-
-
-
+  }
+  else{cardBody.classList.add('favorite');
+  recipeDB.saveIntoDB(recipeInfo);}
+}}
+ 
 
 
-});
-};
- });
     
     class RecipeDB {
       getOrderFromLC() {
@@ -84,9 +77,10 @@ if(e.target.classList.value === 'filter-gallery-item-favorit-btn'){
     }
     const recipeDB = new RecipeDB();
     
-    form.addEventListener('submit', () => recipeDB.setOrderFormLC());    
+    // form.addEventListener('submit', () => recipeDB.setOrderFormLC());    
   
 // if(recipeDB.getOrderFromLC()){const {name, phone, email} = recipeDB.getOrderFromLC()
 // form.elements.name.value = name;
 // form.elements.phone.value = phone;
 // form.elements.email.value = email;}
+export{favouriteLocalStorage, addFavouriteOnList}
