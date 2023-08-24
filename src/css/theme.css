@@ -91,3 +91,7 @@ body.dark-theme .paragraph-popular{color: rgba(255, 255, 255, 0.80);}
 body.dark-theme .filter-gallery-item-description{color: rgba(255, 255, 255, 0.80);}
 body.dark-theme .button-link {background-color: inherit;color: inherit;
 border-color: rgba(255, 255, 255, 0.30);}
+/* FOOTER */
+body.dark-theme .footer_link {color: inherit;cursor: pointer;}
+body.dark-theme .footer_link:hover,  .footer_link:focus{color: #9BB537;}
+body.dark-theme .footer_container>p {font-weight: normal;}
