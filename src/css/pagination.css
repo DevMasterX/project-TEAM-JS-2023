@@ -1,5 +1,3 @@
-/* Button Styles */
-
 .button {
   background-color: rgba(155, 181, 55, 1);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -7,16 +5,20 @@
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
-  display: flex; /* Add flex */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  padding: 0; /* Remove any padding */
 }
 
+.content {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
 .button-left {
   background-color: rgba(5, 5, 5, 1);
 }
-
+.input-icon-right {
+  fill: rgba(5, 5, 5, 1);
+}
 .button-link {
   font-family: Inter;
   background-color: white;
@@ -27,42 +29,18 @@
   font-size: 18px;
   cursor: pointer;
 }
-
-.button:hover,
-.button:focus {
-  background-color: rgba(
-    155,
-    181,
-    55,
-    1
-  ); /* Slightly different color for hover/focus */
-  transform: scale(1.05); /* Scale the button slightly on hover/focus */
-  outline: none; /* Remove default browser outline */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for focus */
-}
-
-/* SVG Icon Styles */
-
 .input-icon {
   fill: rgba(248, 248, 248, 0.5);
-  margin: 0;
-  padding: 0;
 }
-
-.input-icon-right {
-  fill: rgba(5, 5, 5, 1);
-}
-
-/* Content Styles */
-
-.content {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-}
-
 .link {
   text-decoration: none;
-  color: rgba(5, 5, 5, 1);
+  colour: inherit;
+}
+
+.button-link.active {
+  background-color: rgba(155, 181, 55, 1);
+}
+.button-link:hover,
+.button-link:focus {
+  background-color: rgba(155, 181, 55, 1);
 }
