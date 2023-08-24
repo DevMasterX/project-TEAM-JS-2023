@@ -2,8 +2,10 @@
 
 
 body.dark-theme {
-    background-color: #383838;
+    background-color: #161616;
     color: #F4F4F4;
+
+    ;
 }
 
 
@@ -46,3 +48,30 @@ body.dark-theme {
 }
 
 
+body.dark-theme .btnOrderNow {background-color: #161616;}
+body.dark-theme span.swiper-pagination-bullet{background-color: #fff;}
+body.dark-theme span.swiper-pagination-bullet-active {background-color: #9bb537;}
+body.dark-theme .categories-btn {color: rgba(255, 255, 255, 0.50);
+  border-color: rgba(255, 255, 255, 0.20);}
+body.dark-theme .categories-btn:hover, body.dark-theme .categories-btn:focus {  color: #F8F8F8;}
+  body.dark-theme .filter-item-tittle{color: rgba(255, 255, 255, 0.50);}
+  body.dark-theme .filter-item-time {color: rgba(255, 255, 255, 0.50);}
+  body.dark-theme .filter-item-time:hover, body.dark-theme .filter-item-time:focus {color: #fff}
+
+  body.dark-theme .filter-item-ingredients {color: rgba(255, 255, 255, 0.50);}
+  body.dark-theme .filter-item-ingredients:hover, body.dark-theme .filter-item-ingredients:focus {color: #fff} 
+  body.dark-theme .filter-item-area {color: rgba(255, 255, 255, 0.50);}
+  body.dark-theme .filter-select-wrap{border-color: rgba(255, 255, 255, 0.20);}
+  body.dark-theme .filter-item-area:hover,   body.dark-theme .filter-item-area:focus {color: #fff;}
+ 
+  body.dark-theme .filter-form-input{border-color: rgba(255, 255, 255, 0.20);}
+  body.dark-theme.js-filter-select-wrap.open .js-filter-form-select-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 12px;}
+  body.dark-theme .js-filter-select-wrap.open .js-filter-form-select-dropdown {color: rgba(255, 255, 255, 0.50);
+  background-color: #050505;;}
+  body.dark-theme .is-highlighted{color: #FFF;}
+  body.dark-theme .js-filter-select-wrap.open .js-filter-form-select-dropdown::-webkit-scrollbar-thumb{background-color: #fff;}
+  body.dark-theme .js-categories-item-btn{color: rgba(255, 255, 255, 0.30);}
+  body.dark-theme .js-categories-item-btn:hover,  body.dark-theme .js-categories-item-btn:focus{color: #9bb537}
+  body.dark-theme .categories-scrollbar::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.30); ;}

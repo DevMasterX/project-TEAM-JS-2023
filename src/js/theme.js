@@ -2,13 +2,12 @@
 const themeToggle = document.getElementById("theme-toggle");
 const currentTheme = localStorage.getItem("theme");
 if (!currentTheme){localStorage.setItem('theme', 'light-theme')}
-if (currentTheme) {
-
+else {
     document.body.classList.add(currentTheme);
-    
 }
 if (currentTheme === 'dark-theme'){themeToggle.checked = true;}
 themeToggle.addEventListener("click", () => {
+   
 
     if (document.body.classList.contains("dark-theme")) {
         
