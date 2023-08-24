@@ -1,6 +1,5 @@
 :root {
    --color-header-black: #050505;
-   
    --color-header-green: #9BB537;
    --color-white: #fafafa;
    --color-white-secondary: #fff;
@@ -10,9 +9,7 @@
    list-style: none;
  }
  
- 
-
-  .header-container {
+   .header-container {
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -32,16 +29,18 @@
    }
 }
 
-
-
-
 .header-nav {
    display: flex;
 }
 
 .header-logo {
    display: flex;
-
+   font-weight: 600;  
+font-size: 16px;
+line-height: calc(18 / 16);
+letter-spacing: -0.04em;
+text-align: center;
+color: var(--color-header-green);
   
 }
 
@@ -49,34 +48,22 @@
     .header-logo {
       align-items: center;
       margin-left: 203px;
+      font-size: 18px;
+      line-height: calc(20 / 18);
+      letter-spacing: -4%; 
     }
 }
 
 @media screen and (min-width: 1280px) {
    .header-logo {
       margin-left: 391px;
+      
    }
 }
 .links {
    text-decoration: none;
 }
 
-.header-logo-text {
-font-weight: 600;  
-font-size: 16px;
-line-height: calc(18 / 16);
-letter-spacing: -0.04em;
-text-align: center;
-color:inherit;
-
-}
-
-@media screen and (min-width: 1280px) {
-   .header-logo-text {
-      line-height: calc(20 / 18);
-      letter-spacing: -4%; 
-   }
-}
 
 .header-nav-list {
    padding: 0;
@@ -96,13 +83,6 @@ gap: 16px;
    
 }
 
-
-.header-logo-accent {
-   color: var(--color-header-green);
-}
-
-
-
 .header-link-home:hover,
 .header-link-home:focus,
 .header-link-home:active {
@@ -120,7 +100,6 @@ gap: 16px;
 }
 
  .burger-menu-open-btn {
-   
    background-color: transparent;
    border: none;
    padding: 0;
@@ -147,8 +126,6 @@ stroke: var(--color-header-black);
    stroke: var(--color-header-green);
 }
 
-
-
 .shopping-btn {
    background-color: transparent;
    border: none;
@@ -159,7 +136,7 @@ stroke: var(--color-header-black);
 
 .shopping-btn-icon {
    stroke: var(--color-header-black);
-   fill: var(--color-white);
+   fill: var(--color-white-secondary);
  }
 
  .shopping-btn-icon:hover,
@@ -191,8 +168,35 @@ stroke: var(--color-header-black);
       cursor: pointer;
    }
 
-
 }
 .header-theme-checkbox input {
    cursor: pointer;
 }
+
+
+
+.header-logo-accent{
+   color:#050505
+}
+
+body.dark-theme span.header-logo-accent{
+   color: var(--color-white-secondary);
+}
+
+body.dark-theme .home-nav-icon,
+body.dark-theme .favorites-nav-icon
+{
+   fill: var(--color-white-secondary);
+   ;
+}
+
+body.dark-theme .shopping-btn-icon{
+   stroke: var(--color-white-secondary);
+   fill: var(--color-header-black);
+
+}
+
+body.dark-theme .burger-menu-open-btn-icon{
+   stroke: var(--color-white-secondary);
+}
+

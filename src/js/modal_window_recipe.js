@@ -54,7 +54,7 @@ function openModal (event) {
         return;
     }
 
-    toId = e.target.id;
+    toId = event.target.id;
     loadContent();
     seeModal.classList.remove('visually-hidden');
     body.classList.add("no-scroll");

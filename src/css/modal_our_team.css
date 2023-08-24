@@ -18,7 +18,8 @@
   top: 0;
   left: 0;
   overflow-y: auto;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team_wrapper {
   z-index: 999;
@@ -32,8 +33,8 @@
   padding: 25px 15px 20px;
   position: relative;
   box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
-    transform 0.3s ease-out;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out,
+    transform 0.5s ease-out;
 }
 
 .team_wrapper-small-1 {
@@ -50,9 +51,6 @@
   opacity: 0;
   transform: scale(0.9);
 }
-.team_backdrop.is-hidden {
-  display: flex;
-}
 
 .team_modal-close-btn {
   display: flex;
@@ -66,14 +64,15 @@
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team_modal-close-btn:hover,
 .team_modal-close-btn:focus {
-  color: #9bb537;
+  fill: #9bb537;
   transform: rotate(90deg);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .team_title {
@@ -85,20 +84,17 @@
   margin-top: 10px;
   max-width: 320px;
 }
-/* Стилі для карток */
+
 .team_list {
   display: flex;
   justify-content: center;
-
   flex-wrap: wrap;
-
   gap: 20px;
 }
 
 .team_item {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
   background: white;
   position: relative;
   border-radius: 10px;
@@ -144,47 +140,35 @@
   color: #9bb537;
   margin-bottom: 5px;
 }
-.team_link-linkedin {
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 10%;
-  margin-right: 10px;
-  background-color: transparent;
-  fill: black;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s, color 0.3s, fill 0.3s;
-}
 
-.team_link-linkedin:hover,
-.team_link-linkedin:focus {
-  background-color: #9bb537;
-  fill: #fff;
-}
-
-.team_link-linkedin--active:hover,
-.team_link-linkedin--active:focus {
-  background-color: #9bb537;
-  fill: #fff;
-}
-
+.team_link-linkedin,
 .team_link-github {
   border: none;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
   background-color: transparent;
   fill: black;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s, color 0.3s, fill 0.3s;
+  transition: background-color 0.5s, color 0.5s, fill 0.5s;
 }
 
+.team_link-linkedin {
+  border-radius: 10%;
+  margin-right: 10px;
+}
+
+.team_link-github {
+  border-radius: 50%;
+}
+
+.team_link-linkedin:hover,
+.team_link-linkedin:focus,
 .team_link-github:hover,
 .team_link-github:focus,
+.team_link-linkedin--active:hover,
+.team_link-linkedin--active:focus,
 .team_link-github--active:hover,
 .team_link-github--active:focus {
   background-color: #9bb537;
@@ -211,13 +195,6 @@
   .team_wrapper {
     max-width: 1280px;
     padding: 30px;
-    /* position: absolute;
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1); */
-
-    /* max-height: fit-content; */
   }
 
   .team_wrapper-small-1 {
@@ -235,9 +212,4 @@
   .team_list {
     flex-wrap: nowrap;
   }
-}
-
-*::before,
-*::after {
-  transition: all 0.3s ease-out;
 }
