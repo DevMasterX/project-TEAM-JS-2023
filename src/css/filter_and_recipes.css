@@ -52,17 +52,18 @@
   align-items: center;
   justify-content: center;
   width: 16px;
+  height: 16px;
   background-color: transparent;
   border: transparent;
   padding: 0;
   cursor: pointer;
+  background-image: url(../images/search_gray.png);
 }
-.filter-input-search-icon {
-  stroke: #050505;
-  fill: #050505;
-  width: 16px;
-  height: 16px;
+
+.filter-form-input:focus-within + .filter-search-btn {
+  background-image: url(../images/search_green.png);
 }
+
 .filter-input-reset-container {
   position: absolute;
   top: 50%;
@@ -87,17 +88,7 @@
   outline: none;
   border: 1px solid rgba(5, 5, 5, 0.2);
 }
-.filter-form-input:not(:placeholder-shown)
-  ~ .filter-input-reset-container
-  .filter-input-reset-btn {
-  stroke: #9bb537;
-  fill: 9bb537;
-}
 
-/* .filter-form-input:not(:placeholder-shown),
-.filter-input-reset-container + .filter-input-reset-btn {
-  display: inline-block;
-} */
 .filter-form-input:not(:placeholder-shown)
   ~ .filter-input-reset-container
   .filter-input-reset-btn {
@@ -110,7 +101,7 @@
   width: 16px;
   height: 16px;
 }
-.filter-select-icon {
+/* .filter-select-icon {
   position: absolute;
   top: 50%;
   right: 18px;
@@ -120,66 +111,56 @@
   height: 18px;
   fill: transparent;
   stroke: #050505;
+} */
+
+/* Стилізація контейнера для кастомного селекта */
+.filter-form-select {
+  position: relative;
+  display: inline-block;
 }
 
-.filter-item-time {
+/* Стилізація самого селекта, що залишається невидимим */
+.filter-form-select select {
+  display: none;
+}
+
+.choices__inner {
   display: block;
-  width: 160px;
-  color: rgba(5, 5, 5, 0.3);
+  background-color: transparent;
+}
+.filter-form-select {
+  display: block;
+  width: 100%;
+  min-width: 120px;
+  padding: 13px 18px 13px 25px;
+  color: #050505;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.29;
+  line-height: 1.25;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
+  background-color: transparent;
 }
 
-.filter-item-area {
-  position: relative;
+.choices__list--single {
+  display: none;
+}
+.choices__inner:not(.is-focused):not(.is-open):not(.is-disabled):not(
+    .is-active
+  ):not(.is-highlighted):not(.is-selected):not(.is-flipped) {
+  border: none;
+  outline: transparent;
+}
 
+.js-filter-select-wrap {
   display: block;
-  width: 161px;
-  color: rgba(5, 5, 5, 0.3);
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.29;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
+
+  border: none;
+  outline: none;
 }
 
-.filter-item-ingredients {
-  position: relative;
-
-  display: block;
-  width: 188px;
-  color: rgba(5, 5, 5, 0.3);
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.29;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
-}
-
-.filter-select-wrap {
-  position: relative;
-  display: block;
-  height: 48px;
-  padding-right: 5px;
-}
 /*  для закритого списку */
 .js-filter-select-wrap.closed .js-filter-form-select-dropdown {
   display: none;
@@ -220,11 +201,7 @@
 .is-highlighted {
   color: #050505;
 }
-.choices__input--cloned {
-  color: #050505;
-  outline: transparent;
-  border: transparent;
-}
+
 /* .js-filter-select-wrap .is-focused {
   outline: transparent;
   border: transparent;
