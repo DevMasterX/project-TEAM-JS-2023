@@ -61,7 +61,7 @@
   background-image: url(../images/search_gray.png);
 }
 
-.filter-form-input:focus-within .filter-search-btn {
+.filter-form-input:focus-within + .filter-search-btn {
   background-image: url(../images/search_green.png);
 }
 
@@ -285,7 +285,7 @@
   cursor: pointer;
 }
 
-.filter-gallery-item.favorite + .filter-gallery-item-favorit-btn {
+.filter-gallery-item.favorite .filter-gallery-item-favorit-btn {
   background-image: url(../images/heart_wite.png);
   background-size: cover;
   background-repeat: no-repeat;
