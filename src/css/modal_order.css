@@ -7,11 +7,7 @@
   background: rgba(0, 0, 2, 0.894);
 }
 
-/* body.dark-theme.order-form-wrapper {
-  border: 5px solid rgba(5, 5, 5, 0.2);
-  box-shadow: 0 3px 10px -0.5px rgba(122, 236, 223, 0.2);
-} */
-/* .backdrop.is-hidden .order-form-wrapper {
+/* .backdrop.is-hidden {
   transform: translate(-50%, -50%) scaleY(0) rotate(-60deg);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 } */
@@ -29,6 +25,11 @@
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+  border: 3px solid #9bb537;
+  box-shadow: 0 3px 20px -0.5px #fff;
+}
+.dark-theme.order-form-wrapper {
+  background-color: #161616;
 }
 .btn-order-close {
   position: absolute;
@@ -39,6 +40,10 @@
   border: none;
   border-radius: 50%;
   outline: none;
+  color: inherit;
+}
+.btnOrderNow {
+  color: inherit;
 }
 .btn-order-close:hover,
 .btn-order-close:focus {
@@ -82,6 +87,9 @@
 
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
+}
+.form-input.dark-theme {
+  background-color: #161616;
 }
 .modal-input-wrapper {
   position: relative;
