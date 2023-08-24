@@ -2,18 +2,17 @@ import CSS from '../css/styles.css';
 import { getRecipeDetails } from './api';
 
 const body = document.querySelector("body");
-const modalWindow = document.querySelector('.r-modal');
+const modalWindow = document.querySelector('.r-modal-content');
 const seeModal = document.querySelector('.r-modal-backdrop');
-const openrModalClick = document.querySelector('.filter-gallery-item-btn');
 
-let toId = '6462a8f74c3d0ddd28897fc1';
+let toId = '';
+
+function eventOpenrModal() {
+    const getIdElelment = document.querySelector('.filter-gallery-list');
+    getIdElelment.addEventListener('click', openModal);
+}
 
 function loadContent() {
-    document.addEventListener('keydown', closeOnEscape);
-    seeModal.addEventListener('click', closeModal);
-
-    // body.classList.add("no-scroll");
-
     return getRecipeDetails(toId).then( data => modalWindow.insertAdjacentHTML('afterbegin', addContent(data))).catch(err => console.log(err));
 }
 
@@ -50,16 +49,29 @@ function addContent(arr) {
     <p class="r-modal-instructions">${instructions}</p>`;
 };
 
+function openModal (event) {
+    if(!event.target.id) {
+        return;
+    }
+
+    toId = e.target.id;
+    loadContent();
+    seeModal.classList.remove('visually-hidden');
+    body.classList.add("no-scroll");
+    document.addEventListener('keydown', closeOnEscape);
+    seeModal.addEventListener('click', closeModal);
+
+
+}
+
 function closeModal(event) {
     seeModal.classList.add('visually-hidden');
-    // body.classList.remove("no-scroll");
+    body.classList.remove("no-scroll");
+
+    modalWindow.innerHTML = '';
 
     document.removeEventListener('keydown', closeOnEscape);
     seeModal.removeEventListener('click', closeModal);
-}
-
-function eventOpenrModal() {
-    console.log('повішано слухач після рендера');
 }
 
 function closeOnEscape(e) {
@@ -67,8 +79,6 @@ function closeOnEscape(e) {
       closeModal();
     }
   }
-
-loadContent();
 
 export {
     eventOpenrModal
