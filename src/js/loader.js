@@ -7,11 +7,23 @@ window.onload = function () {
 };
 
 // Картинка-Заглушка *
-let placeholderImage = document.createElement('img');
-
-export function getData() {
+// placeholderImage.id = 'placeholder';
+export function getData(wraper) {
+  let placeholderImage = document.createElement('img');
   placeholderImage.src = '/src/images/Pancake.png';
   placeholderImage.alt = 'Зображення відсутнє';
 
-  document.body.appendChild(placeholderImage);
+  placeholderImage.style.maxWidth = '300px';
+  placeholderImage.style.margin = '0 auto';
+
+  wraper.appendChild(placeholderImage);
 }
+// if (!data || data.length === 0) {
+//   const placeholder = createPlaceholder();
+// }
+// placeholder.style.display = 'none';
+
+// if (!data) {
+//   placeholder.style.display = 'block';
+// }
+// wraper.appendChild(placeholderImage);

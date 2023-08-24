@@ -26,13 +26,13 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
   border: 3px solid #9bb537;
-  box-shadow: 0 3px 20px -0.5px #fff;
+  box-shadow: 0 3px 15px -0.5px #fff;
 }
 .dark-theme.order-form-wrapper {
   background-color: #161616;
 }
 .btn-order-close {
-  position: absolute;
+  position: fixed;
   top: 14px;
   right: 14px;
   background-color: transparent;
@@ -41,6 +41,8 @@
   border-radius: 50%;
   outline: none;
   color: inherit;
+  width: 30px;
+  height: 30px;
 }
 .btnOrderNow {
   color: inherit;
@@ -49,8 +51,6 @@
 .btn-order-close:focus {
   fill: rgb(8, 6, 6);
   background-color: #859b2d;
-  width: 30px;
-  height: 30px;
 }
 .is-hidden {
   opacity: 0;
@@ -155,5 +155,13 @@
   .form-input {
     height: 48px;
     padding-left: 14px;
+  }
+  /* .no-scroll {
+    overflow: hidden;
+  } */
+}
+@media screen and (min-width: 1280px) {
+  .no-scroll {
+    overflow: hidden;
   }
 }
