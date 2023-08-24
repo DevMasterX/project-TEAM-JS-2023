@@ -5,3 +5,13 @@ window.onload = function () {
     preloader.classList.add('preloader-hidden');
   }, 990);
 };
+
+// Картинка-Заглушка *
+let placeholderImage = document.createElement('img');
+
+export function getData() {
+  placeholderImage.src = '/src/images/Pancake.png';
+  placeholderImage.alt = 'Зображення відсутнє';
+
+  document.body.appendChild(placeholderImage);
+}
