@@ -11,6 +11,7 @@
 
 p {
   font-weight: 300;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -47,6 +48,19 @@ p {
   z-index: 100;
   opacity: 0.5;
   transform: translateY(10px);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .show-btn.is-visible {
