@@ -2,6 +2,7 @@ import { Notify } from "notiflix";
 import { getFilteredRecipes } from "./api"
 import { clearFilters } from "./filter";
 import Gallery from './gallery';
+import { getData } from './loader'
 
 
 const formFilter = document.querySelector(".filter-form");
@@ -15,7 +16,7 @@ let searchBtnClicked = false;
 
 async function handlerAllCategoriesBtn(evt, galleryElement) {
     evt.preventDefault();
-    clearFilters()
+    // clearFilters()
     disactivBtn(buttons);
 
     try {
@@ -27,12 +28,15 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
 
         if (!results.length) {
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
+            getData();
             return;
+
         }
 
         console.log(recipes);
 
     } catch (err) {
+
         Notify.failure(err.message);
         console.log(err);
     }
@@ -60,10 +64,12 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
             const marcup = Gallery.createMarkupCard({ results });
             Gallery.appendMarkupToGallery(galleryElement, marcup);
             if (!results.length) {
+                getData();
                 Notify.failure('Sorry, there are no images matching your search query. Please try again.');
                 return;
             }
         } catch (err) {
+
             Notify.failure(err.message);
             console.log(err);
         }
@@ -115,9 +121,10 @@ async function handlerFilterForm(evt, galleryElement, choise) {
 
 
         if (!results.length) {
+
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
             galleryElement.innerHTML = ""
-
+            getData();
             return;
         }
         results.forEach(recipe => {
@@ -130,6 +137,7 @@ async function handlerFilterForm(evt, galleryElement, choise) {
 
     } catch (err) {
         Notify.failure(err.message);
+
         console.log(err);
     }
 

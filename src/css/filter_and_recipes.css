@@ -61,7 +61,7 @@
   background-image: url(../images/search_gray.png);
 }
 
-.filter-form-input:focus-within + .filter-search-btn {
+.filter-form-input:focus-within .filter-search-btn {
   background-image: url(../images/search_green.png);
 }
 

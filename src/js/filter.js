@@ -5,6 +5,7 @@ import { debounce } from 'lodash';
 import Gallery from './gallery';
 import { handlerFilterForm } from './hendlers_filter';
 import { eventOpenrModal } from './modal_window_recipe';
+import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
 
 import Choices from 'choices.js';
 import {
@@ -171,10 +172,11 @@ async function startGallery(params = {}) {
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(gallery, marcup);
         eventOpenrModal();
-
+        favouriteLocalStorage();
+        addFavouriteOnList();
 
         if (page < totalPage) {
-            // handlePagination({ page, totalPage })
+            handlePagination({ page, totalPage })
 
         }
 
