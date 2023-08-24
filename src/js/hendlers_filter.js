@@ -10,6 +10,7 @@ const resetButton = document.querySelector(".filter-input-reset-btn");
 const searchBtn = document.querySelector(".filter-search-btn");
 const inputForm = document.querySelector(".filter-form-input");
 const selectes = document.querySelectorAll(".filter-form-select");
+const gallery = document.querySelector(".filter-gallery-list")
 const buttons = [];
 let searchBtnClicked = false;
 
@@ -29,7 +30,7 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
         addFavouriteOnList();
         if (!results.length) {
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-            getData();
+            getData(gallery);
             return;
 
         }
@@ -64,7 +65,7 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
 
 
             if (!results.length) {
-                getData();
+                getData(gallery);
                 Notify.failure('Sorry, there are no images matching your search query. Please try again.');
                 return;
             }
@@ -74,6 +75,7 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
             Gallery.appendMarkupToGallery(galleryElement, marcup);
             favouriteLocalStorage();
             addFavouriteOnList();
+
 
         } catch (err) {
 
@@ -131,7 +133,7 @@ async function handlerFilterForm(evt, galleryElement, choise) {
 
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
             galleryElement.innerHTML = ""
-            getData();
+            getData(gallery);
             return;
         }
         results.forEach(recipe => {
