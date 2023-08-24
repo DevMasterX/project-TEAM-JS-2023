@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getFilteredRecipes, getAreas, getIngredients } from './api';
 import { debounce } from 'lodash';
 import Gallery from './gallery';
-// import { handlerFilterForm } from './hendlers_filter';
+import { handlerFilterForm } from './hendlers_filter';
 import { eventOpenrModal } from './modal_window_recipe';
 
 import Choices from 'choices.js';
