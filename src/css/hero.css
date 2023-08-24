@@ -11,7 +11,7 @@
 }
 
 .hero-title {
-  width: 335px;
+  max-width: 335px;
   text-transform: uppercase;
 
   font-size: 26px;
@@ -26,6 +26,7 @@
 }
 
 .hero-text {
+  max-width: 335px;
   margin: 14px 0 28px;
   font-size: 14px;
   line-height: 18px;
@@ -54,6 +55,7 @@
 }
 .case {
   width: 515px;
+  margin: 0 auto;
 }
 
 .swiper {
@@ -168,10 +170,12 @@ span.swiper-pagination-bullet-active {
     margin-right: 32px;
   }
   .hero-title {
+    max-width: none;
     width: 446px;
     font-size: 36px;
   }
   .hero-text {
+    max-width: none;
     width: 408px;
     margin: 16px 0 32px;
     font-size: 16px;
