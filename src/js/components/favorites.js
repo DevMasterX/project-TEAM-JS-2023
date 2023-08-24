@@ -1,78 +1,6 @@
-import card from '../../images/card/card.png'
-
-
-
-
 import {addClass, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
 import { LOCALSTORAGE_KEY_FAVORITES, handleGetLocalStorage, handleSetLocalStorage } from './localstorage'
 import {renderCards, renderCategoeries} from './render'
-
-
-// let cards = [
-//     {
-//         id_card: 1,
-//         img: {
-//             path: card,
-//             alt: "tasty"
-//         },
-//         title: "Beef Wellington",
-//         sub_title: `Beef Wellington is a steak steak steak dish of English origin, made out of fillet steak coated with pâté and duxelles, wrapped in puff pastry, then baked.`,
-//         rating: 4.5,
-//         isFavorites: true,
-//         categories: ["breakfast", "dessert", "beef"],
-//     },
-//     {
-//         id_card: 2,
-//         img: {
-//             path: card,
-//             alt: "tasty"
-//         },
-//         title: "Beef Wellington",
-//         sub_title: `Beef Wellington is a steak steak steak dish of English origin, made out of fillet steak coated with pâté and duxelles, wrapped in puff pastry, then baked.`,
-//         rating: 4.4,
-//         isFavorites: true,
-//         categories: ["breakfast", "dessert"],
-//     },
-//     {
-//         id_card: 3,
-//         img: {
-//             path: card,
-//             alt: "tasty"
-//         },
-//         title: "Beef Wellington",
-//         sub_title: `Beef Wellington is a steak steak steak dish of English origin, made out of fillet steak coated with pâté and duxelles, wrapped in puff pastry, then baked.`,
-//         rating: 4.5,
-//         isFavorites: true,
-//         categories: ["breakfast", "dessert"],
-//     },
-//     {
-//         id_card: 4,
-//         img: {
-//             path: card,
-//             alt: "tasty"
-//         },
-//         title: "Beef Wellington",
-//         sub_title: `Beef Wellington is a steak steak steak dish of English origin, made out of fillet steak coated with pâté and duxelles, wrapped in puff pastry, then baked.`,
-//         rating: 4.5,
-//         isFavorites: true,
-//         categories: ["breakfast", "dessert"],
-//     },
-//     {
-//         id_card: 5,
-//         img: {
-//             path: card,
-//             alt: "tasty"
-//         },
-//         title: "Beef Wellington",
-//         sub_title: `Beef Wellington is a steak steak steak dish of English origin, made out of fillet steak coated with pâté and duxelles, wrapped in puff pastry, then baked.`,
-//         rating: 4.5,
-//         isFavorites: true,
-//         categories: ["breakfast", "dessert"],
-//     },
-
-// ]
-
-// handleSetLocalStorage(LOCALSTORAGE_KEY_FAVORITES, cards)
 
 
 // v2
@@ -126,7 +54,7 @@ if (!initialState.favorites?.length) {
     initialState.categories =  getCategories(initialState.favorites)
     renderCategoeries(initialState.categories, initialState.currentCategories)
     renderCards(initialState.favorites)
-
+    handleIsHiddenPaginationGavorite(initialState.favorites)
 
     refs.ulCards.addEventListener("click", function (e) {
         const target = e.target
@@ -147,12 +75,14 @@ if (!initialState.favorites?.length) {
                 console.log(initialState)
                 renderCategoeries(initialState.categories);
                 renderCards(initialState.all());
+                handleIsHiddenPaginationGavorite(initialState.favorites)
             } else {
           
                 const element = [...refs.ulCategories.children]
                     .find(item => item.textContent.trim().toLowerCase() == initialState.currentCategories.trim().toLowerCase())
                 // const span = 
                 handleIsActiveCategory(element)
+                handleIsHiddenPaginationGavorite(initialState.favorites)
             }
         }
     })
@@ -167,6 +97,7 @@ if (!initialState.favorites?.length) {
                 const all = initialState.all();
                 handleIsActiveCategory(target)
                 renderCards(all);
+                handleIsHiddenPaginationGavorite(all)
             } else {
                 initialState.currentCategories = text
                 const fillter = initialState.filter((item) => {
@@ -174,6 +105,7 @@ if (!initialState.favorites?.length) {
                 })
                 handleIsActiveCategory(target)
                 renderCards(fillter)
+                handleIsHiddenPaginationGavorite(fillter)
             }
             
         }
