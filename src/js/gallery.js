@@ -18,7 +18,7 @@ class Gallery {
                     <p class="filter-gallery-item-rating-value">${rating}</p>
                     <div class="filter-gallery-item-rating-icons">&#9734; &#9734; &#9734; &#9734; &#9734;</div>
                 </div>
-                <button class="filter-gallery-item-btn" type="button">See recipe</button>
+                <button class="filter-gallery-item-btn" type="button" id="${idRecip}">See recipe</button>
             </div>
             </div>
         </li>`
