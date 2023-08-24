@@ -3,6 +3,7 @@
   width: 335px;
   margin-left: auto;
   margin-right: auto;
+  color: rgba(5, 5, 5, 0.5);
 }
 
 .filter-form {
@@ -64,12 +65,22 @@
   background-image: url(../images/search_green.png);
 }
 
+.filter-form-input::placeholder {
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
 .filter-input-reset-container {
   position: absolute;
   top: 50%;
   right: 18px;
   transform: translate(0, -50%);
 }
+
 .filter-input-reset-btn {
   width: 16px;
   height: 16px;
@@ -78,10 +89,12 @@
   border: transparent;
   display: none;
 }
+
 .filter-input-reset-btn:focus,
 .filter-input-reset-btn:hover {
   scale: 1.2;
 }
+
 .filter-form-input:not(:placeholder-shown),
 .filter-form-input:focus,
 .filter-form-input:active {
@@ -101,25 +114,16 @@
   width: 16px;
   height: 16px;
 }
-/* .filter-select-icon {
-  position: absolute;
-  top: 50%;
-  right: 18px;
-  transform: translate(0, -50%);
 
-  width: 18px;
-  height: 18px;
-  fill: transparent;
-  stroke: #050505;
-} */
+/* =======СЕЛЕКТОРИ===== */
 
-/* Стилізація контейнера для кастомного селекта */
+/*  контейнер для кастомного селекта */
 .filter-form-select {
   position: relative;
   display: inline-block;
 }
 
-/* Стилізація самого селекта, що залишається невидимим */
+/*  селект, що залишається невидимим */
 .filter-form-select select {
   display: none;
 }
@@ -133,7 +137,8 @@
   width: 100%;
   min-width: 120px;
   padding: 13px 18px 13px 25px;
-  color: #050505;
+  color: rgba(5, 5, 5, 0.5);
+  /* color: #050505; */
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -161,7 +166,7 @@
   outline: none;
 }
 
-/*  для закритого списку */
+/*  для закритого списку опцій */
 .js-filter-select-wrap.closed .js-filter-form-select-dropdown {
   display: none;
 }
@@ -193,7 +198,6 @@
 }
 
 .js-filter-select-wrap:has(.is-focused) .choices__list {
-  color: #050505;
   outline: transparent;
   border: transparent;
 }
@@ -201,69 +205,6 @@
 .is-highlighted {
   color: #050505;
 }
-
-/* .js-filter-select-wrap .is-focused {
-  outline: transparent;
-  border: transparent;
-} */
-/* ??? поле для вводу залежи */
-/* .js-filter-select-wrap .choices__list--single {
-  display: none;
-  display: block;
-  color: rgba(5, 5, 5, 0.3);
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.29;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
-} */
-
-/* .js-filter-select-wrap.is-open .choices__list--single {
-  display: block;
-} */
-/* .choices__list .js-choices__list--single {
-  display: block;
-  color: rgba(5, 5, 5, 0.3);
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.29;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
-} */
-
-/* .js-filter-form-select-dropdown {
-  position: absolute;
-  top: calc(100% + 8px); 
-  left: 0;
-  width: 100%;
-  max-height: 176px;
-  overflow-y: auto;
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
-
-  color: rgba(5, 5, 5, 0.3);
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.9;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
-  padding-right: 12px;
-  z-index: 10;
-} */
 
 /* Стилізація повзунка прокрутки */
 
@@ -285,45 +226,7 @@
   background: rgba(5, 5, 5, 0.1);
 }
 
-/* Стилі для виділеного елемента списку випадаючого меню */
-/* .choices__item
-  .choices__item--choice
-  .is-selected
-  .choices__item--selectable
-  .is-highlighted {
-  color: #050505;
-} */
-/* .filter-form-select .choices__list .choices__item--selectable.is-highlighted {
- 
-  color: #050505;
-} */
-
-/* Стилі для вибраного елемента списку випадаючого меню */
-/* .filter-form-select .choices__list .choices__item--selected {
-  padding: 0;
-  color: #050505;
-} */
-
-/* .filter-form-select option {
-  
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0px 4px 36px 0px #00000005;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 18px;
-  z-index: 100;
-} */
-/* .filter-form-select option:checked {
-  background-color: transparent;
-  color: rgba(5, 5, 5, 1);
-  list-style-type: none;
-} */
-
-/* .filter-form-select:active {
-  transform: scaleY(1);
-} */
-
+/* =====ГАЛЕРЕЯ======= */
 .filter-gallery {
   width: 100%;
   padding: 14px 20px 40px 20px;
@@ -382,24 +285,6 @@
   padding: 0;
   cursor: pointer;
 }
-/* .filter-gallery-item-favorit-btn-icon {
-  display: block;
-  width: 29px;
-  height: 22px;
-  margin: 0;
-  padding: 0;
-  z-index: 100;
-  stroke: #f8f8f8;
-  fill: none;
-  transition: fill 0.3s ease-in-out;
-} */
-/* 
-.filter-gallery-item-favorit-btn:hover,
-.filter-gallery-item-favorit-btn:focus {
-  background-image: url(../images/heart_wite.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
 
 .filter-gallery-item.favorite + .filter-gallery-item-favorit-btn {
   background-image: url(../images/heart_wite.png);
@@ -533,7 +418,12 @@
   .filter-form {
     gap: 16px;
   }
+  .filter-form-input {
+    width: 278px;
+  }
+
   .filter-gallery {
+    min-width: 496px;
     max-width: fit-content;
     padding: 14px 0px 0px 0px;
   }

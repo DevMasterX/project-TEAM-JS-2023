@@ -3,8 +3,14 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getFilteredRecipes, getAreas, getIngredients } from './api';
 import { debounce } from 'lodash';
 import Gallery from './gallery';
-import { handlerFilterForm } from './hendlers_filter';
+// import { handlerFilterForm } from './hendlers_filter';
+import { eventOpenrModal } from './modal_window_recipe';
+
 import Choices from 'choices.js';
+import {
+    handlePagination,
+
+} from './components/pagination/pagination';
 
 
 const inputForm = document.querySelector(".filter-form-input");
@@ -62,11 +68,6 @@ async function createOptionsSelect() {
                 allowHTML: true,
                 placeholder: true,
                 placeholderValue: placeholderValue,
-                // shouldOpen: true,
-
-                // shouldSort: false,
-                // renderSelectedChoices: false,
-
 
 
                 classNames: {
@@ -83,6 +84,8 @@ async function createOptionsSelect() {
             choicesInstances.push(choicesInstance);
 
             setupSelectToggle(item, choicesInstance);
+
+            createStylePlaceholder()
         }
     } catch (error) {
         console.error(error);
@@ -97,6 +100,19 @@ function createOptions(min, max, step, unit) {
     return options;
 }
 
+function createStylePlaceholder() {
+    const select = document.querySelector(".filter-form-select");
+
+    select.addEventListener("change", (event) => {
+        const selectedOption = event.target.options[event.target.selectedIndex];
+
+        if (selectedOption.classList.contains("filter-form-select-placeholder")) {
+            select.style.color = "rgba(5, 5, 5, 0.50)";
+        } else {
+            select.style.color = "#050505";
+        }
+    });
+}
 function setupSelectToggle(item) {
     const selectWrap = item.closest('.js-filter-select-wrap');
     console.log();
@@ -146,39 +162,20 @@ function clearFilters() {
 
 
 
-async function startGallery() {
+async function startGallery(params = {}) {
 
     try {
-        const recipes = await getFilteredRecipes();
+        const recipes = await getFilteredRecipes(params);
 
-        const { page, results, totalPage } = recipes;
+        const { page, results, perPage: totalPage } = recipes;
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(gallery, marcup);
+        eventOpenrModal();
 
-        // const seeBtn = document.getElementById('filter-btn-heard');
-
-        // seeBtn.addEventListener('click', eventOpenrModal);
-
-
-        const galleryContainer = document.querySelector('filter-gallery-list');
-
-        galleryContainer.addEventListener('click', (event) => {
-            console.log(event);
-            // if (event.target.classList.contains('filter-gallery-item-btn')) {
-            //     // Отримайте батьківський елемент .filter-gallery-item, який містить кнопку
-            //     const parentItem = event.target.closest('.filter-gallery-item');
-            //     if (parentItem) {
-            //         const idRecip = parentItem.getAttribute('data-attribute');
-            //         // Викликайте вашу функцію з обробником для відкриття рецепту
-            //         openRecipeModal(idRecip);
-            //     }
-            // }
-        });
 
         if (page < totalPage) {
-            // ПАГІНКАЦІЯ.classList.remove('is-hidden');
-            // ПАГІНАЦІЯ.addEventListener('click', handlerLoad);
-            //тут робимо видимою пагінацію і вішаємо на неї слухач
+            // handlePagination({ page, totalPage })
+
         }
 
     } catch (error) {
@@ -190,5 +187,6 @@ async function startGallery() {
 
 export {
     clearFilters,
+    startGallery
 
 };
