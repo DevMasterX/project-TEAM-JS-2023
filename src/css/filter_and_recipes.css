@@ -132,11 +132,32 @@
   display: block;
   background-color: transparent;
 }
+
+.filter-select-time {
+  display: block;
+  width: 160px;
+  height: 46px;
+  padding: 14px 18px;
+}
+
+.filter-select-area {
+  display: block;
+  width: 161px;
+  height: 46px;
+  padding: 14px 18px;
+}
+.filter-select-ingr {
+  display: block;
+  width: 188px;
+  height: 46px;
+  padding: 14px 18px;
+}
+
 .filter-form-select {
   display: block;
   width: 100%;
-  min-width: 120px;
-  padding: 13px 18px 13px 25px;
+  /* min-width: 120px; */
+  /* padding: 13px 18px 13px 25px; */
   color: rgba(5, 5, 5, 0.5);
   /* color: #050505; */
   font-family: Inter;
@@ -419,6 +440,22 @@
   }
   .filter-form-input {
     width: 278px;
+    height: 48px;
+  }
+
+  .filter-select-time {
+    width: 125px;
+    height: 48px;
+  }
+
+  .filter-select-area {
+    width: 141px;
+    height: 48px;
+  }
+  .filter-select-ingr {
+    display: block;
+    width: 188px;
+    height: 48px;
   }
 
   .filter-gallery {

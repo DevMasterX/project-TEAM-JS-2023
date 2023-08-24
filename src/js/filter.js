@@ -52,7 +52,7 @@ async function createOptionsSelect() {
             } if (item === selectArea) {
 
                 const areas = await getAreas();
-                console.log(areas);
+
                 options = areas.map(area => ({ value: area.name, label: placeholderValue, id: area._id }));
                 placeholderValue = 'Region';
             } if (item === selectIngr) {
@@ -86,7 +86,18 @@ async function createOptionsSelect() {
 
             setupSelectToggle(item, choicesInstance);
 
-            createStylePlaceholder()
+            createStylePlaceholder();
+
+            console.log(choicesInstance);
+
+            item.addEventListener('change', async evt => {
+                handlerFilterForm(evt, gallery, choicesInstances);
+            });
+
+
+
+
+
         }
     } catch (error) {
         console.error(error);
@@ -114,6 +125,9 @@ function createStylePlaceholder() {
         }
     });
 }
+
+
+
 function setupSelectToggle(item) {
     const selectWrap = item.closest('.js-filter-select-wrap');
     console.log();
