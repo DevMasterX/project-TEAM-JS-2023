@@ -17,6 +17,7 @@
 
 .r-modal-backdrop {
     position: fixed;
+    z-index: 999;
     top: 0;
     width: 100%;
     height: 100%;
@@ -143,7 +144,7 @@
   line-height: 18px;
 }
 
-.favorite-btn {
+.r-modal-favorite-btn {
     Width: 148px;
     Height: 41px;
     padding: 12px 24px;
@@ -163,7 +164,7 @@
     border: none;
 }
 
-.rating-btn {
+.r-modal-rating-btn {
     Min-width: 133px;
     Height: 41px;
     padding: 12px 24px;
