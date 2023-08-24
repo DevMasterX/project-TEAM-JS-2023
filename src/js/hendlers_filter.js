@@ -3,7 +3,7 @@ import { getFilteredRecipes } from "./api"
 import { clearFilters } from "./filter";
 import Gallery from './gallery';
 import { getData } from './loader'
-
+import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
 
 const formFilter = document.querySelector(".filter-form");
 const resetButton = document.querySelector(".filter-input-reset-btn");
@@ -25,7 +25,8 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
 
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(galleryElement, marcup);
-
+        favouriteLocalStorage();
+        addFavouriteOnList();
         if (!results.length) {
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
             getData();
@@ -61,13 +62,19 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
             const recipes = await getFilteredRecipes(params);
             const { results } = recipes;
 
-            const marcup = Gallery.createMarkupCard({ results });
-            Gallery.appendMarkupToGallery(galleryElement, marcup);
+
             if (!results.length) {
                 getData();
                 Notify.failure('Sorry, there are no images matching your search query. Please try again.');
                 return;
             }
+
+
+            const marcup = Gallery.createMarkupCard({ results });
+            Gallery.appendMarkupToGallery(galleryElement, marcup);
+            favouriteLocalStorage();
+            addFavouriteOnList();
+
         } catch (err) {
 
             Notify.failure(err.message);
@@ -130,6 +137,8 @@ async function handlerFilterForm(evt, galleryElement, choise) {
         results.forEach(recipe => {
             const marcup = Gallery.createMarkupCard({ results: [recipe] });
             Gallery.appendMarkupToGallery(galleryElement, marcup);
+            favouriteLocalStorage();
+            addFavouriteOnList();
         });
 
 
@@ -143,6 +152,9 @@ async function handlerFilterForm(evt, galleryElement, choise) {
 
 
 }
+
+
+
 
 function checkFieldsAndToggleButton() {
     const isAnySelectActive = Array.from(selectes).some(select => select.value !== "");
