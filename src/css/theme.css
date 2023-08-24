@@ -75,5 +75,19 @@ body.dark-theme .categories-btn:hover, body.dark-theme .categories-btn:focus {  
   body.dark-theme .js-categories-item-btn{color: rgba(255, 255, 255, 0.30);}
   body.dark-theme .js-categories-item-btn:hover,  body.dark-theme .js-categories-item-btn:focus{color: #9bb537}
   body.dark-theme .categories-scrollbar::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.30); ;}
-
-  
+/* ORDER NOW MODAL */
+body.dark-theme .order-form-wrapper {
+  background-color: #050505;
+  border-color: #050505;
+  box-shadow: none;
+}
+body.dark-theme .backdrop {background: #050505c9;}
+body.dark-theme .form-input, .modal-textarea{background-color: inherit; border-color: rgba(255, 255, 255, 0.20);
+  }
+body.dark-theme .form-input::placeholder, .modal-textarea::placeholder{color: rgba(255, 255, 255, 0.50);}
+/* POPULAR */
+body.dark-theme .paragraph-popular{color: rgba(255, 255, 255, 0.80);}
+/* GALLERY */
+body.dark-theme .filter-gallery-item-description{color: rgba(255, 255, 255, 0.80);}
+body.dark-theme .button-link {background-color: inherit;color: inherit;
+border-color: rgba(255, 255, 255, 0.30);}
