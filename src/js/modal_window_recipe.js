@@ -81,5 +81,6 @@ function closeOnEscape(e) {
   }
 
 export {
-    eventOpenrModal
+    eventOpenrModal,
+    toId
 };
