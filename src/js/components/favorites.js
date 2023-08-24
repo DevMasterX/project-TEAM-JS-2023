@@ -1,6 +1,6 @@
-import {addClass, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
+import { elementstyle, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
 import { LOCALSTORAGE_KEY_FAVORITES, handleGetLocalStorage, handleSetLocalStorage } from './localstorage'
-import {renderCards, renderCategoeries} from './render'
+import { renderCards, renderCategoeries} from './render'
 
 
 // v2
@@ -54,7 +54,7 @@ if (!initialState.favorites?.length) {
     initialState.categories =  getCategories(initialState.favorites)
     renderCategoeries(initialState.categories, initialState.currentCategories)
     renderCards(initialState.favorites)
-    handleIsHiddenPaginationGavorite(initialState.favorites)
+    handleIsHiddenPaginationFavorite(initialState.favorites)
 
     refs.ulCards.addEventListener("click", function (e) {
         const target = e.target
@@ -75,14 +75,15 @@ if (!initialState.favorites?.length) {
                 console.log(initialState)
                 renderCategoeries(initialState.categories);
                 renderCards(initialState.all());
-                handleIsHiddenPaginationGavorite(initialState.favorites)
+                handleIsHiddenPaginationFavorite(initialState.favorites)
+               
             } else {
           
                 const element = [...refs.ulCategories.children]
                     .find(item => item.textContent.trim().toLowerCase() == initialState.currentCategories.trim().toLowerCase())
                 // const span = 
                 handleIsActiveCategory(element)
-                handleIsHiddenPaginationGavorite(initialState.favorites)
+               
             }
         }
     })
@@ -97,15 +98,16 @@ if (!initialState.favorites?.length) {
                 const all = initialState.all();
                 handleIsActiveCategory(target)
                 renderCards(all);
-                handleIsHiddenPaginationGavorite(all)
+                handleIsHiddenPaginationFavorite(initialState.favorites)
+
             } else {
                 initialState.currentCategories = text
                 const fillter = initialState.filter((item) => {
                     return item.category.toLowerCase() == text.toLowerCase()
                 })
                 handleIsActiveCategory(target)
-                renderCards(fillter)
-                handleIsHiddenPaginationGavorite(fillter)
+                renderCards(fillter);
+                handleIsHiddenPaginationFavorite(fillter)
             }
             
         }
@@ -113,3 +115,10 @@ if (!initialState.favorites?.length) {
 
 }
 
+function handleIsHiddenPaginationFavorite(arr = []) {
+    if (arr.length < 12) {
+        elementstyle(refs.paginationDiv, "display", "none")
+    } else {
+        elementstyle(refs.paginationDiv, "display", "block")
+    }
+}
