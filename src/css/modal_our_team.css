@@ -51,10 +51,9 @@
   transform: scale(0.9);
 }
 .team_backdrop.is-hidden {
-  display: flex; /* Показуємо модальне вікно */
+  display: flex;
 }
 
-/* Стилі для кнопки закриття модалки */
 .team_modal-close-btn {
   display: flex;
   justify-content: center;
@@ -129,7 +128,6 @@
 .team_box {
   padding: 10px;
   text-align: center;
-  /* margin-bottom: 3px; */
 }
 
 .team_member {

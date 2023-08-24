@@ -9,6 +9,11 @@
   --muted-text-clr: #a9a9a9;
 }
 
+p {
+  font-weight: 300;
+  line-height: 1.6;
+}
+
 .footer,
 .footer_container {
   padding-top: 40px;
@@ -79,12 +84,12 @@
 
 .footer_link {
   position: relative;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   border: none;
   color: var(--footer-link-color);
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease; /* Додав плавний перехід для кольору тексту */
+  transition: transform 0.3s ease, color 0.3s ease;
   display: inline-block;
   background-color: transparent;
 }
@@ -92,9 +97,7 @@
 .footer_link:hover,
 .footer_link:focus {
   transform: translateY(-5px);
-  color: var(
-    --footer-bg-color
-  ); /* Змінюємо колір тексту при наведенні та фокусі */
+  color: var(--footer-bg-color);
   outline: none;
 }
 
