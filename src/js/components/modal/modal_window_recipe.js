@@ -61,7 +61,6 @@ function openModal (event) {
     document.addEventListener('keydown', closeOnEscape);
     seeModal.addEventListener('click', closeModal);
 
-
 }
 
 function closeModal(event) {

@@ -116,8 +116,30 @@ if (!initialState.favorites?.length) {
     })
 
     refs.modalDeleteBtn.addEventListener("click", function(event) {
-        // console.log(event.target);
-        // console.log(toId)
+        if (toId) {
+            const targetElement = document.querySelector(`[id='${toId}']`)
+            handleRemoveCard({id: targetElement.id, element: targetElement})
+            !handleGetLocalStorage(LOCALSTORAGE_KEY_FAVORITES)?.length && handleIsEmpty({isEmpty: true})
+            
+            initialState.categories =  getCategories(initialState.favorites)
+            renderCategoeries(initialState.categories);
+
+            if (!initialState.categories.includes(initialState.currentCategories)) {
+                console.log(initialState)
+                renderCategoeries(initialState.categories);
+                renderCards(initialState.all());
+                handleIsHiddenPaginationFavorite(initialState.favorites)
+               
+            } else {
+          
+                const element = [...refs.ulCategories.children]
+                    .find(item => item.textContent.trim().toLowerCase() == initialState.currentCategories.trim().toLowerCase())
+                // const span = 
+                handleIsActiveCategory(element)
+               
+            }
+        
+        }
     })
 
 }
