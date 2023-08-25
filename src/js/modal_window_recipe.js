@@ -12,6 +12,15 @@ function eventOpenrModal() {
     getIdElelment.addEventListener('click', openModal);
 }
 
+function eventOpenrModalTwo() {
+    const getIdElelmentTwo = document.querySelector('.popular-js');
+    getIdElelmentTwo.addEventListener('click', openModal);
+}
+
+function testFu(event) {
+    console.log(event.target.id);
+}
+
 function loadContent() {
     return getRecipeDetails(toId).then( data => modalWindow.insertAdjacentHTML('afterbegin', addContent(data))).catch(err => console.log(err));
 }
@@ -82,5 +91,6 @@ function closeOnEscape(e) {
 
 export {
     eventOpenrModal,
+    eventOpenrModalTwo,
     toId
 };
