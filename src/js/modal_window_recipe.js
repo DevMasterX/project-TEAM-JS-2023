@@ -1,9 +1,13 @@
 import CSS from '../css/styles.css';
 import { getRecipeDetails } from './api';
+import { renderIcons } from './rating';
 
 const body = document.querySelector("body");
 const modalWindow = document.querySelector('.r-modal-content');
 const seeModal = document.querySelector('.r-modal-backdrop');
+const ratingBtn = document.querySelector('.r-modal-rating-btn');
+const closeBtn = document.querySelector('.r-modal-close-icon');
+const favoriteBtn = document.querySelector('.r-modal-favorite-btn');
 
 let toId = '';
 
@@ -15,10 +19,6 @@ function eventOpenrModal() {
 function eventOpenrModalTwo() {
     const getIdElelmentTwo = document.querySelector('.popular-js');
     getIdElelmentTwo.addEventListener('click', openModal);
-}
-
-function testFu(event) {
-    console.log(event.target.id);
 }
 
 function loadContent() {
@@ -51,8 +51,24 @@ function addContent(arr) {
     preload="auto"
     ></video>
     <div class="r-modal-info-container"><div class="r-modal-tags">${newTags}</div>
-    <div class="r-modal-rating-container"><div class="r-modal-rating">${rating}</div>
-    <div class="r-modal-rating-stars-icon">&#9734; &#9734; &#9734; &#9734; &#9734;</div>
+    <div class="r-modal-rating-container"><div class="r-modal-rating">${rating.toFixed(1)}</div>
+    <div class="r-modal-star-wrap">
+        <svg class="r-modal-rating-icon" width="18" height="18">
+            <use href="../images/star.svg#icon-star"></use>
+        </svg>
+        <svg class="r-modal-rating-icon" width="18" height="18">
+            <use href="../images/star.svg#icon-star"></use>
+        </svg>
+        <svg class="r-modal-rating-icon" width="18" height="18">
+            <use href="../images/star.svg#icon-star"></use>
+        </svg>
+        <svg class="r-modal-rating-icon" width="18" height="18">
+            <use href="../images/star.svg#icon-star"></use>
+        </svg>
+        <svg class="r-modal-rating-icon" width="18" height="18">
+            <use href="../images/star.svg#icon-star"></use>
+        </svg>
+    </div>
     <div class="r-modal-time">${time} min</div></div></div>
     <div class="r-modal-ingerdients-container">${newIngredients}</div>
     <p class="r-modal-instructions">${instructions}</p>`;
@@ -68,7 +84,10 @@ function openModal (event) {
     seeModal.classList.remove('visually-hidden');
     body.classList.add("no-scroll");
     document.addEventListener('keydown', closeOnEscape);
-    seeModal.addEventListener('click', closeModal);
+    seeModal.addEventListener('click', closeOnTarget);
+    ratingBtn.addEventListener('click', closeOnTarget);
+    closeBtn.addEventListener('click', closeOnTarget);
+    favoriteBtn.addEventListener('click', closeOnTarget);
 
 
 }
@@ -81,6 +100,15 @@ function closeModal(event) {
 
     document.removeEventListener('keydown', closeOnEscape);
     seeModal.removeEventListener('click', closeModal);
+    ratingBtn.removeEventListener('click', closeOnTarget);
+    closeBtn.removeEventListener('click', closeOnTarget);
+    favoriteBtn.removeEventListener('click', closeOnTarget);
+}
+
+function closeOnTarget(event) {
+    if(event.target === event.currentTarget) {
+        closeModal();
+    }
 }
 
 function closeOnEscape(e) {
@@ -94,3 +122,5 @@ export {
     eventOpenrModalTwo,
     toId
 };
+
+// {/* <div class="r-modal-rating-stars-icon">&#9734; &#9734; &#9734; &#9734; &#9734;</div> */}

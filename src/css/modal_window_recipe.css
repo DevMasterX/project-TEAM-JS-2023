@@ -31,7 +31,7 @@
   top: 50%;
   left: 50%;
   width: 531px;
-  min-height: 905px;
+  height: 905px;
   padding: 32px;
   border-radius: 15px;
   transform: translate(-50%, -50%);
@@ -43,6 +43,7 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  color: rgba(5, 5, 5, 1);
 }
 
 .r-modal-name {
@@ -69,7 +70,9 @@
   display: flex;
   flex-wrap: wrap;
   width: 258px;
+  height: 30px;
   gap: 4px;
+  overflow-y: scroll;
 }
 
 .r-modal-tag {
@@ -85,26 +88,33 @@
 
 .r-modal-rating-container {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   height: 30px;
-  gap: 10px;
-  margin-left: auto;
-  align-content: center;
+  gap: 8px;
+
 }
 
 .r-modal-rating {
+  display: flex;
+  align-items: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
   color: rgba(5, 5, 5, 0.5);
 }
 
-.r-modal-rating-stars-icon {
-  height: 16px;
-  color: rgba(238, 161, 12, 1);
+.r-modal-star-wrap {
+  display: flex;
+}
+
+.r-modal-rating-icon {
+  fill: inherit;
+  background-color: #9BB537;
 }
 
 .r-modal-time {
+  display: flex;
+  align-items: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
@@ -113,6 +123,9 @@
 
 .r-modal-ingerdients-container {
   margin-bottom: 32px;
+  width: 467px;
+  height: 204px;
+  overflow-y: scroll;
 }
 
 .r-modal-ingerdients-name {
@@ -139,6 +152,9 @@
 
 .r-modal-instructions {
   margin-bottom: 32px;
+  width: 467px;
+  height: 162px;
+  overflow-y: scroll;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
