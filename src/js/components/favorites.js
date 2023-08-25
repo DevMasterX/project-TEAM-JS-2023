@@ -6,7 +6,6 @@ import { eventOpenrModal } from '../modal_window_recipe'
 
 // v2
 
-
 export const refs = {
     favorites_container: findElement('.my-favorites__container'),
     hero_favorite: findElement('.my-favorites__hero'),
@@ -39,14 +38,13 @@ if (!localstorageFavorites) {
 }
 
 
-
-window.addEventListener("resize", () => {
-    const w  = window.matchMedia("(max-width: 768px)")
-    if (w?.matches) {
-        if (!initialState.favorites?.length) {
-        }
-    }
-})
+// window.addEventListener("resize", () => {
+//     const w  = window.matchMedia("(max-width: 768px)")
+//     if (w?.matches) {
+//         if (!initialState.favorites?.length) {
+//         }
+//     }
+// })
 
 
 if (!initialState.favorites?.length) {
