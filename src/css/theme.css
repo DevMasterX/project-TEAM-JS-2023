@@ -97,6 +97,7 @@ body.dark-theme .order-form-wrapper  {
   box-shadow: none;
 }
 body.dark-theme .backdrop {background: #050505c9;}
+body.dark-theme .close-icon {fill: #fff;}
 body.dark-theme .form-input, .modal-textarea{background-color: inherit; border-color: rgba(255, 255, 255, 0.20);color: #ffffffbf;
   }
 
