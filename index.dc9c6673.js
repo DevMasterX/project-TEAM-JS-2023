@@ -6,7 +6,7 @@ let e,t,n;var i="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof se
     <div class="gallery-star__stars">
         ${i}
     </div>
-        `;return s}(n);return console.log(a),console.log(n),` <li class="filter-gallery-item" data-attribute="${s}" id="${r}">
+        `;return s}(n);return` <li class="filter-gallery-item" data-attribute="${s}" id="${r}">
             <img class="filter-gallery-item-photo" src="${t}" alt="${i}" width="250" height="287">
             <div class="filter-gallery-item-content">
                 <button type="button" class="filter-gallery-item-favorit-btn">
@@ -67,4 +67,4 @@ let e,t,n;var i="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof se
         </div>
         </div>
         `}).join("");e5.innerHTML=t,(0,k.eventOpenrModalTwo)()}catch(e){console.error(e)}})(),o("4S0r6"),o("iQg2E"),o("8BGGW"),o("9RVUD"),document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector(".home-nav-icon"),t=document.querySelector(".favorites-nav-icon");function n(n){e.classList.remove("active-header"),t.classList.remove("active-header"),n.classList.add("active-header")}e.addEventListener("click",function(){n(e)}),t.addEventListener("click",function(){n(t)}),window.location.pathname.includes("Favorites.html")?n(t):n(e)}),o("d50b3");
-//# sourceMappingURL=index.97d281c5.js.map
+//# sourceMappingURL=index.dc9c6673.js.map
