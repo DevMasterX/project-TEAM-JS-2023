@@ -58,5 +58,5 @@ let e,t,n;var i="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof se
         <p class="paragraph-popular" id="${r}">${n}</p>
         </div>
         </div>
-        `}).join("");e8.innerHTML=t,(0,L.eventOpenrModalTwo)()}catch(e){console.error(e)}})(),a("4S0r6"),a("iQg2E"),a("8BGGW"),a("9RVUD"),document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector(".header-link-home"),t=document.querySelector(".header-link-favorites");function n(n){e.classList.remove("active-header"),t.classList.remove("active-header"),n.classList.add("active-header")}e.addEventListener("click",function(){n(e)}),t.addEventListener("click",function(){n(t)}),window.location.pathname.includes("Favorites.html")?n(t):n(e)});
-//# sourceMappingURL=index.ac550173.js.map
+        `}).join("");e8.innerHTML=t,(0,L.eventOpenrModalTwo)()}catch(e){console.error(e)}})(),a("4S0r6"),a("iQg2E"),a("8BGGW"),a("9RVUD"),document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector(".home-nav-icon"),t=document.querySelector(".favorites-nav-icon");function n(n){e.classList.remove("active-header"),t.classList.remove("active-header"),n.classList.add("active-header")}e.addEventListener("click",function(){n(e)}),t.addEventListener("click",function(){n(t)}),window.location.pathname.includes("Favorites.html")?n(t):n(e)});
+//# sourceMappingURL=index.00bc19da.js.map
