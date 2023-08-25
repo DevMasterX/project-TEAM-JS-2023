@@ -63,30 +63,7 @@ if (!initialState.favorites?.length) {
         const isClass = target.classList.contains("favorite-heart")
         if (target.nodeName === "IMG" && isClass) {
             const targetElement = target.closest(".card__item")
-
-            // initialState.categories =  getCategories(initialState.favorites);
-            // renderCategoeries(initialState.categories);
-
-            handleRemoveCard({id: targetElement.id, element: targetElement})
-            !handleGetLocalStorage(LOCALSTORAGE_KEY_FAVORITES)?.length && handleIsEmpty({isEmpty: true})
-
-            initialState.categories =  getCategories(initialState.favorites)
-            renderCategoeries(initialState.categories);
-
-            if (!initialState.categories.includes(initialState.currentCategories)) {
-                console.log(initialState)
-                renderCategoeries(initialState.categories);
-                renderCards(initialState.all());
-                handleIsHiddenPaginationFavorite(initialState.favorites)
-               
-            } else {
-          
-                const element = [...refs.ulCategories.children]
-                    .find(item => item.textContent.trim().toLowerCase() == initialState.currentCategories.trim().toLowerCase())
-                // const span = 
-                handleIsActiveCategory(element)
-               
-            }
+            handleDeletecard(targetElement);
         }
     })
 
@@ -118,30 +95,34 @@ if (!initialState.favorites?.length) {
     refs.modalDeleteBtn.addEventListener("click", function(event) {
         if (toId) {
             const targetElement = document.querySelector(`[id='${toId}']`)
-            handleRemoveCard({id: targetElement.id, element: targetElement})
-            !handleGetLocalStorage(LOCALSTORAGE_KEY_FAVORITES)?.length && handleIsEmpty({isEmpty: true})
-            
-            initialState.categories =  getCategories(initialState.favorites)
-            renderCategoeries(initialState.categories);
-
-            if (!initialState.categories.includes(initialState.currentCategories)) {
-                console.log(initialState)
-                renderCategoeries(initialState.categories);
-                renderCards(initialState.all());
-                handleIsHiddenPaginationFavorite(initialState.favorites)
-               
-            } else {
-          
-                const element = [...refs.ulCategories.children]
-                    .find(item => item.textContent.trim().toLowerCase() == initialState.currentCategories.trim().toLowerCase())
-                // const span = 
-                handleIsActiveCategory(element)
-               
-            }
-        
+            handleDeletecard(targetElement)
         }
     })
 
+}
+
+
+function handleDeletecard(element, id) {
+    handleRemoveCard({id: element.id, element: element})
+    !handleGetLocalStorage(LOCALSTORAGE_KEY_FAVORITES)?.length && handleIsEmpty({isEmpty: true})
+    
+    initialState.categories =  getCategories(initialState.favorites)
+    renderCategoeries(initialState.categories);
+
+    if (!initialState.categories.includes(initialState.currentCategories)) {
+        console.log(initialState)
+        renderCategoeries(initialState.categories);
+        renderCards(initialState.all());
+        handleIsHiddenPaginationFavorite(initialState.favorites)
+       
+    } else {
+  
+        const element = [...refs.ulCategories.children]
+            .find(item => item.textContent.trim().toLowerCase() == initialState.currentCategories.trim().toLowerCase())
+        // const span = 
+        handleIsActiveCategory(element)
+       
+    }
 }
 
 function handleIsHiddenPaginationFavorite(arr = []) {
