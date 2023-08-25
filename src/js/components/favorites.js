@@ -54,7 +54,7 @@ if (!initialState.favorites?.length) {
     renderCategoeries(initialState.categories, initialState.currentCategories)
     renderCards(initialState.favorites)
     handleIsHiddenPaginationFavorite(initialState.favorites)
-    eventOpenrModal()
+    // eventOpenrModal()
 
     refs.ulCards.addEventListener("click", function (e) {
         const target = e.target

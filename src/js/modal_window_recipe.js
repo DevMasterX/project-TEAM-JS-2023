@@ -8,7 +8,7 @@ const seeModal = document.querySelector('.r-modal-backdrop');
 let toId = '';
 
 function eventOpenrModal() {
-    const getIdElelment = document.querySelector('.filter-gallery-list');
+    const getIdElelment = document.querySelector('.filter-gallery-list')
     getIdElelment.addEventListener('click', openModal);
 }
 
