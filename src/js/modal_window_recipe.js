@@ -12,7 +12,7 @@ const favoriteBtn = document.querySelector('.r-modal-favorite-btn');
 let toId = '';
 
 function eventOpenrModal() {
-    const getIdElelment = document.querySelector('.filter-gallery-list');
+    const getIdElelment = document.querySelector('.filter-gallery-list')
     getIdElelment.addEventListener('click', openModal);
 }
 

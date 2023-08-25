@@ -37,7 +37,6 @@ if (!localstorageFavorites) {
     initialState.favorites = localstorageFavorites
 }
 
-
 // window.addEventListener("resize", () => {
 //     const w  = window.matchMedia("(max-width: 768px)")
 //     if (w?.matches) {
@@ -54,7 +53,7 @@ if (!initialState.favorites?.length) {
     renderCategoeries(initialState.categories, initialState.currentCategories)
     renderCards(initialState.favorites)
     handleIsHiddenPaginationFavorite(initialState.favorites)
-    eventOpenrModal()
+    // eventOpenrModal()
 
     refs.ulCards.addEventListener("click", function (e) {
         const target = e.target
