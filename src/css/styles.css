@@ -103,6 +103,10 @@ img {
   .right-container {
     margin-left: 63px;
   }
+
+  .order-form-wrapper {
+    overflow: hidden;
+  }
 }
 
 html {
