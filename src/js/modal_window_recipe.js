@@ -30,7 +30,7 @@ function loadContent() {
 
 function addContent(arr) {
     const {title, instructions, ingredients, youtube, preview, rating, tags, time, _id } = arr;
-
+console.log(arr)
     let newTags ='';
     tags.forEach(element => {
         newTags+= `<span class="r-modal-tag">#${element}</span>`;
@@ -42,8 +42,8 @@ function addContent(arr) {
     });
 
     return `
-    <video 
-     src="${youtube}"
+    <iframe 
+     src="${youtube.replace('watch?v=', 'embed/')}"
     class="r-modal-video"
     type ='text/html'
     poster="${preview}"
@@ -51,7 +51,7 @@ function addContent(arr) {
     autoplay
     loop
     preload="auto"
-    ></video>
+    ></iframe>
     <h2 class="r-modal-name" data-id="${_id}">${title}</h2>
     <div class="r-modal-info-container">
     <div class="r-modal-rating-container"><div class="r-modal-rating">${rating.toFixed(1)}</div>
