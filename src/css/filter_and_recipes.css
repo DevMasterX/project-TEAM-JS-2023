@@ -198,7 +198,7 @@
 
   display: block;
   width: 100%;
-  max-height: 176px;
+  height: 176px;
   overflow-y: auto;
   border-radius: 14px;
   background: #fff;
@@ -365,6 +365,7 @@
   font-weight: 500;
   line-height: 1.23;
   margin: 0;
+  margin-right: 4px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
@@ -426,6 +427,9 @@
   margin: 0;
 }
 
+.gallery-star__stars {
+  display: flex;
+}
 /* ======TABLET==== */
 @media screen and (min-width: 768px) {
   .filter-form-wrapper {
@@ -481,8 +485,13 @@
 /* -------DESKTOP--------------- */
 
 @media screen and (min-width: 1280px) {
+  .filter-form {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
   .filter-gallery-list {
-    max-width: 782px;
+    width: 782px;
   }
 
   .filter-gallery-item {

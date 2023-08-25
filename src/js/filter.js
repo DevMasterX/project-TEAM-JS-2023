@@ -6,6 +6,7 @@ import Gallery from './gallery';
 import { handlerFilterForm } from './hendlers_filter';
 import { eventOpenrModal } from './modal_window_recipe';
 import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
+import { renderIcons } from "./rating";
 
 import Choices from 'choices.js';
 import {
@@ -89,7 +90,7 @@ async function createOptionsSelect() {
 
             createStylePlaceholder();
 
-            console.log(choicesInstance);
+
 
             item.addEventListener('change', async evt => {
                 handlerFilterForm(evt, gallery, choicesInstances);
@@ -128,14 +129,14 @@ function createStylePlaceholder() {
             }
         });
     })
-   
+
 }
 
 
 
 function setupSelectToggle(item) {
     const selectWrap = item.closest('.js-filter-select-wrap');
-    console.log();
+
     selectWrap.classList.add('closed');
 
     selectWrap.addEventListener('click', () => {
@@ -177,7 +178,7 @@ function clearFilters() {
 }
 
 async function startGallery(params = {}) {
-
+    showLoader();
     try {
         const recipes = await getFilteredRecipes(params);
 
@@ -187,6 +188,7 @@ async function startGallery(params = {}) {
         eventOpenrModal();
         favouriteLocalStorage();
         addFavouriteOnList();
+        hideLoader();
 
         if (page < totalPage) {
             handlePagination({ page, totalPage })
@@ -197,6 +199,20 @@ async function startGallery(params = {}) {
         console.error(error);
 
     }
+}
+
+function showLoader() {
+    let preloader = document.getElementById('preloader');
+    preloader.classList.remove('preloader-hidden');
+    preloader.classList.remove('hide-preloader');
+}
+
+function hideLoader() {
+    let preloader = document.getElementById('preloader');
+    preloader.classList.add('hide-preloader');
+    setTimeout(function () {
+        preloader.classList.add('preloader-hidden');
+    }, 990);
 }
 
 
