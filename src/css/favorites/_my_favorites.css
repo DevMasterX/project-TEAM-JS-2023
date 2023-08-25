@@ -469,6 +469,7 @@ body.dark-theme .my-favorites-category__item-list.active {
 body.dark-theme .card-info__title {
     color: #fff
 }
+
 body.dark-theme .card-info__sub-title  {
     color: rgba(255,255,255, .80);
 }
