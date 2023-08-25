@@ -37,7 +37,6 @@ if (!localstorageFavorites) {
     initialState.favorites = localstorageFavorites
 }
 
-
 // window.addEventListener("resize", () => {
 //     const w  = window.matchMedia("(max-width: 768px)")
 //     if (w?.matches) {
