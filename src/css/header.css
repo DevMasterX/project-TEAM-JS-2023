@@ -224,3 +224,7 @@ body.dark-theme .burger-menu-open-btn-icon:focus {
 .active-header{
    fill:var(--color-header-green);
 }
+
+body.dark-theme .active-header{
+   fill: var(--color-header-green);
+}
