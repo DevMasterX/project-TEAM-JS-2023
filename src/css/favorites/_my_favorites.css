@@ -145,6 +145,7 @@ a {
 
 .my-favorites-category__item-list:hover {
     background-color: #9BB537;
+
     color: #F8F8F8;
 }
 
@@ -158,6 +159,11 @@ a {
 .text-item-category {
     color: rgba(5, 5, 5, 0.30);
 }
+
+.text-item-category:hover {
+   color: #050505;
+}
+
 
 /* category */
 
