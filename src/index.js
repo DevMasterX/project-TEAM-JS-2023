@@ -16,3 +16,4 @@ import './js/rating.js';
 import './js/burger-menu.js';
 import './js/modal_our_team.js';
 import './js/active-link.js';
+import './js/order-favorites.js';
