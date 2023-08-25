@@ -35,7 +35,7 @@ export function markupCard(card) {
                         </div>
 
                         <div class="card-info-actions__see-description">
-                            <button class="card-info-actions__see-description-btn see-description-btn" data-id="${id}">See resipe</button>
+                            <button class="card-info-actions__see-description-btn see-description-btn" id="${id}">See resipe</button>
                         </div>
 
                     </div>

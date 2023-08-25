@@ -1,14 +1,3 @@
-import { refs } from "../favorites";
-import { elementstyle } from "../utils";
-
-export function handleIsHiddenPaginationGavorite(arr = []) {
-    if (arr.length < 12) {
-        elementstyle(refs.paginationDiv, "display", "none")
-    } else {
-        elementstyle(refs.paginationDiv, "display", "block")
-    }
-}
-
 // import { initialStatePagination } from "./pagination";
 
 
