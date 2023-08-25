@@ -1,9 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import { Report } from 'notiflix/build/notiflix-report-aio';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { toId } from './modal_window_recipe';
-import { addRatingToRecipe } from './api';
+import { closeModal } from './modal_window_recipe';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 

@@ -5,7 +5,7 @@
   height: 100%;
   background-color: rgba(5, 5, 5, 0.2);
   transition: opacity 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77);
-  z-index: 5;
+  z-index: 1000;
 }
 
 .is-hidden1 {
