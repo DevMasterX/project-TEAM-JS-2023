@@ -319,7 +319,7 @@ a {
 }
 
 .card-info-actions-rating__text {
-    color: white;
+    color: #f8f8f8;
     font-size: 14px;
 }
 
@@ -479,6 +479,10 @@ body.dark-theme .my-favorites-category__item-list:hover ,
 body.datk-theme .my-favorites-category__item-list:focus {
     background-color: #9BB537;
     color: #050505;
+}
+
+body.dark-theme .card-info-actions-rating__text {
+    color: rgba(255,255,255, 0.80)
 }
 
 /* dark */
