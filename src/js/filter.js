@@ -18,11 +18,12 @@ const inputForm = document.querySelector(".filter-form-input");
 
 const resetFormButton = document.querySelector(".filter-reset-btn")
 const selectes = document.querySelectorAll(".filter-form-select");
-const gallery = document.querySelector(".filter-gallery-list");
+
 const selectTime = document.getElementById("searchTime");
 const selectArea = document.getElementById("area-select");
 const selectIngr = document.getElementById("ingredients-select");
 
+const gallery = document.querySelector(".filter-gallery-list");
 const choicesInstances = [];
 
 startGallery();
@@ -47,7 +48,7 @@ async function createOptionsSelect() {
                 const minTime = 5;
                 const maxTime = 120;
                 const step = 5;
-                options = createOptions(minTime, maxTime, step, ' min');
+                options = createOptionsTime(minTime, maxTime, step, ' min');
                 placeholderValue = '0 min';
             } if (item === selectArea) {
 
@@ -58,7 +59,7 @@ async function createOptionsSelect() {
             } if (item === selectIngr) {
                 const ingredients = await getIngredients();
 
-                options = ingredients.map(ingr => ({ value: ingr.name, label: placeholderValue, id: ingr._id }));
+                options = ingredients.map(ingr => ({ value: ingr.name, id: ingr._id }));
                 placeholderValue = 'Product';
             }
 
@@ -104,7 +105,7 @@ async function createOptionsSelect() {
     }
 }
 
-function createOptions(min, max, step, unit) {
+function createOptionsTime(min, max, step, unit) {
     const options = [];
     for (let time = min; time <= max; time += step) {
         options.push({ value: time, label: `${time}${unit}` });
@@ -112,18 +113,22 @@ function createOptions(min, max, step, unit) {
     return options;
 }
 
+
 function createStylePlaceholder() {
-    const select = document.querySelector(".filter-form-select");
+    selectes.forEach(select => {
 
-    select.addEventListener("change", (event) => {
-        const selectedOption = event.target.options[event.target.selectedIndex];
 
-        if (selectedOption.classList.contains("filter-form-select-placeholder")) {
-            select.style.color = "rgba(5, 5, 5, 0.50)";
-        } else {
-            select.style.color = "#050505";
-        }
-    });
+        select.addEventListener("change", (event) => {
+            const selectedOption = event.target.options[event.target.selectedIndex];
+
+            if (selectedOption.classList.contains("filter-form-select-placeholder")) {
+                select.style.color = "rgba(5, 5, 5, 0.50)";
+            } else {
+                select.style.color = "#050505";
+            }
+        });
+    })
+   
 }
 
 
@@ -160,22 +165,16 @@ function hideSelectList(selectWrap) {
 }
 
 
-
-
-
+const holder = ['0 min', 'Region', 'Product'];
 
 function clearFilters() {
     inputForm.value = "";
-
-    console.log(selectes);
-    // Скидання значень у селектах 
-    choicesInstances.forEach(choicesInstance => {
-        choicesInstance.removeActiveItems(); // Очищаємо активні (обрані) елементи
-        choicesInstance.setValue([]); // Скидаємо обрані значення
+    choicesInstances.forEach((choicesInstance, index) => {
+        choicesInstance.setValue([holder[index]]);
     });
+
+    startGallery();
 }
-
-
 
 async function startGallery(params = {}) {
 
