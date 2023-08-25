@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const linkHomeHeaderRef = document.querySelector('.header-link-home');
+  const linkHomeHeaderRef = document.querySelector('.home-nav-icon');
 
-  const linkFavoritesHeaderRef = document.querySelector(
-    '.header-link-favorites'
-  );
+  const linkFavoritesHeaderRef = document.querySelector('.favorites-nav-icon');
 
   function addActiveClass(link) {
     linkHomeHeaderRef.classList.remove('active-header');
