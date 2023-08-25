@@ -119,7 +119,7 @@ async function handlerFilterForm(evt, galleryElement, choise) {
         title: searchInput.trim() !== "" ? searchInput.trim() : null,
         time: timeSelected ? timeSelected : null,
         area: areaSelected ? areaSelected : null,
-        ingredients: ingrSelected ? ingrSelected : null
+        ingredients: ingrSelected ? ingrSelected : null,
     };
 
     console.log(params);

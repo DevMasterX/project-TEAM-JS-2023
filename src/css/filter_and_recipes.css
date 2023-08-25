@@ -491,7 +491,7 @@
   }
 
   .filter-gallery-list {
-    width: 782px;
+    min-width: 782px;
   }
 
   .filter-gallery-item {

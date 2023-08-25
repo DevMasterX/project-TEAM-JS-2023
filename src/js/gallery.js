@@ -46,8 +46,7 @@ class Gallery {
 
         const markupCard = results.map(({ description, preview, rating, title, _id: idRecip, category }) => {
             const starsHtml = markupRating(rating);
-            console.log(starsHtml);
-            console.log(rating);
+
             return ` <li class="filter-gallery-item" data-attribute="${category}" id="${idRecip}">
             <img class="filter-gallery-item-photo" src="${preview}" alt="${title}" width="250" height="287">
             <div class="filter-gallery-item-content">
