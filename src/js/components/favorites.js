@@ -110,7 +110,6 @@ function handleDeletecard(element, id) {
     renderCategoeries(initialState.categories);
 
     if (!initialState.categories.includes(initialState.currentCategories)) {
-        console.log(initialState)
         renderCategoeries(initialState.categories);
         renderCards(initialState.all());
         handleIsHiddenPaginationFavorite(initialState.favorites)
