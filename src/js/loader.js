@@ -7,13 +7,15 @@ window.onload = function () {
 };
 
 // Картинка-Заглушка *
-// placeholderImage.id = 'placeholder';
+
+const img = require('/src/images/Pancake.png');
+const imgCake = img;
 export function getData(wraper) {
   let placeholderImage = document.createElement('img');
-  placeholderImage.src = '/src/images/Pancake.png';
+  placeholderImage.src = imgCake;
   placeholderImage.alt = 'Зображення відсутнє';
 
-  placeholderImage.style.maxWidth = '300px';
+  placeholderImage.style.maxWidth = '400px';
   placeholderImage.style.margin = '0 auto';
 
   wraper.appendChild(placeholderImage);
