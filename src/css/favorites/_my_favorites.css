@@ -126,6 +126,7 @@ a {
 }
 
 .my-favorites-category__item-list {
+    cursor: pointer;
     padding: 14px 18px;
 
     border-radius: 15px;
@@ -235,7 +236,12 @@ a {
 }
 
 .favorite-heart {
+    
     padding: 5px;
+}
+.favorite-heart:hover,
+.favorite-heart:focus {
+    cursor: pointer;
 }
 
 .card__info {
@@ -458,6 +464,13 @@ body.dark-theme .my-favorites-category__item-list {
 
 body.dark-theme .my-favorites-category__item-list.active {
     color: #f8f8f8;
+}
+
+body.dark-theme .card-info__title {
+    color: #fff
+}
+body.dark-theme .card-info__sub-title  {
+    color: rgba(255,255,255, .80);
 }
 
 /* dark */
