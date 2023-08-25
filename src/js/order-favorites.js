@@ -1,6 +1,3 @@
-// import { BasicLightBox } from 'basiclightbox';
-// import * as basicLightbox from 'basiclightbox';
-
 const modalOrder = document.querySelector('[data-modal-order]');
 const closeOrderBtn = document.querySelector('[data-modal-close]');
 const formOrderBtn = document.querySelector('.btn-send');
@@ -8,7 +5,7 @@ const openOrderNow = document.querySelector('.btnOrderNow');
 const openShoppingBtn = document.querySelector('.shopping-btn');
 
 // Додаю слухачі
-openOrderNow.addEventListener('click', openModal);
+// openOrderNow.addEventListener('click', openModal);
 openShoppingBtn.addEventListener('click', openModal);
 closeOrderBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeOnEscape);
@@ -24,7 +21,7 @@ function openModal() {
 }
 // Знімаєю слухачі
 openShoppingBtn.removeEventListener('click', openModal);
-openOrderNow.removeEventListener('click', openModal);
+// openOrderNow.removeEventListener('click', openModal);
 
 function closeModal() {
   modalOrder.classList.add('is-hidden');
@@ -48,7 +45,7 @@ function closeOnEscape(e) {
 
 // Додаю слухачі
 openShoppingBtn.addEventListener('click', openModal);
-openOrderNow.addEventListener('click', openModal);
+// openOrderNow.addEventListener('click', openModal);
 closeOrderBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeOnEscape);
 modalOrder.addEventListener('click', closeOnOverlay);
@@ -68,10 +65,3 @@ function fillTextarea() {
     form.elements.email.value = savedText.email;
   }
 }
-// dfggf
-// * через бібліотеку  basicLightbox * //
-
-// const htmlInstance = basicLightbox.create(
-//   document.querySelector('[data-modal-order]'),
-// );
-// document.querySelector('.btnOrderNow').onclick = htmlInstance.show;
