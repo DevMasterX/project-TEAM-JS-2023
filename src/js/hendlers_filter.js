@@ -36,7 +36,7 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
 
         }
 
-        console.log(recipes);
+
 
     } catch (err) {
 
@@ -91,7 +91,7 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
 async function handlerFilterForm(evt, galleryElement, choise) {
 
     evt.preventDefault();
-    console.log(evt);
+
     searchBtnClicked = false;
 
 
@@ -103,7 +103,7 @@ async function handlerFilterForm(evt, galleryElement, choise) {
     const formData = new FormData(formFilter);
     const searchInput = formData.get("query");
 
-    console.log(choise);
+
     const timeChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'time');
     const timeSelected = timeChoiceInstance.getValue(true);
 
@@ -123,12 +123,13 @@ async function handlerFilterForm(evt, galleryElement, choise) {
     };
 
     console.log(params);
+
     try {
 
         const recipes = await getFilteredRecipes(params);
         const { results } = recipes;
-        console.log(results);
 
+        console.log(results);
 
         if (!results.length) {
 
