@@ -135,6 +135,7 @@ a {
     background-color: transparent;
 
     color: rgba(5, 5, 5, 0.30);
+
     font-family: Inter;
     font-size: 14px;
     font-weight: 500;
@@ -143,9 +144,10 @@ a {
 
 
 
-.my-favorites-category__item-list:hover {
+.my-favorites-category__item-list:hover ,
+.my-favorites-category__item-list:focus {
     background-color: #9BB537;
-    color: #F8F8F8;
+    color: #050505;
 }
 
 .my-favorites-category__item-list.active {
@@ -153,11 +155,10 @@ a {
     color: #F8F8F8;
 }
 
-
-
 .text-item-category {
-    color: rgba(5, 5, 5, 0.30);
+    
 }
+
 
 /* category */
 
@@ -472,6 +473,12 @@ body.dark-theme .card-info__title {
 
 body.dark-theme .card-info__sub-title  {
     color: rgba(255,255,255, .80);
+}
+
+body.dark-theme .my-favorites-category__item-list:hover ,
+body.datk-theme .my-favorites-category__item-list:focus {
+    background-color: #9BB537;
+    color: #050505;
 }
 
 /* dark */
