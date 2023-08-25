@@ -190,13 +190,37 @@ body.dark-theme .favorites-nav-icon
    ;
 }
 
+body.dark-theme .favorites-nav-icon:hover,
+body.dark-theme .favorites-nav-icon:focus {
+   fill: var(--color-header-green);
+}
+
+body.dark-theme .home-nav-icon:hover,
+body.dark-theme .home-nav-icon:focus {
+   fill: var(--color-header-green);
+}
+
+
 body.dark-theme .shopping-btn-icon{
    stroke: var(--color-white-secondary);
    fill: var(--color-header-black);
 
 }
+body.dark-theme .shopping-btn-icon:hover,
+body.dark-theme .shopping-btn-icon:focus {
+   stroke: var(--color-header-green);
+}
+
 
 body.dark-theme .burger-menu-open-btn-icon{
    stroke: var(--color-white-secondary);
 }
 
+body.dark-theme .burger-menu-open-btn-icon:hover,
+body.dark-theme .burger-menu-open-btn-icon:focus {
+   stroke: var(--color-header-green);
+}
+
+.active-header{
+   fill:var(--color-header-green);
+}
