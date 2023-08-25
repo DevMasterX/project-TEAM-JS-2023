@@ -41,17 +41,13 @@
   border-radius: 50%;
   outline: none;
   color: inherit;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 .btnOrderNow {
   color: inherit;
 }
-.btn-order-close:hover,
-.btn-order-close:focus {
-  fill: rgb(8, 6, 6);
-  background-color: #859b2d;
-}
+
 .is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -151,6 +147,11 @@
     height: 24px;
     top: 16px;
     right: 16px;
+  }
+  .btn-order-close:hover,
+  .btn-order-close:focus {
+    fill: rgb(8, 6, 6);
+    background-color: #859b2d;
   }
   .form-input {
     height: 48px;

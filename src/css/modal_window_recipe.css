@@ -1,67 +1,70 @@
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
-  .no-scroll {
-    overflow: hidden;
-  }
+.no-scroll {
+  overflow: hidden;
+}
 
 .r-modal-backdrop {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(46, 47, 66, 0.4);
-    overflow: auto;
-  }
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  overflow: auto;
+}
 
 .r-modal {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 335px;
-  height: 1171px;
-  padding: 20px;
+  width: 335px;
+  max-height: 100%;
+  padding: 40px 20px;
   border-radius: 15px;
   transform: translate(-50%, -50%);
-  overflow-y: auto;
+  overflow-y: scroll;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .r-modal-close-btn {
-  width: 24px;
-  height: 24px;
-  border: none;
-  position: absolute;
-  right: 14px;
+  width: 20px;
+  height: 20px;
+  position: fixed;
   top: 14px;
+  right: 14px;
+  background-color: transparent;
   cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  color: inherit;
 }
 
-.r-modal-close-icon {
+/* .r-modal-close-icon {
   position: absolute;
   top: 0;
   right: 0;
   width: 12px;
   height: 12px;
   fill: rgba(0, 0, 0, 0);
-}
+} */
 
 .r-modal-name {
   padding-bottom: 14px;
-
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
@@ -70,7 +73,7 @@
 .r-modal-video {
   max-width: 295px;
   height: 295px;
-  margin-top: 40px;
+
   margin-bottom: 20px;
   border-radius: 8px;
 }
@@ -107,7 +110,6 @@
   min-width: 185px;
   height: 18px;
   gap: 16px;
-
 }
 
 .r-modal-rating {
@@ -125,7 +127,7 @@
 
 .r-modal-rating-icon {
   fill: inherit;
-  background-color: #9BB537;
+  background-color: #9bb537;
 }
 
 .r-modal-time {
@@ -154,7 +156,6 @@
   line-height: 18px;
 
   border-bottom: 1px solid rgba(5, 5, 5, 0.1);
-
 }
 
 .r-modal-ingerdients-value {
@@ -182,40 +183,40 @@
 }
 
 .r-modal-favorite-btn {
-    Width: 148px;
-    Height: 41px;
-    padding: 12px 24px;
-    background: #9BB537;
-    border-radius: 15px;
+  width: 148px;
+  height: 41px;
+  padding: 12px 24px;
+  background: #9bb537;
+  border-radius: 15px;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    color: #F8F8F8;
-  
-    cursor: pointer;
-    font-family: inherit;
-    border: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f8f8f8;
+
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
 }
 
 .r-modal-rating-btn {
-    Min-width: 133px;
-    Height: 41px;
-    padding: 12px 24px;
-    background: transparent;
-    border: 1px solid #9BB537;
-    border-radius: 15px;
+  min-width: 133px;
+  height: 41px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid #9bb537;
+  border-radius: 15px;
 
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: #050505;
-  
-    cursor: pointer;
-    font-family: inherit;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #050505;
+
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .r-modal-favorite-btn:hover,
@@ -228,7 +229,6 @@
   background: rgba(155, 181, 55, 1);
   color: rgba(248, 248, 248, 1);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 
 @media screen and (min-width: 768px) {
@@ -237,7 +237,17 @@
     height: 905px;
     padding: 32px;
   }
-
+  .r-modal-close-btn {
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+  }
+  .r-modal-close-btn:hover,
+  .r-modal-close-btn:focus {
+    fill: rgb(8, 6, 6);
+    background-color: #859b2d;
+  }
   .r-modal-video {
     min-width: 467px;
     height: 250px;
@@ -279,10 +289,5 @@
   .r-modal-ingerdients-container {
     min-width: 467px;
     height: 204px;
-  
   }
-}
-
-@media screen and (min-width: 768px) {
-
 }
