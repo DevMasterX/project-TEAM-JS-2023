@@ -16,12 +16,13 @@ function handlerFavouriteBtn(e){if(e.target.classList.value === 'filter-gallery-
  
   const cardBody = favBtn.parentElement.parentElement;
   const recipeInfo = {
-      category: cardBody.dataset.attribute,
+     
       id: cardBody.id,
       name: cardBody.querySelector('.filter-gallery-item-tittle').textContent,
       image:cardBody.querySelector('.filter-gallery-item-photo').src,
       rating: cardBody.querySelector('.filter-gallery-item-rating-value').textContent,
       description: cardBody.querySelector('.filter-gallery-item-description').textContent,
+      category: cardBody.dataset.attribute,
   }
   
   if(cardBody.classList.contains('favorite') ){  
@@ -83,4 +84,4 @@ function handlerFavouriteBtn(e){if(e.target.classList.value === 'filter-gallery-
 // form.elements.name.value = name;
 // form.elements.phone.value = phone;
 // form.elements.email.value = email;}
-export{favouriteLocalStorage, addFavouriteOnList}
+export{favouriteLocalStorage, addFavouriteOnList, RecipeDB}
