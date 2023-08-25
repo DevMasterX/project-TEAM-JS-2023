@@ -67,7 +67,6 @@ if (!initialState.favorites?.length) {
         }
     })
 
-
     refs.ulCategories.addEventListener("click", (e) => {
         const target = e.target
         const text = target.textContent.trim().toLowerCase();
