@@ -30,24 +30,37 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 531px;
-  height: 905px;
-  padding: 32px;
+  max-width: 335px;
+  height: 1171px;
+  padding: 20px;
   border-radius: 15px;
   transform: translate(-50%, -50%);
+  overflow-y: auto;
 
   background-color: #FFFFFF;
 }
 
+.r-modal-close-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  cursor: pointer;
+}
+
 .r-modal-close-icon {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  color: rgba(5, 5, 5, 1);
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  fill: rgba(0, 0, 0, 0);
 }
 
 .r-modal-name {
-  padding-bottom: 16px;
+  padding-bottom: 14px;
 
   font-weight: 600;
   font-size: 18px;
@@ -55,9 +68,10 @@
 }
 
 .r-modal-video {
-  width: 467px;
-  height: 250px;
-  margin-bottom: 16px;
+  max-width: 295px;
+  height: 295px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   border-radius: 8px;
 }
 
@@ -71,7 +85,8 @@
   flex-wrap: wrap;
   width: 258px;
   height: 30px;
-  gap: 4px;
+  gap: 8px;
+  margin-bottom: 14px;
   overflow-y: scroll;
 }
 
@@ -89,8 +104,9 @@
 .r-modal-rating-container {
   display: flex;
   align-items: center;
-  height: 30px;
-  gap: 8px;
+  min-width: 185px;
+  height: 18px;
+  gap: 16px;
 
 }
 
@@ -122,9 +138,9 @@
 }
 
 .r-modal-ingerdients-container {
-  margin-bottom: 32px;
-  width: 467px;
-  height: 204px;
+  margin-bottom: 24px;
+  max-width: 295px;
+  height: 224px;
   overflow-y: scroll;
 }
 
@@ -152,19 +168,23 @@
 
 .r-modal-instructions {
   margin-bottom: 32px;
-  width: 467px;
-  height: 162px;
+  width: 295px;
+  height: 288px;
   overflow-y: scroll;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
 }
 
+.r-modal-btn-container {
+  display: flex;
+  gap: 10px;
+}
+
 .r-modal-favorite-btn {
     Width: 148px;
     Height: 41px;
     padding: 12px 24px;
-    margin-right: 10px;
     background: #9BB537;
     border-radius: 15px;
 
@@ -196,4 +216,73 @@
   
     cursor: pointer;
     font-family: inherit;
+}
+
+.r-modal-favorite-btn:hover,
+.r-modal-favorite-btn:focus {
+  color: rgba(5, 5, 5, 1);
+}
+
+.r-modal-rating-btn:hover,
+.r-modal-rating-btn:focus {
+  background: rgba(155, 181, 55, 1);
+  color: rgba(248, 248, 248, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+@media screen and (min-width: 768px) {
+  .r-modal {
+    min-width: 531px;
+    height: 905px;
+    padding: 32px;
+  }
+
+  .r-modal-video {
+    min-width: 467px;
+    height: 250px;
+    margin-top: 38px;
+    margin-bottom: 16px;
+  }
+
+  .r-modal-name {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+  }
+
+  .r-modal-rating-container {
+    margin-left: auto;
+  }
+
+  .r-modal-tags {
+    position: absolute;
+    top: 336px;
+    left: 32px;
+  }
+
+  .r-modal-instructions {
+    width: 467px;
+    height: 162px;
+  }
+
+  .r-modal-rating-container {
+    margin-left: auto;
+    gap: 8px;
+  }
+
+  .r-modal-info-container {
+    width: 467px;
+    height: 30px;
+  }
+
+  .r-modal-ingerdients-container {
+    min-width: 467px;
+    height: 204px;
+  
+  }
+}
+
+@media screen and (min-width: 768px) {
+
 }
