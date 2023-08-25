@@ -156,10 +156,9 @@
 .filter-form-select {
   display: block;
   width: 100%;
-  /* min-width: 120px; */
-  /* padding: 13px 18px 13px 25px; */
+
   color: rgba(5, 5, 5, 0.5);
-  /* color: #050505; */
+
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -266,7 +265,7 @@
   width: 335px;
   height: 335px;
   border-radius: 8px;
-  background-color: aquamarine;
+
   margin-left: auto;
   margin-right: auto;
   padding: 0;

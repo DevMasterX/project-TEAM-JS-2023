@@ -4,6 +4,7 @@ import { clearFilters } from "./filter";
 import Gallery from './gallery';
 import { getData } from './loader'
 import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
+import { result } from "lodash";
 
 const formFilter = document.querySelector(".filter-form");
 const resetButton = document.querySelector(".filter-input-reset-btn");
@@ -136,15 +137,11 @@ async function handlerFilterForm(evt, galleryElement, choise) {
             getData(gallery);
             return;
         }
-        results.forEach(recipe => {
-            const marcup = Gallery.createMarkupCard({ results: [recipe] });
-            Gallery.appendMarkupToGallery(galleryElement, marcup);
-            favouriteLocalStorage();
-            addFavouriteOnList();
-        });
-
-
-
+        gallery.innerHTML = "";
+        const marcup = Gallery.createMarkupCard({ results });
+        Gallery.appendMarkupToGallery(gallery, marcup);
+        favouriteLocalStorage();
+        addFavouriteOnList();
 
     } catch (err) {
         Notify.failure(err.message);
