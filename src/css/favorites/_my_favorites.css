@@ -126,6 +126,7 @@ a {
 }
 
 .my-favorites-category__item-list {
+    cursor: pointer;
     padding: 14px 18px;
 
     border-radius: 15px;
@@ -235,7 +236,12 @@ a {
 }
 
 .favorite-heart {
+    
     padding: 5px;
+}
+.favorite-heart:hover,
+.favorite-heart:focus {
+    cursor: pointer;
 }
 
 .card__info {
