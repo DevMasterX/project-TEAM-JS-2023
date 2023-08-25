@@ -12,3 +12,6 @@ export function addClass(element, className) {
 export function removeClass(element, className) {
     element.classList.remove(className)
 }
+export function insertHTMLIntoElement(element, html) {
+    element.innerHTML = html
+}
