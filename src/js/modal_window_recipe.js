@@ -6,7 +6,7 @@ const body = document.querySelector("body");
 const modalWindow = document.querySelector('.r-modal-content');
 const seeModal = document.querySelector('.r-modal-backdrop');
 const ratingBtn = document.querySelector('.r-modal-rating-btn');
-const closeBtn = document.querySelector('.r-modal-close-icon');
+const closeBtn = document.querySelector('.r-modal-close-btn');
 const favoriteBtn = document.querySelector('.r-modal-favorite-btn');
 
 let toId = '';
@@ -41,7 +41,6 @@ function addContent(arr) {
     });
 
     return `
-    <h2 class="r-modal-name">${title.toUpperCase()}</h2>
     <video class="r-modal-video"
     src="${video}"
     poster="${preview}"
@@ -50,7 +49,8 @@ function addContent(arr) {
     loop
     preload="auto"
     ></video>
-    <div class="r-modal-info-container"><div class="r-modal-tags">${newTags}</div>
+    <h2 class="r-modal-name">${title.toUpperCase()}</h2>
+    <div class="r-modal-info-container">
     <div class="r-modal-rating-container"><div class="r-modal-rating">${rating.toFixed(1)}</div>
     <div class="r-modal-star-wrap">
         <svg class="r-modal-rating-icon" width="18" height="18">
@@ -71,6 +71,7 @@ function addContent(arr) {
     </div>
     <div class="r-modal-time">${time} min</div></div></div>
     <div class="r-modal-ingerdients-container">${newIngredients}</div>
+    <div class="r-modal-tags">${newTags}</div>
     <p class="r-modal-instructions">${instructions}</p>`;
 };
 
