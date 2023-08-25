@@ -1,6 +1,7 @@
 import { elementstyle, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
 import { LOCALSTORAGE_KEY_FAVORITES, handleGetLocalStorage, handleSetLocalStorage } from './localstorage'
 import { renderCards, renderCategoeries} from './render'
+import { eventOpenrModal } from '../modal_window_recipe'
 
 
 // v2
@@ -55,6 +56,7 @@ if (!initialState.favorites?.length) {
     renderCategoeries(initialState.categories, initialState.currentCategories)
     renderCards(initialState.favorites)
     handleIsHiddenPaginationFavorite(initialState.favorites)
+    eventOpenrModal()
 
     refs.ulCards.addEventListener("click", function (e) {
         const target = e.target
