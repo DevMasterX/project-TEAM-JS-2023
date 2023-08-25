@@ -1,7 +1,8 @@
-import { elementstyle, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard} from './utils'
+import { elementstyle, findElement, getCategories, handleIsActiveCategory, handleIsEmpty, handleRemoveCard, insertHTMLIntoElement} from './utils'
 import { LOCALSTORAGE_KEY_FAVORITES, handleGetLocalStorage, handleSetLocalStorage } from './localstorage'
 import { renderCards, renderCategoeries} from './render'
-import { eventOpenrModal } from '../modal_window_recipe'
+import { eventOpenrModal, toId } from './modal/modal_window_recipe'
+
 
 
 // v2
@@ -13,9 +14,11 @@ export const refs = {
     cardsDiv: findElement(".my-favorites__cards"),
     ulCategories: findElement(".my-favorites-category__list"),
     ulCards: findElement(".my-favorites-cards__list"),
-    paginationDiv: findElement('.pagination-wrap')
+    paginationDiv: findElement('.pagination-wrap'),
+    modalDeleteBtn: findElement('.r-modal-favorite-btn')
 }
 
+insertHTMLIntoElement(refs.modalDeleteBtn, "Delete Favor")
 
 export const initialState = {
     favorites: [],
@@ -53,7 +56,7 @@ if (!initialState.favorites?.length) {
     renderCategoeries(initialState.categories, initialState.currentCategories)
     renderCards(initialState.favorites)
     handleIsHiddenPaginationFavorite(initialState.favorites)
-    // eventOpenrModal()
+    eventOpenrModal()
 
     refs.ulCards.addEventListener("click", function (e) {
         const target = e.target
@@ -110,6 +113,11 @@ if (!initialState.favorites?.length) {
             }
             
         }
+    })
+
+    refs.modalDeleteBtn.addEventListener("click", function(event) {
+        // console.log(event.target);
+        // console.log(toId)
     })
 
 }
