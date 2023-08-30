@@ -30,7 +30,7 @@ function loadContent() {
 
 function addContent(arr) {
     const {title, instructions, ingredients, youtube, preview, rating, tags, time, _id } = arr;
-console.log(arr)
+
     let newTags ='';
     tags.forEach(element => {
         newTags+= `<span class="r-modal-tag">#${element}</span>`;
@@ -121,7 +121,13 @@ function closeOnEscape(e) {
       closeModal();
     }
   }
-  function selectFavoriteRecipe(recipeInfo){recipeDB.getFromDB().map(recipe=> {if(recipe.id !== recipeInfo.id){recipeDB.saveIntoDB(recipeInfo)}
+  function selectFavoriteRecipe(recipeInfo){
+    recipeDB.getFromDB().map(recipe=> {
+        if(recipe.id !== recipeInfo.id){
+            recipeDB.saveIntoDB(recipeInfo); 
+            favoriteBtn.textContent ='Remove from favorites';
+}
+else if(recipe.id === recipeInfo.id){ recipeDB.removeFromDB(recipeInfo); favoriteBtn.textContent = 'Add to favorite';}
    })}
  function favoriteBtnHandleFunction(e){
 const parentWrap = e.target.parentNode;
