@@ -91,6 +91,9 @@ img {
     margin-left: 32px;
     margin-right: 0;
   }
+  .filter-reset-wrap {
+    margin-bottom: 14px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -107,6 +110,10 @@ img {
   .order-form-wrapper {
     overflow: hidden;
   }
+}
+.right-container {
+  min-height: 1043px;
+  margin-bottom: 64px;
 }
 
 html {

@@ -79,6 +79,7 @@
 @media screen and (min-width: 768px) {
   .categories-bloc {
     width: 176px;
+    padding-bottom: 24px;
   }
 
   .categories-btn {
