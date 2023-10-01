@@ -84,7 +84,7 @@ async function createOptionsSelect() {
             });
 
             choicesInstances.push(choicesInstance);
-
+            console.log('choicesInstances :>> ', choicesInstances);
             setupSelectToggle(item, choicesInstance);
 
             createStylePlaceholder();

@@ -29,6 +29,8 @@ async function getFilteredRecipes(params) {
   return getRequest('recipes', params);
 }
 
+
+
 // Отримання  популярних рецептів
 async function getPopularRecipes() {
   return getRequest('recipes/popular');

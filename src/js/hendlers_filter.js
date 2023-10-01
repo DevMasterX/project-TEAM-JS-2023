@@ -118,14 +118,23 @@ async function handlerFilterForm(evt, gallery, choise) {
     const areaSelected = areaChoiceInstance.getValue(true);
 
     const ingrChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'ingredients');
+    console.log('choise :>> ', choise);
+
     const ingrSelected = ingrChoiceInstance.getValue(true);
+    console.log('ingrSelected :>> ', ingrSelected);
+
+    const selectedChoice = ingrChoiceInstance.config.choices.find(choice => choice.value === ingrSelected);
+
+    const ingrSelectedId = selectedChoice.id;
+    console.log('ingrSelectedId :>> ', ingrSelectedId);
+
 
     const params = {
         category: currentCategoty || null,
         title: searchInput.trim() !== "" ? searchInput.trim() : null,
         time: timeSelected ? timeSelected : null,
         area: areaSelected ? areaSelected : null,
-        ingredients: ingrSelected ? ingrSelected : null
+        ingredient: ingrSelectedId ? ingrSelectedId : null,
     };
 
     console.log(params);
@@ -137,7 +146,7 @@ async function handlerFilterForm(evt, gallery, choise) {
         const recipes = await getFilteredRecipes(params);
         const { page, results, perPage: totalPage } = recipes;
 
-
+        console.log('recipes :>> ', recipes);
 
         if (!results.length) {
 
