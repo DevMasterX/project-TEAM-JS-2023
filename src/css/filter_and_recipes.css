@@ -255,7 +255,7 @@
   max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 24px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -269,6 +269,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0;
+  object-fit: cover;
 }
 
 .filter-gallery-item-photo {
@@ -461,13 +462,17 @@
     height: 48px;
   }
 
+  .filter-reset-wrap {
+    margin-bottom: 14px;
+  }
+
   .filter-gallery {
-    min-width: 496px;
-    max-width: fit-content;
-    padding: 14px 0px 0px 0px;
+    max-width: 496px;
+
+    padding: 0px;
   }
   .filter-gallery-list {
-    max-width: 496px;
+    /* max-width: 496px; */
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -489,9 +494,17 @@
     flex-wrap: nowrap;
     gap: 16px;
   }
+  .filter-gallery {
+    max-width: 782px;
+
+    padding: 0px;
+  }
 
   .filter-gallery-list {
-    min-width: 782px;
+    /* min-width: 782px; */
+    display: flex;
+
+    gap: 16px;
   }
 
   .filter-gallery-item {

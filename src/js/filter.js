@@ -6,7 +6,6 @@ import Gallery from './gallery';
 import { handlerFilterForm } from './hendlers_filter';
 import { eventOpenrModal } from './modal_window_recipe';
 import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
-import { renderIcons } from "./rating";
 
 import Choices from 'choices.js';
 import {
@@ -42,26 +41,26 @@ async function createOptionsSelect() {
     try {
         for (const item of selectes) {
             let options = [];
-            let placeholderValue = '';
+            // let placeholderValue = '';
 
 
             if (item === selectTime) {
                 const minTime = 5;
                 const maxTime = 120;
                 const step = 5;
-                options = createOptionsTime(minTime, maxTime, step, ' min');
-                placeholderValue = '0 min';
+                options = createOptionsTime(minTime, maxTime, step, 'min');
+
             } if (item === selectArea) {
 
                 const areas = await getAreas();
 
-                options = areas.map(area => ({ value: area.name, label: placeholderValue, id: area._id }));
-                placeholderValue = 'Region';
+                options = areas.map(area => ({ value: area.name, id: area._id }));
+
             } if (item === selectIngr) {
                 const ingredients = await getIngredients();
 
                 options = ingredients.map(ingr => ({ value: ingr.name, id: ingr._id }));
-                placeholderValue = 'Product';
+
             }
 
             const choicesInstance = new Choices(item, {
@@ -69,8 +68,8 @@ async function createOptionsSelect() {
                 searchEnabled: false,
                 renderSelectedChoices: 'always',
                 allowHTML: true,
-                placeholder: true,
-                placeholderValue: placeholderValue,
+                // placeholder: true,
+                // placeholderValue: placeholderValue,
 
 
                 classNames: {
@@ -85,7 +84,7 @@ async function createOptionsSelect() {
             });
 
             choicesInstances.push(choicesInstance);
-
+            console.log('choicesInstances :>> ', choicesInstances);
             setupSelectToggle(item, choicesInstance);
 
             createStylePlaceholder();
@@ -109,7 +108,7 @@ async function createOptionsSelect() {
 function createOptionsTime(min, max, step, unit) {
     const options = [];
     for (let time = min; time <= max; time += step) {
-        options.push({ value: time, label: `${time}${unit}` });
+        options.push({ value: time, label: ` ${time}${unit}` });
     }
     return options;
 }
@@ -122,7 +121,7 @@ function createStylePlaceholder() {
         select.addEventListener("change", (event) => {
             const selectedOption = event.target.options[event.target.selectedIndex];
 
-            if (selectedOption.classList.contains("filter-form-select-placeholder")) {
+            if (selectedOption.hasAttribute("hidden")) {
                 select.style.color = "rgba(5, 5, 5, 0.50)";
             } else {
                 select.style.color = "#050505";
@@ -166,18 +165,25 @@ function hideSelectList(selectWrap) {
 }
 
 
-const holder = ['0 min', 'Region', 'Product'];
+const holder = ['Time', 'Region', 'Product'];
 
 function clearFilters() {
     inputForm.value = "";
+    console.log(choicesInstances);
     choicesInstances.forEach((choicesInstance, index) => {
         choicesInstance.setValue([holder[index]]);
+
+
     });
+
 
     startGallery();
 }
 
+
+
 async function startGallery(params = {}) {
+    gallery.innerHTML = "";
     showLoader();
     try {
         const recipes = await getFilteredRecipes(params);

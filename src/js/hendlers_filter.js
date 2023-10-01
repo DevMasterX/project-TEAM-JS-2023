@@ -1,10 +1,14 @@
 import { Notify } from "notiflix";
 import { getFilteredRecipes } from "./api"
-import { clearFilters } from "./filter";
+import { clearFilters, startGallery } from "./filter";
 import Gallery from './gallery';
 import { getData } from './loader'
 import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
-import { result } from "lodash";
+
+import {
+    handlePagination,
+
+} from './components/pagination/pagination';
 
 const formFilter = document.querySelector(".filter-form");
 const resetButton = document.querySelector(".filter-input-reset-btn");
@@ -16,7 +20,7 @@ const buttons = [];
 let searchBtnClicked = false;
 
 
-async function handlerAllCategoriesBtn(evt, galleryElement) {
+async function handlerAllCategoriesBtn(evt, gallery) {
     evt.preventDefault();
     // clearFilters()
     disactivBtn(buttons);
@@ -26,7 +30,7 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
         const { results } = recipes;
 
         const marcup = Gallery.createMarkupCard({ results });
-        Gallery.appendMarkupToGallery(galleryElement, marcup);
+        Gallery.appendMarkupToGallery(gallery, marcup);
         favouriteLocalStorage();
         addFavouriteOnList();
         if (!results.length) {
@@ -47,7 +51,7 @@ async function handlerAllCategoriesBtn(evt, galleryElement) {
 
 
 
-async function handlerSpecificCategoriesBtn(evt, galleryElement) {
+async function handlerSpecificCategoriesBtn(evt, gallery) {
     evt.preventDefault();
 
     disactivBtn(buttons);
@@ -73,7 +77,7 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
 
 
             const marcup = Gallery.createMarkupCard({ results });
-            Gallery.appendMarkupToGallery(galleryElement, marcup);
+            Gallery.appendMarkupToGallery(gallery, marcup);
             favouriteLocalStorage();
             addFavouriteOnList();
 
@@ -88,9 +92,11 @@ async function handlerSpecificCategoriesBtn(evt, galleryElement) {
 
 
 
-async function handlerFilterForm(evt, galleryElement, choise) {
+async function handlerFilterForm(evt, gallery, choise) {
 
     evt.preventDefault();
+
+
 
     searchBtnClicked = false;
 
@@ -112,37 +118,53 @@ async function handlerFilterForm(evt, galleryElement, choise) {
     const areaSelected = areaChoiceInstance.getValue(true);
 
     const ingrChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'ingredients');
+    console.log('choise :>> ', choise);
+
     const ingrSelected = ingrChoiceInstance.getValue(true);
+    console.log('ingrSelected :>> ', ingrSelected);
+
+    const selectedChoice = ingrChoiceInstance.config.choices.find(choice => choice.value === ingrSelected);
+
+    const ingrSelectedId = selectedChoice.id;
+    console.log('ingrSelectedId :>> ', ingrSelectedId);
+
 
     const params = {
         category: currentCategoty || null,
         title: searchInput.trim() !== "" ? searchInput.trim() : null,
         time: timeSelected ? timeSelected : null,
         area: areaSelected ? areaSelected : null,
-        ingredients: ingrSelected ? ingrSelected : null,
+        ingredient: ingrSelectedId ? ingrSelectedId : null,
     };
 
     console.log(params);
 
     try {
 
-        const recipes = await getFilteredRecipes(params);
-        const { results } = recipes;
 
-        console.log(results);
+
+        const recipes = await getFilteredRecipes(params);
+        const { page, results, perPage: totalPage } = recipes;
+
+        console.log('recipes :>> ', recipes);
 
         if (!results.length) {
 
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-            galleryElement.innerHTML = ""
+
             getData(gallery);
             return;
         }
-        gallery.innerHTML = "";
+        gallery.innerHTML = ""
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(gallery, marcup);
         favouriteLocalStorage();
         addFavouriteOnList();
+
+        if (page < totalPage) {
+            handlePagination({ page, totalPage })
+
+        }
 
     } catch (err) {
         Notify.failure(err.message);
