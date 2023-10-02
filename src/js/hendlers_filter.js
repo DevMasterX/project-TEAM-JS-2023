@@ -18,7 +18,7 @@ const selectes = document.querySelectorAll(".filter-form-select");
 const gallery = document.querySelector(".filter-gallery-list")
 const buttons = [];
 let searchBtnClicked = false;
-
+export const params = {};
 
 async function handlerAllCategoriesBtn(evt, gallery) {
     evt.preventDefault();
@@ -70,7 +70,9 @@ async function handlerSpecificCategoriesBtn(evt, gallery) {
 
 
             if (!results.length) {
+                gallery.innerHTML = ""
                 getData(gallery);
+
                 Notify.failure('Sorry, there are no images matching your search query. Please try again.');
                 return;
             }
@@ -92,7 +94,7 @@ async function handlerSpecificCategoriesBtn(evt, gallery) {
 
 
 
-async function handlerFilterForm(evt, gallery, choise) {
+async function handlerFilterForm(evt, gallery, choise, params) {
 
     evt.preventDefault();
 
@@ -111,25 +113,30 @@ async function handlerFilterForm(evt, gallery, choise) {
 
 
     const timeChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'time');
-    const timeSelected = timeChoiceInstance.getValue(true);
+    const selectedTimeValue = timeChoiceInstance.getValue(true);
+    const timeSelected = selectedTimeValue !== "Time" ? selectedTimeValue : null;
+    // const timeSelected = timeChoiceInstance.getValue(true)
 
 
     const areaChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'area');
-    const areaSelected = areaChoiceInstance.getValue(true);
+    const selectedAreaValue = areaChoiceInstance.getValue(true);
+    const areaSelected = selectedAreaValue !== 'Region' ? selectedAreaValue : null;
 
     const ingrChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'ingredients');
-    console.log('choise :>> ', choise);
 
-    const ingrSelected = ingrChoiceInstance.getValue(true);
-    console.log('ingrSelected :>> ', ingrSelected);
+
+    const selectedIngrValue = ingrChoiceInstance.getValue(true);
+    const ingrSelected = selectedIngrValue !== 'Product' ? selectedIngrValue : null
+
 
     const selectedChoice = ingrChoiceInstance.config.choices.find(choice => choice.value === ingrSelected);
 
-    const ingrSelectedId = selectedChoice.id;
-    console.log('ingrSelectedId :>> ', ingrSelectedId);
+
+    const ingrSelectedId = selectedChoice ? selectedChoice.id : '';
 
 
-    const params = {
+
+    params = {
         category: currentCategoty || null,
         title: searchInput.trim() !== "" ? searchInput.trim() : null,
         time: timeSelected ? timeSelected : null,
@@ -137,7 +144,6 @@ async function handlerFilterForm(evt, gallery, choise) {
         ingredient: ingrSelectedId ? ingrSelectedId : null,
     };
 
-    console.log(params);
 
     try {
 
@@ -146,16 +152,17 @@ async function handlerFilterForm(evt, gallery, choise) {
         const recipes = await getFilteredRecipes(params);
         const { page, results, perPage: totalPage } = recipes;
 
-        console.log('recipes :>> ', recipes);
+
 
         if (!results.length) {
 
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-
+            gallery.innerHTML = "";
             getData(gallery);
+
             return;
         }
-        gallery.innerHTML = ""
+        gallery.innerHTML = "";
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(gallery, marcup);
         favouriteLocalStorage();

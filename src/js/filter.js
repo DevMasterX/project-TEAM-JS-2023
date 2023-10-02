@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getFilteredRecipes, getAreas, getIngredients } from './api';
 import { debounce } from 'lodash';
 import Gallery from './gallery';
-import { handlerFilterForm } from './hendlers_filter';
+import { handlerFilterForm, params } from './hendlers_filter';
 import { eventOpenrModal } from './modal_window_recipe';
 import { favouriteLocalStorage, addFavouriteOnList } from './local-storage';
 
@@ -84,7 +84,7 @@ async function createOptionsSelect() {
             });
 
             choicesInstances.push(choicesInstance);
-            console.log('choicesInstances :>> ', choicesInstances);
+
             setupSelectToggle(item, choicesInstance);
 
             createStylePlaceholder();
@@ -116,13 +116,14 @@ function createOptionsTime(min, max, step, unit) {
 
 function createStylePlaceholder() {
     selectes.forEach(select => {
-
+        select.style.color = "";
 
         select.addEventListener("change", (event) => {
             const selectedOption = event.target.options[event.target.selectedIndex];
 
             if (selectedOption.hasAttribute("hidden")) {
                 select.style.color = "rgba(5, 5, 5, 0.50)";
+
             } else {
                 select.style.color = "#050505";
             }
@@ -169,14 +170,19 @@ const holder = ['Time', 'Region', 'Product'];
 
 function clearFilters() {
     inputForm.value = "";
-    console.log(choicesInstances);
+
     choicesInstances.forEach((choicesInstance, index) => {
+        choicesInstance.clearInput();
+
         choicesInstance.setValue([holder[index]]);
+
+
+
 
 
     });
 
-
+    createStylePlaceholder()
     startGallery();
 }
 
