@@ -1,5 +1,8 @@
 import { startGallery } from '../../filter';
+import Gallery from '../../gallery';
+
 import { findElement } from '../utils/dom';
+
 
 export const initialRefs = {
   pagesDiv: findElement('.content > .links'),
@@ -119,6 +122,7 @@ initialRefs.nextButton.addEventListener('click', () => {
       initialStatePagination.totalPage,
       initialStatePagination.currentPage
     );
+
     updateIcons();
   }
 });
@@ -136,6 +140,7 @@ leftStartButton.addEventListener('click', () => {
   );
   updateIcons();
   updateGalleryAndPagination(initialStatePagination.currentPage);
+
 });
 
 leftNextButton.addEventListener('click', () => {
@@ -147,6 +152,7 @@ leftNextButton.addEventListener('click', () => {
     );
     updateIcons();
     updateGalleryAndPagination(initialStatePagination.currentPage);
+
   }
 });
 
@@ -159,7 +165,9 @@ rightNextButton.addEventListener('click', () => {
     );
     updateIcons();
     updateGalleryAndPagination(initialStatePagination.currentPage);
+    handlerFilterForm(initialStatePagination.currentPage)
   }
+
 });
 
 rightEndButton.addEventListener('click', () => {
@@ -170,6 +178,7 @@ rightEndButton.addEventListener('click', () => {
   );
   updateIcons();
   updateGalleryAndPagination(initialStatePagination.currentPage);
+
 });
 
 initialRefs.pagesDiv.addEventListener('click', e => {
@@ -185,6 +194,7 @@ initialRefs.pagesDiv.addEventListener('click', e => {
     );
     updateIcons();
     updateGalleryAndPagination(initialStatePagination.currentPage);
+
   }
 
   if (target.dataset.dots === 'true') {
@@ -212,6 +222,7 @@ initialRefs.pagesDiv.addEventListener('click', e => {
       );
       updateIcons();
       updateGalleryAndPagination(initialStatePagination.currentPage);
+
     }
   }
 });

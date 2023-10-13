@@ -2,9 +2,10 @@ import axios from 'axios';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
 
-async function getRequest(endpoint, params = {}) {
+async function getRequest(endpoint, params = {}, page) {
+  const updatedParams = { ...params, limit: "9", page: page };
   try {
-    const response = await axios.get(`${BASE_URL}/${endpoint}`, { params });
+    const response = await axios.get(`${BASE_URL}/${endpoint}`, { params: updatedParams });
     return response.data;
   } catch (error) {
     console.error('Error:', error);

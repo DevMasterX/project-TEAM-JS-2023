@@ -22,7 +22,7 @@ export const params = {};
 
 async function handlerAllCategoriesBtn(evt, gallery) {
     evt.preventDefault();
-    // clearFilters()
+
     disactivBtn(buttons);
 
     try {
@@ -94,7 +94,7 @@ async function handlerSpecificCategoriesBtn(evt, gallery) {
 
 
 
-async function handlerFilterForm(evt, gallery, choise, params) {
+async function handlerFilterForm(evt, gallery, choise, params, currentPage) {
 
     evt.preventDefault();
 
@@ -115,7 +115,6 @@ async function handlerFilterForm(evt, gallery, choise, params) {
     const timeChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'time');
     const selectedTimeValue = timeChoiceInstance.getValue(true);
     const timeSelected = selectedTimeValue !== "Time" ? selectedTimeValue : null;
-    // const timeSelected = timeChoiceInstance.getValue(true)
 
 
     const areaChoiceInstance = choise.find(instance => instance.passedElement.element.name === 'area');
@@ -149,11 +148,11 @@ async function handlerFilterForm(evt, gallery, choise, params) {
 
 
 
-        const recipes = await getFilteredRecipes(params);
-        const { page, results, perPage: totalPage } = recipes;
+        const recipes = await getFilteredRecipes(params, currentPage);
+        const { page, results, perPage: totalPage, totalPages } = recipes;
 
 
-
+        console.log('totalPages :>> ', totalPages);
         if (!results.length) {
 
             Notify.failure('Sorry, there are no images matching your search query. Please try again.');
@@ -168,7 +167,8 @@ async function handlerFilterForm(evt, gallery, choise, params) {
         favouriteLocalStorage();
         addFavouriteOnList();
 
-        if (page < totalPage) {
+        if (page < totalPages) {
+            console.log('totalPages :>> ', totalPages);
             handlePagination({ page, totalPage })
 
         }

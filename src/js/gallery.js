@@ -84,13 +84,13 @@ class Gallery {
 }
 
 
-//ЯК ВИКОРИСТУВАВАТИ
-// const results = твої результати з сервера
 
-//  Створи розмітку карточок за допомогою  createMarkupCard
+// const results =  результати з сервера
+
+//   розмітка карточок за допомогою  createMarkupCard
 // const marcup = Gallery.createMarkupCard({ results });
 
-//  Додай розмітку до галереї за допомогою appendMarkupToGallery
+//   розмітка до галереї за допомогою appendMarkupToGallery
 // Gallery.appendMarkupBeforeGallery(yourGalleryElement, marcup);
 
 
