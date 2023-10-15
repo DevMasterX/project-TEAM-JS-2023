@@ -41,7 +41,7 @@ async function createOptionsSelect() {
     try {
         for (const item of selectes) {
             let options = [];
-            // let placeholderValue = '';
+
 
 
             if (item === selectTime) {
@@ -68,8 +68,6 @@ async function createOptionsSelect() {
                 searchEnabled: false,
                 renderSelectedChoices: 'always',
                 allowHTML: true,
-                // placeholder: true,
-                // placeholderValue: placeholderValue,
 
 
                 classNames: {
@@ -194,7 +192,8 @@ async function startGallery(params = {}) {
     try {
         const recipes = await getFilteredRecipes(params);
 
-        const { page, results, perPage: totalPage } = recipes;
+        const { page, results, perPage: totalPage, totalPages } = recipes;
+        console.log('totalPages :>> ', totalPages);
         const marcup = Gallery.createMarkupCard({ results });
         Gallery.appendMarkupToGallery(gallery, marcup);
         eventOpenrModal();
@@ -202,7 +201,7 @@ async function startGallery(params = {}) {
         addFavouriteOnList();
         hideLoader();
 
-        if (page < totalPage) {
+        if (page < totalPages) {
             handlePagination({ page, totalPage })
 
         }

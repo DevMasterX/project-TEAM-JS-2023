@@ -112,6 +112,7 @@ img {
   }
 }
 .right-container {
+  width: 782px;
   min-height: 1043px;
   margin-bottom: 64px;
 }
